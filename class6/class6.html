@@ -1,0 +1,721 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Tuples & Dictionaries</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reset.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reveal.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/theme/simple.css" id="theme">
+		<link rel="stylesheet" href="https://cs61a.org/assets/css/mono-blue.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Roboto:300,400,500|Work+Sans:400,700">
+		<style>
+			.reveal {
+				font-family: "Work Sans", sans-serif;
+			}
+
+			.reveal .slides section {
+				text-align: left;
+				font-size: smaller;
+			}
+
+			.reveal pre {
+				background-color: #f5f5f5;
+				width: 100%;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-shadow: none;
+			}
+
+			.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+				font-family: "Roboto", sans-serif;
+				color: #0072c1;
+			}
+
+			.reveal section.heading-only {
+				text-align:center;
+				padding-top:20%;
+			}
+
+            .column .no-code-badge .code-badge {
+                display: none;
+            }
+
+            .code-badge-language {
+                display: none;
+            }
+
+			.python-tutor-link {
+				font-size: smaller;
+			}
+
+			.python-tutor-link:before {
+				content: "";
+				display: block;
+				background: url("http://pythontutor.com/favicon.ico") no-repeat;
+				width: 48px;
+				height: 48px;
+				float: left;
+				margin: 0 6px 0 0;
+			}
+
+			.reveal h3 {
+				margin-bottom: 40px;
+			}
+
+            .smaller {
+                font-size: smaller;
+            }
+
+            code {
+                padding: 2px 4px;
+                font-size: 90%;
+                color: #0072c1;
+                background-color: #f9f2f4;
+                border-radius: 4px;
+            }
+
+            p.padded {
+                margin-top: 32px;
+            }
+
+            section .row {
+                display: flex;
+            }
+
+            section .column {
+                flex: 48%;
+                margin: 10px;
+            }
+
+			@media print
+			{
+				.no-print, .no-print *
+				{
+					display: none !important;
+				}
+			}
+
+
+            .regex-input {
+                border:1px solid rgb(204, 204, 204);
+                background: rgb(245, 245, 245);
+                padding: 8px;
+            }
+
+            .regex-input input {
+                font-size: inherit;
+            }
+
+            .regex-input input[type=text]:invalid {
+                background-color: pink;
+            }
+
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section class="heading-only" style="padding-top:5%">
+                    <h1>Tuples & Dictionaries</h1>
+
+					<div class="no-print" style="text-align: left; margin-top: 100px; font-size: 70%;">
+						Tips for navigating the slides:
+						<ul>
+							<li>Press O or Escape for overview mode.</li>
+							<li>Visit <a href="?print-pdf" target="_blank">this link</a> for a nice printable version</li>
+							<li>Press the copy icon on the upper right of code blocks to copy the code</li>
+						</ul>
+					</div>
+				</section>
+
+
+                <section>
+                    <h3>Class outline:</h3>
+
+                    <ul style="font-size:1.0em;">
+                        <li>Tuples
+                        <li>String things
+                        <li>Dictionaries
+                        <li>Nested data
+                        <li>Demos
+                    </ul>
+
+                    <!-- Lesson plan
+                    12:05 - Tuples
+                    12:10 - String things
+                    12:20 - Dictionaries
+                    12:35 - Exercise #1
+                    12:50 - Nested data
+                    12:55 - Exercise #2
+                     1:15 - Demos
+                    -->
+                </section>
+
+                <section class="heading-only">
+                    <h2>Tuples</h2>
+                </section>
+
+                <section>
+                    <h3>What's a tuple?</h3>
+
+                    <p>A tuple is like a list, but <strong>immutable</strong>: its values cannot be changed after the initialization.</p>
+
+                    <pre style="font-size:0.7em; margin-bottom:36px;"><code data-trim data-noescape class="python">
+                    position = (100, 50)
+                    prices = (9.99, 7.99, 3.99)
+                    </pre></code>
+
+                    <p>You can still access items in a tuple:</p>
+                    <pre style="font-size:0.7em; margin-bottom:36px;"><code data-trim data-noescape class="python">
+                    position = (100, 50)
+                    x = position[1]
+                    y = position[2]
+                    </pre></code>
+
+                    <p>Or iterate through:</p>
+                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
+                    total = 0
+                    for price in prices:
+                        total += price
+                    </pre></code>
+                </section>
+
+                <section>
+                    <h3>Tuple immutability</h3>
+
+                    <p>All of these operations will result in an error:</p>
+
+                    <pre style="font-size:0.7em; margin-bottom:36px;"><code data-trim data-noescape class="python">
+                    position = (100, 50)
+
+                    position[0] = 50
+                    position[1] = 10
+                    position.append(10)
+                    </code></pre>
+
+                    <p>What about this code?</p>
+                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
+                    position = (100, 50)
+                    position = (50, 100)
+                    </code></pre>
+
+                    <p class="fragment smaller">That code will <strong>not</strong> error. It is not changing the values
+                        of the tuple, it it just re-assigning the name "position" to a different tuple.</p>
+                </section>
+
+                <!--<div class="fragment">
+                    <p>Which of these lines of code will result in an error?</p>
+                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
+                    x = position[1]
+                    </pre></code>
+                    </div>-->
+
+
+                <section class="heading-only">
+                    <h2>String things</h2>
+                </section>
+
+                <section>
+                    <h3>Iterating through strings</h3>
+
+                    <p>Just like a list, a string is <strong>iterable</strong>:
+                        it can be iterated through with a for loop.</p>
+
+                    <pre style="font-size:1.0em; margin-bottom:36px;"><code data-trim data-noescape class="python">
+                    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+                    for letter in alphabet:
+                        uppered = letter.upper()
+                        print(uppered)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Bracket notation with strings</h3>
+
+                    <p>Strings can also be accessed using bracket notation,
+                        both to access individual characters or to make "slices".</p>
+
+                    <pre style="font-size:0.7em; margin-bottom:36px;"><code data-trim data-noescape class="python">
+                    alphabet = 'superduper'
+
+                    alphabet[0] # 's'
+                    alphabet[-1] # 'r'
+
+                    alphabet[0:5] # 'super'
+                    alphabet[5:]  # 'duper'
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Splitting strings</h3>
+
+                    <p>The string <code>split()</code> method turns a string into a list of strings,
+                    by splitting at the specified delimiter.</p>
+
+                    <pre style="font-size:0.9em; margin-bottom:36px;"><code data-trim data-noescape class="python">
+                    my_groceries = 'apples,bananas,carrots'
+                    grocery_items = my_groceries.split(',')
+
+                    for item in grocery_items:
+                        print(item)
+                    </code></pre>
+
+                    <p><a href="https://docs.python.org/3/library/stdtypes.html#str.split">Python documentation: str.split</a></p>
+
+                </section>
+
+                <section>
+                    <h3>Joining strings</h3>
+
+                    <p>The string <code>join()</code> method
+                    returns a string which is the concatenation of the strings in an iterable.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="text">
+                    names = ["Gray", "Fox"]
+                    print("".join(names))
+
+                    address_parts = ["123 Pining St", "Nibbsville", "OH"]
+                    print(",".join(address_parts))
+
+                    poem_lines = ["Forgive me", "they were delicious", "so sweet", "and so cold"]
+                    print("\n".join(poem_lines))
+                    </code></pre>
+
+                    <p><a href="https://docs.python.org/3/library/stdtypes.html#str.join">Python documentation: str.join</a></p>
+
+                </section>
+
+                <section>
+                    <h3>Exercise</h3>
+
+                    <ul>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/StringsBracketAccess">Bracket access</a></li>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/StringsSplitJoin">Split/Join</a></li>
+                    </ul>
+                </section>
+
+                <section class="heading-only">
+                    <h2>Dictionaries</h2>
+                </section>
+
+				<section>
+					<h3>Dictionaries</h3>
+					<p>A <code>dict</code> is a mutable mapping of key-value pairs</p>
+					<pre><code data-trim data-noescape>
+					states = {
+						"CA": "California",
+						"DE": "Delaware",
+						"NY": "New York",
+						"TX": "Texas",
+						"WY": "Wyoming"
+					}
+					</code></pre>
+					<p>Queries:</p>
+					<pre><code data-trim data-noescape>
+					>>> len(states)
+					<span class="fragment">5</span>
+					</code></pre>
+					<pre><code data-trim data-noescape>
+					>>> "CA" in states
+					<span class="fragment">True</span>
+					</code></pre>
+					<pre><code data-trim data-noescape>
+					>>> "ZZ" in states
+					<span class="fragment">False</span>
+					</code></pre>
+					<aside class="notes">
+					How many keys do you count?
+					How many values?
+					</aside>
+				</section>
+				<section>
+					<h3>Dictionary selection</h3>
+					<pre><code data-trim data-noescape>
+					words = {
+						"más": "more",
+						"otro": "other",
+						"agua": "water"
+					}
+					</code></pre>
+					<p>Select a value:</p>
+					<pre><code data-trim data-noescape>
+					>>> words["otro"]
+					<span class="fragment">'other'</span>
+					</code></pre>
+					<pre><code data-trim data-noescape>
+					>>> first_word = "agua"
+					>>> words[first_word]
+					<span class="fragment">'water'</span>
+					</code></pre>
+					<pre><code data-trim data-noescape>
+					>>> words["pavo"]
+					<span class="fragment">KeyError: pavo</span>
+					</code></pre>
+					<pre><code data-trim data-noescape>
+					>>> words.get("pavo", "🤔")
+					<span class="fragment">'🤔'</span>
+					</code></pre>
+				</section>
+				<section>
+					<h3>Dictionary mutation</h3>
+					<p>Create an empty dict:</p>
+					<pre><code data-trim data-noescape>
+					users = {}
+					</code></pre>
+					<p>Add values:</p>
+					<pre><code data-trim data-noescape>
+					users["profpamela"] = "b3stp@ssEvErDontHackMe"
+					</code></pre>
+					<p>Change values:</p>
+					<pre><code data-trim data-noescape>
+					users["profpamela"] += "itsLongerSoItsMoreSecure!!"
+					</code></pre>
+					<pre><code data-trim data-noescape>
+					>>> users["profpamela"]
+					<span class="fragment">'b3stp@ssEvErDontHackMeitsLongerSoItsMoreSecure!!'</span>
+					</code></pre>
+				</section>
+
+                <section>
+					<h3>Dictionary rules</h3>
+					<ul>
+						<li>A key <strong>cannot</strong> be a list or dictionary (or any mutable type)</li>
+						<li>All keys in a dictionary are distinct (there can only be one value per key)</li>
+						<li>The values can be any type, however!</li>
+					</ul>
+					<pre><code data-trim data-noescape>
+					spiders = {
+					  "smeringopus": {
+						  "name": "Pale Daddy Long-leg",
+						  "length": 7
+					  },
+					  "holocnemus pluchei": {
+						  "name": "Marbled cellar spider",
+						  "length": (5, 7)
+					  }
+					}
+					</code></pre>
+					<aside class="notes">
+						Show what happens if a dictionary has two keys that are the same
+
+						Access way inside the dictionary!
+						Its all mutable, so we can mutate all of it!
+					</aside>
+				</section>
+				<section>
+					<h3>Dictionary iteration</h3>
+					<pre><code data-trim data-noescape>
+					insects = {"spiders": 8, "centipedes": 100, "bees": 6}
+					for name in insects:
+					    print(insects[name])
+					</code></pre>
+					<p style="font-size:smaller;">...is the same as:</p>
+					<pre><code data-trim data-noescape>
+					for name in list(insects):
+					    print(insects[name])
+					</code></pre>
+					<p style="font-size:smaller;">What will be the order of items?</p>
+					<pre class="fragment" data-fragment-index="1"><code data-trim data-noescape>
+					8 100 6
+					</code></pre>
+					<p class="fragment" data-fragment-index="1"  style="font-size:smaller;">Keys are iterated over in the order they are first added.</p>
+					<aside class="notes">
+						<ul>
+						<li>Python 2: The iteration could go in any order. Dictionaries were unordered.</li>
+						<li>Python 3.0: The iteration would go in order of key insertion, but that is not to be relied upon.</li>
+						<li>Python 3.7+: The insertion sort order is considered a part of the language, so dictionaries are ordered.</li>
+						</ul>
+						<p>Show example like:
+						d[3] = 3; d[1] = 2; print(d); d[3] = 4; print(d)
+					</p>
+					</aside>
+				</section>
+
+                <section>
+                    <h3>Exercise: Dictionaries</h3>
+
+                    <ul>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/DictionariesRecipe">recipe dict</a></li>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/DictionariesMovieSummary">movie_summary</a></li>
+                    </ul>
+                </section>
+
+
+
+				<section>
+					<h3>Review: Python types</h3>
+					<table class="r-stretch">
+						<tr>
+							<th>Type</th>
+							<th>Examples</th>
+						</tr>
+						<tr>
+							<td>Numbers</td>
+							<td><code>0</code> <code>-1</code> <code>0xFF</code> <code>0b1101</code></td>
+						</tr>
+						<tr>
+							<td>Booleans</td>
+							<td><code>True</code> <code>False</code></td>
+						</tr>
+						<tr>
+							<td>Functions</td>
+							<td><code>def f(x)...</code>
+								<!--<code>lambda x: ...</code>-->
+							</td>
+						</tr>
+						<tr>
+							<td>Strings</td>
+							<td><code>"pear"</code> <code>"I say, \"hello!\""</code></td>
+						</tr>
+						<tr>
+							<td>Tuples</td>
+							<td><code>(1, 10)</code> <code>("Oh", "hi", 11)</code></td>
+						</tr>
+						<tr>
+							<td>Ranges</td>
+							<td><code>range(11)</code> <code>range(1, 6)</code></td>
+						</tr>
+						<tr>
+							<td>Lists</td>
+							<td><code>[]</code> <code>["apples", "bananas"]</code><br>
+								<!--<code>[x**3 for x in range(2)]</code>-->
+							</td>
+                        </tr>
+                        <tr>
+                            <td>Dicts</td>
+                            <td><code>{}</code> <code>{"cat": "gato"}</code>
+                        </tr>
+					</table>
+				</section>
+
+				<section>
+					<h3>Nested data</h3>
+					<table style="font-size:smaller;">
+						<tr>
+							<td style="font-weight:bold;">Lists of lists</td>
+							<td><code>[ [1, 2], [3, 4] ]</code></td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;">Lists of tuples</td>
+							<td><code>[ (1, 2), (3, 4) ]</code></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">Lists of dicts</td>
+                            <td><code>[{"x": 1, "y": 2}, {"x": 5, "y": 8}]</code></td>
+                        </tr>
+						<tr>
+							<td style="font-weight:bold;">Tuples of tuples</td>
+							<td><code>( (1, 2), (3, 4) )</code></td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;">Dicts of tuples</td>
+							<td><code>{"x": (1, 2), "y": (3, 4)}</code></td>
+                        </tr>
+						<tr>
+							<td style="font-weight:bold;">Dicts of lists</td>
+							<td><code>{"heights": [89, 97], "ages": [6, 8]}</code></td>
+						</tr>
+					</table>
+					<p>...what else?! <span class="fragment">Dicts of dicts, Lists of dicts, etc.</span></p>
+                </section>
+
+                <section>
+                    <h3>Exercise: Nested data</h3>
+
+                    <ul>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/DictionariesBookList">reading list</a></li>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/ListsGridSum">grid_sum()</a></li>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/ListsGridContains15">contains_15()</a></li>
+                    </ul>
+                </section>
+
+                <section class="heading-only">
+                    <h2>Fun with Python 🎉 🐍</h2>
+                </section>
+
+                <section>
+                    <h3>What can you do with Python?</h3>
+                    <p>Almost anything! <span class="fragment" data-fragment-index="1">Thanks to libraries!</li> </p>
+                    <ul>
+                        <li>Webapp backends <span class="fragment" data-fragment-index="1">(Flask, Django)</span></li>
+                        <li>Web scraping <span class="fragment" data-fragment-index="1">(BeautifulSoup)</span></li>
+                        <li>Natural Language Processing <span class="fragment" data-fragment-index="1">(NLTK)</span></li>
+                        <li>Data analysis <span class="fragment" data-fragment-index="1">(Numpy, Pandas, Matplotlib)</span></li>
+                        <li>Machine Learning <span class="fragment" data-fragment-index="1">(FastAi, PyTorch, Keras)</span></li>
+                        <li>Scientific computing <span class="fragment" data-fragment-index="1">(SciPy)</span></li>
+                        <li>Games <span class="fragment" data-fragment-index="1">(Pygame)</span></li>
+                        <li>Procedural generation - L Systems, Noise, Markov</li>
+                    </ul>
+                    <p class="smaller">*Except you should be careful when you use recursion...</p>
+
+                </section>
+
+
+
+
+                <section>
+                    <h3>Web Applications</h3>
+
+                    <p>A Python web application can be built with a server framework like Flask/Django
+                        plus a database for persistent data storage.</p>
+
+                    <img src="https://www.teaching-materials.org/tech101/images/webconvo.png" alt="Diagram of web application">
+
+                </section>
+
+
+                <section>
+                    <h3>Demo App: Native or Not?</h3>
+
+                    <p>
+                        <a href="https://flask-db-example.pamelafox2.repl.co/" target="_blank">flask-db-example.pamelafox2.repl.co</a>
+                    </p>
+
+                    <p>
+                        View the code by clicking the "Code" tab at
+                        <A href="https://replit.com/@PamelaFox2/flask-db-example" target="_blank">https://replit.com/@PamelaFox2/flask-db-example</a>
+                    </p>
+
+                </section>
+
+                <section>
+                    <h3>Demo App: 61A Merch</h3>
+
+                    <p>
+                        <a href="https://flask-db-example-1.pamelafox2.repl.co/" target="_blank">flask-db-example-1.pamelafox2.repl.co/</a>
+                    </p>
+
+                    <p>
+                        View the code by clicking the "Code" tab at
+                        <A href="https://replit.com/@PamelaFox2/61AMerchWithTransactions" target="_blank">https://replit.com/@PamelaFox2/61AMerchWithTransactions</a>
+                    </p>
+
+                </section>
+
+
+
+                <section>
+                    <h3>Web scraping & Markov chains</h3>
+
+                    <a href="https://replit.com/@PamelaFox2/BeautifulSoupDemo" target="_blank">👉🏽 Demo: Composing Gobbledygooks</a>
+
+                    <p><strong>Web scraping</strong>: Getting data from webpages by traversing the HTML.</p>
+
+                    <p><strong>Markov chain</strong>: A way to generate a sequence based on the probabalistic next token.</p>
+                    <img src="https://sookocheff.com/post/nlp/ngram-modeling-with-markov-chains/following-transitions-from-I.png" alt="Markov diagram"/>
+
+                    <br>
+
+                    <p class="smaller">Further learning:
+                        <a href="https://docs.python.org/3/howto/urllib2.html" target="_blank">urllib2 module</a>,
+                        <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">BeautifulSoup docs</a>,
+                        <a href="https://sookocheff.com/post/nlp/ngram-modeling-with-markov-chains/" target="_blank">N-Gram modeling with Markov chains</a>
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Turtle & L-systems</h3>
+
+                    <p><a href="https://replit.com/@PamelaFox2/LTreeDemo" target="_blank">👉🏽 Demo: L Trees!</a></p>
+
+                    <p><strong>Turtle</strong>: A library for drawing graphics (as if a pen is controlled by a turtle).</p>
+
+                    <p><strong>L-system</strong>: A parallel rewriting system and a type of formal grammar,
+                        developed originally by a biologist to model the growth of plants.
+                    </p>
+
+                    <p class="smaller">Example: Axiom: <code>A</code>, Rules: <code>A → AB</code>, <code>B → A</code></p>
+
+                    <pre><code data-trim data-noescape class="python">
+                    n = 0 : A
+                    n = 1 : AB
+                    n = 2 : ABA
+                    n = 3 : ABAAB
+                    </code></pre>
+
+                    <p class="smaller">Further learning: <a href="https://docs.python.org/3/library/turtle.html" target="_blank">turtle module</a>,
+                            <a href="https://runestone.academy/runestone/books/published/thinkcspy/Strings/TurtlesandStringsandLSystems.html" target="_blank">Tutorial: Turtles and Strings and L-Systems</a>,
+                            <a href="http://paulbourke.net/fractals/lsys/" target="_blank">Algorithmic Botany: Graphical Modeling using L-systems</a>,
+                            <a href="http://paulbourke.net/fractals/lsys/" target="_blank">L-system examples</a>
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Natural Language Processing</h3>
+
+                    <p><a href="https://replit.com/@PamelaFox2/NLPDemo#main.py">👉🏽 Demo: Sentence trees!</a></p>
+
+                    <p>NLP includes language modeling, spelling correction, text classification, sentiment analysis,
+                        information retrieval, relation extraction, recommendation systems, translation question answering, word vectors,
+                        and more.
+                    </p>
+                    <br>
+                    <p class="smaller">Further learning:
+                        <a href="http://www.nltk.org/book/ch08.html" target="_blank">NLTK Book</a>,
+                        <a href="https://realpython.com/python-nltk-sentiment-analysis/" target="_blank">NLTK Sentiment Analysis</a>,
+                        <a href="https://web.stanford.edu/~jurafsky/" target="_blank">Dan Jurafsky's lectures and books</a>
+                    </p>
+
+                </section>
+
+                <section>
+                    <h3>Demo: Supervised Machine Learning</h3>
+
+                    <p><a href="https://www.kaggle.com/vyombhatia/96-accuracy-with-7-lines-of-code" target="_blank">👉🏽 Demo: Bee vs. Wasp?</a></p>
+
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Supervised_machine_learning_in_a_nutshell.svg" alt="Diagram of supervised ML process">
+
+                    <br>
+                    <p class="smaller">Further learning:
+                        <a href="https://docs.fast.ai/" target="_blank">FastAI Documentation</a>,
+                        <a href="https://www.kaggle.com/learn/intro-to-machine-learning" target="_blank">Kaggle ML tutorial</a>,
+                    </p>
+
+                </section>
+
+                <section>
+                    <h3>Feedback survey</h3>
+
+                    <p>Please fill out the <a target="_blank" href="https://forms.gle/DJLqZ2LuGLrpYW297">GDI feedback survey</a>
+                        to help us improve future classes. Thanks!</p>
+                </section>
+
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reveal.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/plugin/highlight/highlight.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/highlightjs-badge@0.1.9/highlightjs-badge.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.5/js/jsplumb.min.js"></script>
+		<script>
+			const srcUrlPrefix = "https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/";
+			Reveal.initialize({
+				hash: true,
+				center: false,
+				slideNumber: true,
+				showNotes: false,
+				margin: 0.1,
+				preloadIframes: true,
+				plugins: [ RevealHighlight ],
+				pdfSeparateFragments: true
+			});
+
+            // add HighlightJS-badge (options are optional)
+            var options = {
+                copyIconContent: "📄",
+                checkIconContent: "✅"
+            };
+            window.highlightJsBadge(options);
+
+            if (window.location.search == "?print-pdf") {
+                var uncounted = document.querySelectorAll("[data-visibility='uncounted']");
+                uncounted.forEach(node => {
+                    node.parentNode.classList.add("no-print")
+                })
+            }
+		</script>
+	</body>
+</html>
+

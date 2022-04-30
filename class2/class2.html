@@ -1,0 +1,752 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Functions</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reset.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reveal.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/theme/simple.css" id="theme">
+		<link rel="stylesheet" href="https://cs61a.org/assets/css/mono-blue.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Roboto:300,400,500|Work+Sans:400,700">
+		<style>
+			.reveal {
+				font-family: "Work Sans", sans-serif;
+			}
+
+			.reveal .slides section {
+				text-align: left;
+				font-size: smaller;
+			}
+
+			.reveal pre {
+				background-color: #f5f5f5;
+				width: 100%;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-shadow: none;
+			}
+
+			.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+				font-family: "Roboto", sans-serif;
+				color: #0072c1;
+			}
+
+			.reveal section.heading-only {
+				text-align:center;
+				padding-top:20%;
+			}
+
+            .no-code-badge .code-badge {
+                display: none;
+            }
+
+            .code-badge-language {
+                display: none;
+            }
+
+			.python-tutor-link {
+				font-size: smaller;
+			}
+
+			.python-tutor-link:before {
+				content: "";
+				display: block;
+				background: url("http://pythontutor.com/favicon.ico") no-repeat;
+				width: 48px;
+				height: 48px;
+				float: left;
+				margin: 0 6px 0 0;
+			}
+
+			.reveal h3 {
+				margin-bottom: 40px;
+			}
+
+            .smaller {
+                font-size: smaller;
+            }
+
+            code {
+                padding: 2px 4px;
+                font-size: 90%;
+                color: #0072c1;
+                background-color: #f9f2f4;
+                border-radius: 4px;
+            }
+
+            p.padded {
+                margin-top: 32px;
+            }
+
+            section .row {
+                display: flex;
+            }
+
+            section .column {
+                flex: 48%;
+                margin: 10px;
+            }
+
+			@media print
+			{
+				.no-print, .no-print *
+				{
+					display: none !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section class="heading-only" style="padding-top:5%">
+                    <h1>Functions</h1>
+
+					<div class="no-print" style="text-align: left; margin-top: 100px; font-size: 70%;">
+						Tips for navigating the slides:
+						<ul>
+							<li>Press O or Escape for overview mode.</li>
+							<li>Visit <a href="?print-pdf" target="_blank">this link</a> for a nice printable version</li>
+							<li>Press the copy icon on the upper right of code blocks to copy the code</li>
+						</ul>
+                    </div>
+
+                    <aside class="speaker-notes">
+                    Lesson Plan:
+                    12:05 - Review
+                    12:15 - Comments
+                    12:20 - Environment Diagrams +  Group Exercise
+                    12:35 - Functions
+                    1:00 - Functions Exercise
+                    1:30 - Functions in Env Diagrams +  Group Exercise
+                    1:45 - More on Names
+                    </aside>
+				</section>
+
+                <section>
+                    <h3>Class outline:</h3>
+
+                    <ul>
+                        <li>Review
+                        <li>Comments
+                        <li>Environment diagrams
+                        <li>Defining functions
+                    </ul>
+                </section>
+
+                <section class="heading-only">
+                    <h2>Review</h2>
+                </section>
+
+                <section>
+                    <h3>String syntax</h3>
+
+                    <p>Make sure you wrap strings in quotes. Otherwise Python will think it's the name
+                        of a variable or function.</p>
+
+                    <p>Quotes can be single or double, just be consistent.</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Uh-Oh
+                                <th>Correct
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                                    song_title = No Matter What
+                                    song_artist = Calum Scott
+                                    </code></pre>
+                                <td>
+                                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                                    song_title = 'No Matter What'
+                                    song_artist = 'Calum Scott'
+                                    </code></pre>
+                            <tr>
+                                <td>
+                                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                                    play_song(Older, Ben Platt)
+                                    </code></pre>
+                                <td>
+                                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                                    play_song("Older", "Ben Platt")
+                                    </code></pre>
+                            <tr>
+                                <td>
+                                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                                    show_lyrics("True Colors', "Cyndi Lauper')
+                                    </code></pre>
+                                <td>
+                                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                                    play_song("True Colors", "Cyndi Lauper")
+                                    </code></pre>
+                                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                                    play_song('True Colors', 'Cyndi Lauper')
+                                    </code></pre>
+                    </table>
+
+                </section>
+
+                <section>
+                    <h3>Name rules</h3>
+
+                    <p>Names are bound to values (like variables and functions)</p>
+
+                    <p>A name must be typed <strong>exactly</strong> how it was originally typed. Names are case sensitive.</p>
+
+                    <p>If name is <code>my_fav_hobby</code>, the following are <em>not</em> equivalent:</p>
+
+                    <ul>
+                        <li><code>my_fav_hobbY</code>
+                        <li><code>My_fav_hobby</code>
+                        <li><code>MY_FAV_HOBBY</code>
+                        <li><code>myfavhobby</code>
+                        <li><code>my-fav-hobby</code>
+                    </ul>
+
+                    <p>Programming can help you develop an eye for these little details,
+                        but software development tools will also help you find these issues.</p>
+
+                </section>
+
+
+                <section>
+                    <h3>Augmented assignment operators</h3>
+
+                    <p>Python provides shortcuts for these common operations:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Long version
+                                <th>Shortcut
+                        <tbody>
+                        <tr>
+                            <td><code>x = x + 1</code>
+                            <td><code>x += 1</code>
+                        <tr>
+                            <td><code>y = y - 1</code>
+                            <td><code>y -= 1</code>
+                        <tr>
+                            <td><code>r = r * 2</code>
+                            <td><code>r *= 2</code>
+                        <tr>
+                            <td><code>w = w / 3</code>
+                            <td><code>w /= 3</code>
+                        <tr>
+                            <td><code>p = p ** 2</code>
+                            <td><code>p **= 2</code>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>Nested call expressions</h3>
+
+                    <p>A simple call expression:</p>
+                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                    function_name(arg1, arg2)
+                    </code></pre>
+
+                    <p>When we call a function, our arguments can be another function call,
+                    as long as it returns a value. Remember to separate arguments by commas.</p>
+
+                    <p>From the operators exercise:</p>
+                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                    # Q6: 30 + (2 * 4)
+                    add(30, mul(2, 4))
+                    </code></pre>
+
+                    <p>From the text processing exercise:</p>
+                    <pre style="font-size:0.6em" class="no-code-badge"><code data-trim data-noescape class="python">
+                    # Q5: Turn this text into 'IM SO 😷 OF 🎂'
+                    q5 = 'im so sick of cake'
+                    a5 = uppercase(emojify(q5))
+                    </code></pre>
+                </section>
+
+                <section class="heading-only">
+                    <h2>Comments</h2>
+                </section>
+
+
+                <section>
+                    <h3>Comment syntax</h3>
+
+                    <p>A comment is human-readable text that's ignored by the Python interpreter.</p>
+
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    # A single-line comment starts with a hash sign
+                    x = 4 # A comment can also go at the end of the line
+
+                    """
+                    Multi-line comments
+                    start and end with three quotes.
+                    """"
+                    </code></pre>
+
+                </section>
+
+                <section>
+                    <h3>Commenting out</h3>
+
+                    <p>A common programming practice is to "comment things out"
+                        while debugging code. That allows you to see how your
+                        program works without a line of code and see whether that
+                        affects the execution or fixes a bug.
+                    </p>
+
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    x = 5
+                    y = 10
+                    #z = x ** y
+                    z = pow(x, y)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Documenting with comments</h3>
+
+                    <p>Programmers often use comments to explain
+                        segments of code that aren't obvious.
+                    </p>
+
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    h = 50 # Hue from 0-360
+                    s = 99 # Saturation from 0-100
+                    v = 50 # Value from 0-100
+                    </code></pre>
+                </section>
+
+
+
+                <section class="heading-only">
+                    <h2>Environment diagrams</h2>
+                </section>
+
+                <section>
+                    <h2>Environment diagrams</h2>
+
+                    <p>An environment diagram is a visualization of how Python interprets a program.
+                        Use the free website <a href="http://pythontutor.com" target="_blank">PythonTutor</a> to generate diagrams.
+                        <a href="http://pythontutor.com/visualize.html#code=x%20%3D%201%0Ay%20%3D%20x%0Ax%20%3D%202%20%2B%20x%0Az%20%3D%20x%20%2B%20y&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank">View example</a>
+                    </p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width:50%;">Code (left)
+                                <th>Frames (right)
+                        <tbody>
+                            <tr>
+                                <td><img src="images/pythontutor_code.png" alt="screenshot of left side of PythonTutor" height="200">
+                                <td><img src="images/pythontutor_frames.png" alt="screenshot of right side of PythonTutor" height="200">
+                            <tr><td class="smaller">Arrows indicate the order of execution. Green = just executed, red = up next.
+                                <td class="smaller">Each name is bound to a value.<br>
+                                    Within a frame, each name cannot be repeated.
+                    </table>
+                </section>
+
+                <section>
+                    <h3>Assignments in Environment diagrams</h3>
+
+                    <p>How Python interprets an assignment statement:</p>
+
+                    <ul>
+                        <li>Evaluate the expression to the right of <code>=</code>.
+                        <li>Bind the expression's value to the name that's on the left side of the <code>=</code> sign.
+                    </ul>
+
+                    <img src="images/pythontutor_assignment.png" alt="screenshot of left side of PythonTutor" height="150">
+                    <p class="python-tutor-link"><a target="_blank" href="http://pythontutor.com/visualize.html#code=x%20%3D%201%0Ay%20%3D%20x%0Ax%20%3D%202%20%2B%20x%0Az%20%3D%20x%20%2B%20y&cumulative=true&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">View in PythonTutor</a></p>
+
+                </section>
+
+                <section>
+                    <h3>Group Exercise</h3>
+
+                    <p>We'll do an exercise on environment diagrams together. <a href="https://docs.google.com/presentation/d/1Aw-xQpjuBSPddoP5qtruHicPM6KfRNwdMTl8vN8UyPY/edit#slide=id.p" target="_blank">Open this Google slideshow.</a></p>
+                </section>
+
+                <section class="heading-only">
+
+                    <h2>Functions</h2>
+                </section>
+
+                <section>
+                    <h3>What is a function?</h3>
+
+                    <p>A <strong>function</strong> is a sequence of code that performs a particular task
+                        and can be easily reused. ♻️
+                    </p>
+
+                    <p>We've already used functions:</p>
+
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    add(18, 69)
+                    mul(60, sub(5, 4))
+                    uppercase("stop yelling")
+                    </code></pre>
+
+                    <div class="fragment">
+                    <p>A function takes in an input (the <strong>arguments</strong>) and returns an output (the <strong>return value</strong>).</p>
+
+                    <p style="font-family:monospace">"stop yelling" → <span style="display:inline-block; padding: 10px; border-radius: 2px; background: rgb(195, 212, 233)">uppercase</span> → "STOP YELLING"
+                    </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Defining functions</h3>
+
+                    <p>The most common way to define functions is Python is the <code>def</code> statement.</p>
+
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    def &lt;name&gt;(&lt;parameters&gt;):
+                        return &lt;return expression&gt;
+                    </code></pre>
+
+                    <p>Example:</p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    def add(num1, num2):
+                        return num1 + num2
+                    </code></pre>
+
+                    <p>Once defined, we can call it:</p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    add(2, 2)
+                    add(18, 69)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Anatomy of a function definition</h3>
+
+                    <p>The first line is called the <strong>function signature</strong>,
+                        all lines after are considered the <strong>function body</strong>.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def &lt;name&gt;(&lt;parameters&gt;):        # ← Function signature
+                        return &lt;return expression&gt;   # ← Function body
+                    </code></pre>
+
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def add(num1, num2):             # ← Function signature
+                        return num1 + num2           # ← Function body
+                    </code></pre>
+
+                    <div class="fragment">
+                    <p>The function body can have multiple lines:</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def add(num1, num2):             # ← Function signature
+                        sum = num1 + num2            # ← Function body
+                        return sum                   # ← Function body
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Function arguments</h3>
+
+                    <p>We can pass in any expressions as arguments.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def add(num1, num2):
+                        return num1 + num2
+                    </code></pre>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    x = 1
+                    y = 2
+                    add(x, y)
+                    </code></pre>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    x = 3
+                    add(x * x, x + x)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Return values</h3>
+
+                    <p>The return keyword returns a value to whoever calls the function (and exits the function).</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def add(num1, num2):
+                        return num1 + num2
+
+                    sum = add(2, 4)
+                    </code></pre>
+
+                    <p>Reminder: You can use function calls in expressions:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    big_sum = add(200, 412) + add(312, 256)
+                    </code></pre>
+
+                    <p>...and nest function calls inside function calls:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    huge_sum = add(add(200, 412), add(312, 256))
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Spot the bug #1</h3>
+
+                    <p>What's wrong with this code?</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def add(num1, num2):
+                        return sum
+                        sum = num1 + num2
+
+                    sum = add(2, 4)
+                    </code></pre>
+
+                    <p class="fragment">The code after the return statement will not be executed,
+                    that line belongs before the return.</p>
+                </section>
+
+                <section>
+                    <h3>Spot the bug #2</h2>
+                    <p>What's wrong with this code?</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def add():
+                        return num1 + num2
+
+                    sum = add(2, 4)
+                    </code></pre>
+                    <p class="fragment">The function body is referring to variables
+                        that don't seem to exist. Most likely, they should be parameters
+                        in the function signature.</p>
+                </section>
+
+                <section>
+                    <h3>Spot the bug #3</h2>
+
+                    <p>What's wrong with this code?</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def add(num1, num2):
+                        sum = num1 + num2
+
+                    sum = add(2, 4)
+                    </code></pre>
+                    <p class="fragment">The function body does not return any value.
+                        However, the code that calls it tries to use the result of the expression.
+                        It should have a return statement that returns the sum.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Exercise</h3>
+
+                    <p>Work on these functions in this order. Don't worry if you don't get through all of them!</p>
+
+                    <ul>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/FunctionsFortuneTeller">Fortune Teller</a>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/FunctionsDogAge">Dog Age</a>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/FunctionsLifetimeSupply">Lifetime Supply</a>
+                        <li><a target="_blank" href="https://replit.com/team/gdi01/FunctionsTemperatureConverter">Temperature Converter</a>
+                        </ul>
+                </section>
+
+                <section>
+                    <h3>Functions in environment diagrams</h3>
+
+                    <p>How Python interprets a def statement:</p>
+
+                        <ul>
+                            <li>It creates a function with the <code>name</code> and <code>parameters</code>
+                            <li>It sets the function body to everything indented after the first line
+                            <li>It binds the function name to that function body (similar to an assignment statement)
+                        </ul>
+
+                    <img src="images/pythontutor_defstatement.png" alt="screenshot of PythonTutor executing a def statement">
+
+                    <p class="python-tutor-link">
+                        <a target="_blank" href="http://pythontutor.com/visualize.html#code=def%20add%28num1,%20num2%29%3A%0A%20%20%20%20sum%20%3D%20num1%20%2B%20num2%0A%20%20%20%20return%20sum%0A%20%20%20%20%0Aresult%20%3D%20add%282,%204%29&cumulative=true&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">
+                            View in PythonTutor
+                        </a>
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Function calls in environment diagrams</h3>
+
+                    <p>How Python interprets a function call:</p>
+
+                        <ul>
+                            <li>It creates a new <strong>frame</strong> in the environment
+                            <li>It binds the function call's arguments to the parameters in that frame
+                            <li>It executes the body of the function in the new frame
+                        </ul>
+
+                        <img src="images/pythontutor_functioncall.png" alt="screenshot of PythonTutor executing a def statement">
+
+                        <p class="python-tutor-link">
+                            <a target="_blank" href="http://pythontutor.com/visualize.html#code=def%20add%28num1,%20num2%29%3A%0A%20%20%20%20sum%20%3D%20num1%20%2B%20num2%0A%20%20%20%20return%20sum%0A%20%20%20%20%0Aresult%20%3D%20add%282,%204%29&cumulative=true&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">
+                                View in PythonTutor
+                            </a>
+                        </p>
+                </section>
+
+                <section>
+                    <h3>Group Exercise</h3>
+
+                    <p>We'll do another exercise on environment diagrams together. <a href="https://docs.google.com/presentation/d/1Aw-xQpjuBSPddoP5qtruHicPM6KfRNwdMTl8vN8UyPY/edit#slide=id.ge2e7eeb654_0_78" target="_blank">Open this Google slideshow.</a></p>
+                </section>
+
+                <section class="heading-only">
+                    <h2>More on names</h2>
+                </section>
+
+                <section>
+                    <h3>Names and environments</h3>
+
+                    <p>All Python code is evaluated in the context of an <strong>environment</strong>, which is a sequence of frames.</p>
+                    <p>We've seen two possible environments:</p>
+                    <table>
+                        <tr>
+                            <td style="vertical-align:middle;">Global frame
+                            <td><img src="images/envdiagram_names_global.png" alt="screenshot of PythonTutor environment diagram" width="400">
+                        <tr>
+                            <td style="vertical-align:middle;">Function's local frame,<br> child of Global frame
+                            <td><img src="images/envdiagram_names_in_func.png" alt="screenshot of PythonTutor environment diagram" width="400">
+                    </table>
+
+                </section>
+
+                <section>
+                    <h3>Name lookup rules</h3>
+
+                    <p>How Python looks up names in a user-defined function:</p>
+
+                    <ol>
+                        <li>Look it up in the local frame
+                        <li>If name isn't in local frame, look it up in the global frame
+                        <li>If name isn't in either frame, throw a NameError
+                    </ol>
+
+                    <p>*This is simplified since we haven't learned all the Python features that complicate the rules.</p>
+                </section>
+
+                <section>
+                    <h3>Name lookup example #1</h3>
+
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    def exclamify(text):
+                        start_exclaim = "¡"
+                        end_exclaim = "!"
+                        return start_exclaim + text + end_exclaim
+
+                    exclamify("the snails are eating my lupines")
+                    </code></pre>
+
+                    <ul>
+                        <li>On line 4, which frame is <code>start_exclaim</code> found in? <br><span class="fragment">The local frame for exclamify</span>
+                        <li>On line 4, Which frame is <code>text</code> found in? <br><span class="fragment">The local frame for exclamify</span>
+                        <li>On line 6, which frame is <code>exclamify</code> found in? <br><span class="fragment">The global frame</span>
+                    </ul>
+                    <p class="python-tutor-link"><a target="_blank" href="http://pythontutor.com/visualize.html#code=def%20exclamify%28text%29%3A%0A%20%20%20%20start_exclaim%20%3D%20%22%C2%A1%22%0A%20%20%20%20end_exclaim%20%3D%20%22!%22%0A%20%20%20%20return%20start_exclaim%20%2B%20text%20%2B%20end_exclaim%0A%0Aexclamify%28%22the%20snails%20are%20eating%20my%20lupines%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">View in PythonTutor</a></p>
+
+
+                </section>
+
+                <section>
+                    <h3>Name lookup example #2</h3>
+
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    start_exclaim = "¡"
+                    end_exclaim = "❣️"
+
+                    def exclamify(text):
+                        return start_exclaim + text + end_exclaim
+
+                    exclamify("the voles are digging such holes")
+                    </code></pre>
+
+                    <ul>
+                        <li>On line 5, which frame is <code>start_exclaim</code> found in? <br><span class="fragment">The global frame</span>
+                        <li>On line 5, Which frame is <code>text</code> found in? <br><span class="fragment">The local frame for exclamify</span>
+                        <li>On line 6, which frame is <code>exclamify</code> found in? <br><span class="fragment">The global frame</span>
+                    </ul>
+                    <p class="python-tutor-link"><a target="_blank" href="http://pythontutor.com/visualize.html#code=start_exclaim%20%3D%20%22%C2%A1%22%0Aend_exclaim%20%3D%20%22%E2%9D%A3%EF%B8%8F%22%0A%0Adef%20exclamify%28text%29%3A%0A%20%20%20%20return%20start_exclaim%20%2B%20text%20%2B%20end_exclaim%0A%0Aexclamify%28%22the%20voles%20are%20digging%20such%20holes%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">View in PythonTutor</a></p>
+
+                </section>
+
+                <section>
+                    <h3>Name lookup example #3</h3>
+
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    def exclamify(text):
+                        end_exclaim = "⁉️️️"
+                        return start_exclaim + text + end_exclaim
+
+                    exclamify("the voles are digging such holes")
+                    </code></pre>
+
+                    <ul>
+                        <li>Which name will cause a <code>NameError</code>?<br>
+                            <span class="fragment">The <code>start_exclaim</code> name, since it was never assigned.</span>
+                        <li>When will that error happen?<br>
+                            <span class="fragment">It will happen when <code>exclamify</code> is called and Python tries to execute the return statement.</span>
+                    </ul>
+
+                    <p class="python-tutor-link"><a target="_blank" href="http://pythontutor.com/visualize.html#code=def%20exclamify%28text%29%3A%0A%20%20%20%20end_exclaim%20%3D%20%22%E2%81%89%EF%B8%8F%EF%B8%8F%EF%B8%8F%22%0A%20%20%20%20return%20start_exclaim%20%2B%20text%20%2B%20end_exclaim%0A%0Aexclamify%28%22the%20voles%20are%20digging%20such%20holes%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">View in PythonTutor</a></p>
+
+                </section>
+
+                <section>
+                    <h3>Summary</h3>
+
+                    <ul class="smaller">
+                        <li>Programs consist of <strong>statements</strong>, or instructions for the computer, containing <strong>expressions</strong>, which describe computation and evaluate to values.
+                        <li><strong>Values</strong> can be assigned to <strong>names</strong> to avoid repeating computations.
+                        <li>An <strong>assignment statement</strong> assigns the value of an expression to a name in the current <strong>environment</strong>.
+                        <li><strong>Functions</strong> encapsulate a series of statements that maps <strong>arguments</strong> to a <strong>return value</strong>.
+                        <li>A <strong>def statement</strong> creates a function object with certain <strong>parameters</strong> and a <strong>body</strong> and binds it to a name in the current environment.
+                        <li>A <strong>call expression</strong> applies the value of its <strong>operator</strong>, a function, to the value(s) or its <strong>operand(s)</strong>, some arguments.
+                    </ul>
+                </section>
+
+
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reveal.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/plugin/highlight/highlight.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/highlightjs-badge@0.1.9/highlightjs-badge.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.5/js/jsplumb.min.js"></script>
+		<script>
+			const srcUrlPrefix = "https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/";
+			Reveal.initialize({
+				hash: true,
+				center: false,
+				slideNumber: true,
+				showNotes: false,
+				margin: 0.1,
+				preloadIframes: true,
+				plugins: [ RevealHighlight ],
+				pdfSeparateFragments: true
+			});
+
+            // add HighlightJS-badge (options are optional)
+            var options = {
+                copyIconContent: "📄",
+                checkIconContent: "✅"
+            };
+            window.highlightJsBadge(options);
+
+            if (window.location.search == "?print-pdf") {
+                var uncounted = document.querySelectorAll("[data-visibility='uncounted']");
+                uncounted.forEach(node => {
+                    node.parentNode.classList.add("no-print")
+                })
+            }
+		</script>
+	</body>
+</html>
+
