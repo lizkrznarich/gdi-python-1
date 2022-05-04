@@ -7,7 +7,7 @@ Create a function called celsius_to_fahrenheit that:
 * takes a single argument, the temperature in celsius
 * calculates and returns the fahrenheit equivalent
 
-Similarly, create another function called fahrenheight_to_celsius that:
+Similarly, create another function called fahrenheit_to_celsius that:
 * takes a single argument, the temperature in fahrenheit
 * calculates and returns the celsius equivalent
 """
@@ -27,7 +27,7 @@ f1 = celsius_to_fahrenheit(0)
 f2 = celsius_to_fahrenheit(100)
 
 # Test 3:  32 degrees fahrenheit should return 0 celsius
-c1 = fahrenheight_to_celsius(32)
+c1 = fahrenheit_to_celsius(32)
 
 # Test 4: 212 degrees celsius should return 100 celsius
-c2 = fahrenheight_to_celsius(212)
+c2 = fahrenheit_to_celsius(212)

@@ -1,32 +1,42 @@
-from texter import uppercase, lowercase, binarize, clapify, emojify, exclamify, mystery
+# In the console, past the following lines and press Enter:
 
-# Use the imported functions to turn the string into the expected text. Try in console and run the tests to check your work.
+import string
 
-# Q: Turn this text into 'STOP YELLING!'
-q1 = 'stop yelling!'
-a1 = uppercase(q1)
+# In the console, type the string method that transforms text as described below.
+# Press Enter after typing each method to check your work
 
-# Q2: Turn this text into 'J👏U👏S👏T👏 👏D👏O👏 👏I👏T'
-q2 = 'JUST DO IT'
-a2 = clapify(q2)
+# Some common string methods are:
+# .upper()
+# .lower()
+# .title()
+# .swapcase()
+# .strip()
+# See https://www.w3schools.com/python/python_ref_string.asp for more!
 
-# Q3: Turn this text into 'This 🌏 is on 🔥 !'
-q3 = 'This world is on fire!'
-a3 = emojify(q3)
+# NOTE! Methods are formatted differently from from function calls - the string goes before the method instead of inside the (). You can either assign a name to the string, like str = 'blar' and then str.upper() or use enter the string directly, like 'blar'.upper()
 
-# Q4: Turn this text into 'stp rdng my nts, dd!'
-q4 = 'stop reading my notes, dad!'
-a4 = mystery(q4)
+# Q1: Turn 'STOP YELLING!'
+# into 'stop yelling!'
+str = 'STOP YELLING!'
+str.lower()
 
-## Nested expressions!
-# Q5: Turn this text into 'IM SO 😷 OF 🎂'
-q5 = 'im so sick of cake'
-a5 = uppercase(emojify(q5))
+# Q2: Turn 'hey, wait for me!'
+# into 'HEY, WAIT FOR ME!'
+str = 'hey, wait for me!'
+str.upper()
 
-# Q6: Turn this text into 'sndng my ❤️ !'
-q6 = 'sending my love!'
-a6 = mystery(emojify(q6))
+# Q3: Turn 'a tale of two cities'
+# into 'A Tale Of Two Cities'
+str = 'a tale of two cities'
+str.title()
 
-# Q7: Turn this text into '01000001 01000010 01000011'
-q7 = 'ABC'
-a7 = binarize(uppercase(q7))
+# Q4: Turn 'oOooOOoooOOO'
+# into 'OoOOooOOOooo'
+str = 'oOooOOoooOOO'
+str.swapcase()
+
+## Chained methods!
+# Q5: Turn '  banana  '
+# into 'BANANA'
+str = '  banana  '
+str.strip().upper()

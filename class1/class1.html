@@ -161,9 +161,9 @@
                         <li>Class 1: Intro to Python
                         <li>Class 2: Functions
                         <li>Class 3: Conditionals
-                        <li>Class 4: Looping
-                        <li>Class 5: Debugging
-                        <li>Class 6: Lists
+                        <li>Class 4: Loops
+                        <li>Class 5: Lists
+                        <li>Class 6: Tuples & dictionaries
                     </ul>
                 </section>
 
@@ -188,7 +188,8 @@
                     <h3>The Python language</h3>
 
                     <ul>
-                        <li>An interpreted general purpose programming language.
+                        <li>An "interpreted" general purpose programming language.
+                            <ul><li>Huh?? Runs through an interpreter application, as opposed to "compiled" languages, which are converted to machine code and run directly by a computer</li></ul>
                         <li>Can run on many systems: Unix, Windows, Mac.
                         <li>An easy-to-read syntax where whitespace is significant.
                         <li>Open source
@@ -246,9 +247,9 @@
                 <section>
                     <h3>Console applications</h3>
 
-                    <p>You can make entirely text-based console (command-line) applications.</p>
+                    <p>You can make entirely text-based console (command-line) applications/scripts. These are common for automating tedious/repetitive tasks.</p>
 
-                    <img src="images/console_application.png" alt="Screenshot of a console application">
+                    <img src="../images/console_application.png" alt="Screenshot of a console application">
 
                 </section>
 
@@ -258,7 +259,7 @@
                     <p>
                         Applications for non-technical users typically include a GUI (graphical user interface).</p>
 
-                    <img src="images/desktop_application.png" alt="Screenshot of a desktop GUI application" height="450">
+                    <img src="../images/desktop_application.png" alt="Screenshot of a desktop GUI application" height="450">
 
                 </section>
 
@@ -269,7 +270,7 @@
                         HTML/CSS/JS would be used for the frontend, but Python can be used for the backend
                         of a web application.</p>
 
-                    <img src="images/web_application.png" alt="Screenshot of a desktop GUI application" >
+                    <img src="../images/web_application.png" alt="Screenshot of a desktop GUI application" >
 
                 </section>
 
@@ -279,7 +280,7 @@
                     <p>Data analysts and data scientists often use notebooks for an easy log
                         of their calculations and outputs.</p>
 
-                    <img src="images/notebook.png" alt="Screenshot of a Jupyter notebook with Python code">
+                    <img src="../images/notebook.png" alt="Screenshot of a Jupyter notebook with Python code">
 
                 </section>
 
@@ -313,13 +314,13 @@
                 <section>
                     <h3>Repl.it setup</h3>
 
-                    <p>We'll also use Repl.it teams for virtual assignments/help.</p>
+                    <p>We'll use Repl.it for our coding exercises in this class.</p>
 
                     <ul style="font-size:1.0em;">
-                        <li>Create a Repl.it account
-                        <li>Join the team following the invite link
-                        <li>Add your name to the team REPL!
+                        <li>Create a <a href="https://replit.com/">Repl.it account</a>
+                        <li>Once you're logged in, create a new Python repl
                     </ul>
+                    <img src="../images/create-repl.png" alt="screenshot of repl">
                 </section>
 
 
@@ -352,10 +353,6 @@
                                 <td>Strings
                                 <td><code>'¡hola!'</code> <code>'its python time!'</code>
                     </table>
-
-                    <p>Try in a Python REPL (console).<br>
-                        <a href="https://replit.com/new/python3" target="_blank">https://replit.com/new/python3</a>
-                        </p>
                 </section>
 
                 <section class="heading-only">
@@ -385,8 +382,7 @@
                     2 ** 100
                     </code></pre>
 
-                    <p>Try in a Python REPL (console).<br>
-                    <a href="https://replit.com/new/python3" target="_blank">https://replit.com/new/python3</a>
+                    <p>Let's try it in Repl!
                     </p>
                 </section>
 
@@ -406,6 +402,8 @@
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     min(-1, -300)
                     </code></pre>
+                    <p>Let's try these in Repl!
+                    </p>
 
                 </section>
 
@@ -548,7 +546,7 @@
 
                     <p>Python evaluates nested expressions with a similar process.</p>
 
-                    <img src="images/nested_expression_tree.png" alt="screenshot of expression tree">
+                    <img src="../images/nested_expression_tree.png" alt="screenshot of expression tree">
                 </section>
 
                 <section>
@@ -580,10 +578,10 @@
                 <section>
                     <h3>Exercise: Expressions</h3>
 
-                    <p><a href="https://replit.com/team/gdi01/OperatorExpressions" target="_blank">Open this repl.</a>
-                    We'll do the first question together. Then work through the other questions,
-                    using Zoom or Repl chat when you have questions.
+                    <p>Open <a href="https://replit.com/@lizkrznarich/Class1Ex1OperatorExpressions" target="_blank">Open the Class1Ex1OperatorExpressions repl.</a>
                     </p>
+                    <p>Click the <b>Fork Repl</b> button to create your own copy</p>
+                    <p>Let's work through these questions together!</p>
                 </section>
 
                 <section class="heading-only">
@@ -591,7 +589,7 @@
                 </section>
 
                 <section>
-                    <img src="images/name_value.png" alt="Name bound to value" width="200" style="float:right;">
+                    <img src="../images/name_value.png" alt="Name bound to value" width="200" style="float:right;">
                     <h3>Names</h3>
 
                     <p>A <strong>name</strong> can be bound to a value.
@@ -656,22 +654,34 @@
                     <p>A name can only be bound to a single value.</p>
 
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    my_name = 'Pamela'
+                    my_name = 'Liz'
 
-                    my_name = my_name + 'ela'
+                    my_name = my_name + 'iz'
                     </code></pre>
 
                     <p>💬  Will that code error? If not, what will <code>my_name</code> store? <br>
                         <span class="fragment">It will not error (similar code in other languages might, however).
-                        The name <code>my_name</code> is now bound to the value 'Pamelaela'.
+                        The name <code>my_name</code> is now bound to the value 'Liziz'.
                     </p>
                 </section>
 
                 <section>
                     <h3>Group exercise</h3>
 
-                    <p><a href="https://replit.com/@gdi01/TextProcessing-Group" target="_blank">Open this repl</a>. Let's figure out what the functions do!</p>
+                    <p><a href="https://replit.com/@lizkrznarich/Class1Ex2TextProcessing" target="_blank">Open the Class1Ex2TextProcessing repl</a>. Let's play with some strings!</p>
+                    <p>The Python String data type comes with some handy built-in methods that can be used to manipulate bits of text.</p>
+                    <p>Built-in methods use a different syntax from the operators and functions we looked at in the last section:</p>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
 
+                        'blar'.upper()
+
+                        my_string = 'blar'
+                        my_string.upper()
+                        </code></pre>
+                </section>
+                <section>
+                    <h3>Group exercise</h3>
+                    <p>Here are some common string methods:</p>
                     <style type="text/css">
                     .text_processing_table {
                         width: 100%;
@@ -680,50 +690,29 @@
                         font-size: 0.5em;
                     }
                     </style>
-
                     <table class="text_processing_table">
                         <thead>
                             <tr>
                                 <th>Function
-                                <th>Example I/O
                                 <th>Description
                         <tbody>
                             <tr>
-                                <td>uppercase()
-                                <td contenteditable>
-                                <td contenteditable>
+                                <td>.upper()
+                                <td contenteditable>Returns a copy of the string with all characters converted to uppercase
                             <tr>
-                                <td>clapify()
-                                <td contenteditable>
-                                <td contenteditable>
+                                <td>.lower()
+                                <td contenteditable>Returns a copy of the string with all characters converted to lowercase
                             <tr>
-                                <td>emojify()
-                                <td contenteditable>
-                                <td contenteditable>
+                                <td>.title()
+                                <td contenteditable>Returns a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase
                             <tr>
-                                <td>exclamify()
-                                <td contenteditable>
-                                <td contenteditable>
+                                <td>.swapcase()
+                                <td contenteditable>Returns a copy of the string with uppercase characters converted to lowercase and vice versa
                             <tr>
-                                <td>binarize()
-                                <td contenteditable>
-                                <td contenteditable>
-                            <tr>
-                                <td>mystery()
-                                <td contenteditable>
-                                <td contenteditable>
+                                <td>.strip()
+                                <td contenteditable>Returns a copy of the string with the leading and trailing whitespace characters removed
                     </table>
-
-                </section>
-
-                <section>
-                    <h3>Exercise</h3>
-
-                    <p><a href="https://replit.com/team/gdi01/TextProcessing">Open this repl.</a>
-                    We'll do the first question together. Then work through the other questions,
-                    using Zoom or Repl chat when you have questions.
-                    </p>
-
+                    <p>For the full list, see <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">Python3 docs</a></p>
                 </section>
 
 			</div>
