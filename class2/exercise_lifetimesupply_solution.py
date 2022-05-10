@@ -15,14 +15,18 @@ def calculate_supply(age, amount_per_day):
 
 # Test 1: Should return 365
 amount1 = calculate_supply(80, 1)
+print(amount1)
 
 # Test 2: Should return 730
 amount2 = calculate_supply(80, 2)
+print(amount2)
 
 # Test 3: Should return 49275
 amount3 = calculate_supply(36, 3)
+print(amount3)
 
 # Bonus: Accept floating point values for amount per day, and round the result up to an integer.
 
 # Bonus Test 4: Should return 34850
 amount4 = calculate_supply(37, 2.17)
+print(amount4)

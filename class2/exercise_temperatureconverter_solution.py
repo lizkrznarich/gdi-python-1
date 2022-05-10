@@ -22,12 +22,16 @@ def fahrenheit_to_celsius(fahrenheit):
 
 # Test 1: 0 degrees celsius should return 32 fahrenheight
 f1 = celsius_to_fahrenheit(0)
+print(f1)
 
 # Test 2: 100 degrees celsius should return 212
 f2 = celsius_to_fahrenheit(100)
+print(f2)
 
 # Test 3:  32 degrees fahrenheit should return 0 celsius
 c1 = fahrenheit_to_celsius(32)
+print(c1)
 
 # Test 4: 212 degrees celsius should return 100 celsius
 c2 = fahrenheit_to_celsius(212)
+print(c2)

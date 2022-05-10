@@ -13,9 +13,12 @@ def calculate_dog_age(human_years):
 
 # Test 1: Should return 7
 age1 = calculate_dog_age(1)
+print(age1)
 
 # Test 2: Should return 3.5
 age2 = calculate_dog_age(0.5)
+print(age2)
 
 # Test 3: Should return 84
 age3 = calculate_dog_age(12)
+print(age3)
