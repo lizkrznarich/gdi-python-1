@@ -191,7 +191,7 @@
                     </table>
                 </section>
                 <section>
-                    <img src="../../images/name_value.png" alt="Name bound to value" width="200" style="float:right;">
+                    <img src="../images/name_value.png" alt="Name bound to value" width="200" style="float:right;">
                     <h3>Names</h3>
 
                     <p>A <strong>name</strong> can be bound to a value.
@@ -287,13 +287,42 @@
                                     </code></pre>
                     </table>
                 </section>
+                <section>
+                    <h3>Name rules</h3>
+
+                   <p>Only certain character combinations are allowed:</p>
+                    <ul>
+                        <li>Must start with a letter or the underscore character</li>
+                        <li>Cannot start with a number</li>
+                        <li>Can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</li>
+                    </ul>
+                    <table>
+                    <tr>
+                    <td>
+                    <h4>Allowed names</h4>
+                    <ul>
+                        <li><code>banana_gram</code>
+                        <li><code>Bananagram</code>
+                        <li><code>_banana_gram</code>
+                    </ul>
+                    </td>
+                    <td>
+                    <h4>Non-allowed names</h4>
+                    <ul>
+                        <li><code>1banana_gram</code>
+                            <li><code>banana-gram</code>
+                        <li><code>banana gram</code>
+                    </ul>
+                </td>
+                </tr>
+                </table>
+                <p class="smaller">See more examples at W3Schools: <a href="https://www.w3schools.com/python/gloss_python_variable_names.asp">https://www.w3schools.com/python/gloss_python_variable_names.asp</a></p>
+                </section>
 
                 <section>
                     <h3>Name rules</h3>
 
-                    <p>Names are bound to values (like variables and functions)</p>
-
-                    <p>A name must be typed <strong>exactly</strong> how it was originally typed. Names are case sensitive.</p>
+                    <p>Names are case sensitive.</p>
 
                     <p>If name is <code>my_fav_hobby</code>, the following are <em>not</em> equivalent:</p>
 
@@ -302,42 +331,28 @@
                         <li><code>My_fav_hobby</code>
                         <li><code>MY_FAV_HOBBY</code>
                         <li><code>myfavhobby</code>
-                        <li><code>my-fav-hobby</code>
                     </ul>
 
                     <p>Programming can help you develop an eye for these little details,
                         but software development tools will also help you find these issues.</p>
 
                 </section>
-
-
                 <section>
-                    <h3>Augmented assignment operators</h3>
+                    <h3>Naming conventions for variables & functions</h3>
+                    <ul>
+                        <li>Use a lowercase single letter (variables only), word, or words
+                        <li>Separate words with underscores
+                        <li>Make names meaningful, ex <code>first_name</code> rather than <code>fn</code>
+                    </ul>
+                    <br><br>
+                    <h4>Examples</h4>
+                    <ul>
+                        <li><code>m</code> (variables only)
+                        <li><code>hobby</code>
+                        <li><code>my_fav_hobby</code>
+                    </ul>
 
-                    <p>Python provides shortcuts for these common operations:</p>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Long version
-                                <th>Shortcut
-                        <tbody>
-                        <tr>
-                            <td><code>x = x + 1</code>
-                            <td><code>x += 1</code>
-                        <tr>
-                            <td><code>y = y - 1</code>
-                            <td><code>y -= 1</code>
-                        <tr>
-                            <td><code>r = r * 2</code>
-                            <td><code>r *= 2</code>
-                        <tr>
-                            <td><code>w = w / 3</code>
-                            <td><code>w /= 3</code>
-                        <tr>
-                            <td><code>p = p ** 2</code>
-                            <td><code>p **= 2</code>
-                    </table>
+                    <p class="smaller">See more examples at Real Python: <a href="https://realpython.com/python-pep8/#naming-styles">https://realpython.com/python-pep8/#naming-styles</a></p>
                 </section>
 
                 <section class="heading-only">
@@ -397,9 +412,9 @@
                 </section>
                 <section>
                     <h3>Debugging with print()</h3>
-                    <p>So far, we've run small bits of Python code in the console, and the console outputs the result of an expression or function.
+                    <p>So far, we've run small bits of Python code in the console, and the console outputs the result.
                     </p>
-                    <p>It's more common to run entire files with multiple lines of code. In this case, the console only outputs a response if we tell it to (or if there's an error).
+                    <p>It's more common to run code from files. In this case, the console only outputs a response if we tell it to.
                     </p>
                     <p>We use <b>print()</b> to tell Python what to output. This is very useful in debugging - ex, to see the value of a variable.
                     </p>
@@ -410,6 +425,7 @@
                     print(y)
                     print(x+y)
                     </code></pre>
+                    <p>Let's try it in <a href="https://replit.com/">Replit</a> . Create a new Python 3 Repl.</p>
                 </section>
 
 
@@ -582,6 +598,23 @@
                     <p class="fragment">The function body does not return any value.
                         However, the code that calls it tries to use the result of the expression.
                         It should have a return statement that returns the sum.
+                    </p>
+                </section>
+                <section>
+                    <h3>Challenge question</h2>
+
+                    <p>What will happen if we run the following code?</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    from operator import add
+
+                    def add(num1, num2):
+                        response = num1 * num2
+                        return response
+
+                    sum = add(2, 4)
+                    print(sum)
+                    </code></pre>
+                    <p class="fragment">Remember from class 1, names can be reassigned! This is true for both variables and functions. A name will always refer to its last assigned value.
                     </p>
                 </section>
 
