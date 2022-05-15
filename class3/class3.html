@@ -141,32 +141,69 @@
                 </section>
 
                 <section>
-                    <h3>String concatenation</h3>
+                    <h3>Comment syntax</h3>
 
-                    <p>The <code>+</code> operator <strong>concatenates</strong> strings (adds them together).</p>
+                    <p>A comment is human-readable text that's ignored by the Python interpreter.</p>
 
-                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
-                    lyric = 'If youre happy and you know it, ' + 'clap your hands!'
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    # A single-line comment starts with a hash sign
+                    x = 4 # A comment can also go at the end of the line
+
+                    """
+                    Multi-line comments
+                    start and end with three quotes.
+                    """"
                     </code></pre>
-
-                    <p>Typically used for combining string literals (in quotes) with string variables (names):</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    start = 'If youre happy and you know it, '
-                    lyric1 = start + 'clap your hands!'
-                    lyric2 = start + 'wiggle your toes!'
-                    lyric3 = start + 'hug a friend!'
-                    </code></pre>
-                    <div class="fragment">
-                    <p class="smaller">Wrap a long expression in parentheses if it goes over multiple lines:</p>
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    verse = (lyric1 + '\n' + lyric1 + '\n' +
-                        start + ' and you really want to show it \n' + lyric1)
-                    </code></pre>
-                    </div>
 
                 </section>
+                <section>
+                    <h3>Debugging with print()</h3>
+                    <p>When we run Python code in the console, the console outputs the result expressions automatically.
+                    </p>
+                    <p>It's more common to run code from files. In this case, the console only outputs a response if we tell it to.
+                    </p>
+                    <p>We use <b>print()</b> to tell Python what to output. This is very useful in debugging - ex, to see the value of a variable.
+                    </p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    x = 5
+                    y = 10
+                    print(x)
+                    print(y)
+                    print(x+y)
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Defining functions</h3>
 
+                    <p>The most common way to define functions is Python is the <code>def</code> statement.</p>
+
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    def &lt;name&gt;(&lt;parameters&gt;):
+                        return &lt;return expression&gt;
+                    </code></pre>
+
+                    <p>Example:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                        def add(num1, num2):             # ← Function signature
+                            sum = num1 + num2            # ← Function body
+                            return sum                   # ← Function body
+                        </code></pre>
+                    <p>Once defined, we can call it:</p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    add(2, 2)
+                    add(18, 69)
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Practice exercise review</h3>
+
+                    <p>Let's review the Temperature Converter homework exercise together</p>
+
+                    <p><a target="_blank" href="https://replit.com/@lizkrznarich/Class2Ex2TemperatureConverter">Repl: Class2Ex2TemperatureConverter</a></p>
+                </section>
+                <section class="heading-only">
+                    <h2>More on functions</h2>
+                </section>
                 <section>
                     <h3>Why functions?</h3>
 
@@ -288,12 +325,6 @@
 
                 </section>
 
-                <!-- TODO for CS61A: Pure functions, Nested print, Multiple environments, Miscellaneous Python features -->
-
-                <section class="heading-only">
-                    <h2>More on functions</h2>
-                </section>
-
                 <section>
                     <h3>Default arguments</h3>
 
@@ -311,10 +342,9 @@
                     calculate_dog_age(3, 7)
                     </code></pre>
 
-                    <p>Default arguments can be overriden two ways:</p>
+                    <p>Default arguments can be overriden:</p>
                     <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
                     calculate_dog_age(3, 6)
-                    calculate_dog_age(3, multiplier=6)
                     </code></pre>
                 </section>
 
@@ -375,7 +405,7 @@
                     <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
                     wear_jacket = is_raining or is_windy
                     </code></pre>
-
+                    <p>Let's try it in <a href="https://replit.com/">Replit</a> . Create a new Python 3 Repl.</p>
                 </section>
 
                 <section>
@@ -411,7 +441,7 @@
                             <tr><td><code>not</code> <td> <code>not (5 == 0)</code> <td class="smaller">Evaluates to <code>True</code> if condition is false; evaluates to <code>False</code> if condition is true.
                        </tbody>
                     </table>
-                    <br>
+                    <p class="smaller">W3Schools has a handy <a href="https://www.w3schools.com/python/python_operators.asp">Python operators reference</a></p>
                 </section>
 
                 <section>
@@ -421,7 +451,6 @@
                     <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
                     may_have_mobility_issues = (age &gt;= 0 and age &lt; 2)  or age &gt; 90
                     </code></pre>
-
                 </section>
 
                 <section>
@@ -442,29 +471,20 @@
                 </section>
 
                 <section>
-                    <h3>Exercise</h3>
-
-                    <p>We'll do the first together. Then work on the others individually and ask for help if you have any questions or feel stuck.</p>
-                    <ul>
-                        <li><a href="https://replit.com/team/gdi01/BooleanExpressionsHasCurlyHair" target="_blank">has_curly_hair()</a>
-                        <li><a href="https://replit.com/team/gdi01/BooleanExpressionsFreeLobe" target="_blank">has_free_lobe()</a>
-                        <li><a href="https://replit.com/team/gdi01/BooleanExpressionsPresidentialEligibility" target="_blank">can_be_president()</a>
-                        <li><a href="https://replit.com/team/gdi01/BooleanExpressionsSafe2Eat" target="_blank">is_safe_to_eat()</a>
-                        <li><a href="https://replit.com/team/gdi01/BooleanExpressionsHarvestTime" target="_blank">harvest_time()</a>
-                    </ul>
+                    <h3>Exercise: Booleans</h3>
+                    <p>Open <a href="https://replit.com/@lizkrznarich/Class3Ex1Booleans">Class3Ex1Booleans</a> in Replit and click "Fork Repl" to create your own copy</p>
+                    <p>We'll do the first function together, then work on the others individually and ask for help if you have any questions or feel stuck.</p>
                 </section>
 
                 <section class="heading-only">
                     <h2>Conditionals</h2>
                 </section>
 
-                <!-- TODO: CS61A Slide on Statements -->
-
                 <section>
                     <h3>Conditional statements</h3>
 
-                    <p>A <strong>conditional statement</strong> gives your code a way to execute
-                        a different suite of code statements based on whether certain
+                    <p>A <strong>conditional statement</strong> gives you a way to execute
+                        a different set of code statements based on whether certain
                         conditions are true or false.</p>
 
                     <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
@@ -597,12 +617,10 @@
                         <li>Zero or more <code>elif</code> clauses.
                         <li>Zero or one <code>else</code> clause, always at the end.
                     </ul>
-                    <!-- TODO CS61A add execution rules -->
-
                 </section>
 
                 <section>
-                    <h3>Conditionals in environment diagrams</h3>
+                    <h3>Conditional evaluation order</h3>
 
                     <p>How Python interprets a conditional:</p>
                     <ul>
@@ -611,11 +629,8 @@
                             and skip the remaining caluses.
                         <li>Otherwise, continue to the next clause and repeat.
                     </ul>
-                    <img src="images/pythontutor_conditionals.png" alt="Screenshot of a conditional statement in PythonTutor" height="250">
-                    <p class="python-tutor-link">
-                        <a target="_blank" href="http://pythontutor.com/visualize.html#code=num%20%3D%205%0A%0Aif%20num%20%3C%200%3A%0A%20%20%20%20sign%20%3D%20%22negative%22%0Aelif%20num%20%3E%200%3A%0A%20%20%20%20sign%20%3D%20%22positive%22%0Aelse%3A%0A%20%20%20%20sign%20%3D%20%22neutral%22&cumulative=true&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">
-                            View in PythonTutor</a>
-                    </p>
+                    <img style="float:left" src="../images/if-order.png" alt="Screenshot of a conditional statement" height="240">
+                    <img style="float:left; margin-left:1em" src="../images/if-order2.png" alt="Screenshot of a conditional statement" height="240">
                 </section>
 
                 <section>
@@ -667,18 +682,8 @@
                 </section>
 
                 <section>
-                    <h3>Exercise</h3>
-
-                    <p>We'll do the first one together, then you'll work on the others individually. DM on Zoom for help if you have a question or feel stuck.</p>
-
-                    <ul>
-                        <li><a target="_blank" href="https://replit.com/team/gdi01/ConditionalsGreaterNum">greater_num</a>
-                        <li><a target="_blank" href="https://replit.com/team/gdi01/ConditionalsSmallerNum">smaller_num</a>
-                        <li><a target="_blank" href="https://replit.com/team/gdi01/ConditionalsWorldTranslator">hello_world</a>
-                        <li><a target="_blank" href="https://replit.com/team/gdi01/ConditionalsGradeAssigner">assign_grade</a>
-                        <li><a target="_blank" href="https://replit.com/team/gdi01/ConditionalsPluralizer">pluralizer</a>
-                    </ul>
-
+                    <h3>Exercise: Conditionals</h3>
+                    <p>Open <a href="https://replit.com/@lizkrznarich/Class3Ex2Conditionals">Class3Ex2Conditionals</a> in Replit and click "Fork Repl" to create your own copy</p>
                 </section>
 
 

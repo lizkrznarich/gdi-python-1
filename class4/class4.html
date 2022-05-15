@@ -129,15 +129,129 @@
                     <h3>Class outline:</h3>
 
                     <ul>
+                        <li>Review
                         <li>String conversion
                         <li>While loops
                         <li>For loops
                         <li>Randomness
                     </ul>
                 </section>
+                <section class="heading-only">
+                    <h2>Review</h2>
+                </section>
+                <section>
+                    <h3>Booleans</h3>
+
+                    <p>A <strong>Boolean value</strong> is either <code>True</code> or <code>False</code>
+                    and is used frequently in computer programs.</p>
+
+                    <p>Google Maps uses a boolean to decide whether to avoid highways in driving directions:</p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    avoid_highways = True
+                    </code></pre>
+
+                    <p>Twitter uses a boolean to remember where the user allows personalized ads:</p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    personalized_ads = False
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Boolean expressions</h3>
+
+                    <p>An expression can evaluate to a Boolean.
+                        Most Boolean expressions use either comparison or logical operators.
+                    </p>
+                    <br>
+                    <p>An expression with a comparison operator:</p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    passed_class = grade > 65
+                    </code></pre>
+                    <br>
+                    <p>An expression with a logical operator:</p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    wear_jacket = is_raining or is_windy
+                    </code></pre>
+                    <p>Let's try it in <a href="https://replit.com/">Replit</a> . Create a new Python 3 Repl.</p>
+                </section>
+
+                <section>
+                    <h3>Comparison operators</h3>
+
+                    <table>
+                        <thead>
+                            <tr><td>Operator  </td><td>Meaning </td><td>True expressions
+                            </td></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>==    </td><td>Equality </td><td><code>32 == 32</code>
+                            <tr><td>!=     </td><td>Inequality </td><td><code>30 != 32</code>
+                            <tr><td>&gt;  </td><td>Greater than </td><td> <code>60 &gt;= 32	</code>
+                            <tr><td>&gt;=</td><td>Greater than or equal </td><td><code>60 &gt;= 32	</code>, <code>32 &gt;= 32</code>
+                            </tr><tr><td>&lt;   </td><td>Less than </td><td><code>20 &lt; 32</code>
+                            </tr><tr><td>&lt;= </td><td>Less than or equal </td><td><code>20 &lt; 32</code>, <code>32 &lt;= 32</code>
+                        </tbody>
+                    </table>
+                    <br>
+                    <p class="smaller">⚠️ Common mistake: Do not confuse <code>=</code> (the assignment operator) with <code>==</code> (the equality operator).</p>
+                </section>
+                <section>
+                    <h3>Conditional statements</h3>
+
+                    <p>A <strong>conditional statement</strong> gives you a way to execute
+                        a different set of code statements based on whether certain
+                        conditions are true or false.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    if &lt;condition&gt;:
+                        &lt;statement&gt;
+                        &lt;statement&gt;
+                        ...
+                    </code></pre>
+
+                    <p>A simple conditional:</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    clothing = "shirt"
+
+                    if temperature < 32:
+                        clothing = "jacket"
+                    </code></pre>
+
+                    <p class="smaller">In what situations will <code>clothing</code> be assigned to "jacket"?</p>
+                </section>
+                <section>
+                    <h3>if/elif/else statements summary</h3>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                        def get_number_sign(num):
+                            if num < 0:
+                                sign = "negative"
+                            elif num > 0:
+                                sign = "positive"
+                            else:
+                                sign = "neutral"
+                            return sign
+                    </code></pre>
+
+                    <p>Syntax tips:</p>
+                    <ul>
+                        <li>Always start with <code>if</code> clause.
+                        <li>Zero or more <code>elif</code> clauses.
+                        <li>Zero or one <code>else</code> clause, always at the end.
+                    </ul>
+                </section>
+                <section>
+                    <h3>Practice exercise review</h3>
+
+                    <p>Let's review the Conditionals homework exercise together</p>
+
+                    <p>Open <a href="https://replit.com/@lizkrznarich/Class3Ex2Conditionals">Class3Ex2Conditionals</a> in Replit and click "Fork Repl" to create your own copy</p>
+                </section>
+
 
                 <section class="heading-only">
-                    <h2>String conversion</h2>
+                    <h2>More on string conversion</h2>
                 </section>
 
                 <section>
@@ -160,24 +274,15 @@
 
                 <section>
                     <h3>Exercise: String conversion</h3>
-
+                    <p>Open <a href="https://replit.com/@lizkrznarich/Class4Ex1StringConversion">Repl: Class4Ex1StringConversion</a> in Replit and click "Fork Repl" to create your own copy</p>
                     <p>We'll do the first one together, and you'll do the other two individually.</p>
-
-                    <ul>
-                        <li><a href="https://replit.com/team/gdi01/StringConversionSolarSystem" target="_blank">solar_system()</a>
-                            <li><a href="https://replit.com/team/gdi01/StringConversionMenu" target="_blank">menu()</a>
-                        <li><a href="https://replit.com/team/gdi01/StringConversionLocationLocation" target="_blank">location()</a>
-                        <li><a href="https://replit.com/team/gdi01/StringConversionFancyDate" target="_blank">fancy_date()</a>
-                    </ul>
                 </section>
-
-                <section>
-                    <h2>While loops</h2>
+                <section class="heading-only">
+                    <h2>Loops</h2>
                 </section>
-
                 <section>
                     <h3>Why loops?</h3>
-
+                    <p>Sometimes we need to do the same thing over and over, with different data.</p>
                     <p>Consider the following code...</p>
                     <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
                     print(9 * 1)
@@ -193,7 +298,17 @@
 
                     <p>We can simplify this code with a loop!</p>
                 </section>
-
+                <section>
+                    <h3>Types of loops</h3>
+                    <p>Python has 2 types of loops:</p>
+                    <ul>
+                        <li><b>While</b>: Runs code as long as a specified condition is True (unknown number of times)</li>
+                        <li><b>For</b>: Runs code for a specified set of values (known number of times)</li>
+                    </ul>
+                </section>
+                <section class="heading-only">
+                    <h2>While loops</h2>
+                </section>
                 <section>
                     <h3>While loops</h3>
 
@@ -317,6 +432,19 @@
                       counter += 1
                     </code></pre>
                 </section>
+                <section>
+                    <h3>Special assignment operators</h3>
+
+                    <p>What's this <code>+=</code> thing?</p>
+                    <ul>
+                        <li>One of several "special" assignment operators</li>
+                        <li>Does math on an existing variable value and assigns the result to that variable at the same time</li>
+                        <li>A handy shortcut <code>counter += 1</code> does the same thing as <code>counter = counter + 1</code></li>
+                    </ul>
+                    <p>Can also subtract <code>-=</code>, multiply <code>*=</code>, divide <code>/=</code> and assign the result</p>
+                    <p class="smaller">See the <a href="https://www.w3schools.com/python/gloss_python_assignment_operators.asp">full list of special assignment operators on W3Schools</a></p>
+
+                </section>
 
                 <section>
                     <h3>Beware infinite loops</h3>
@@ -344,25 +472,21 @@
                         <br><span class="fragment">Intentions are unclear! Change the initial value and condition?
                     </p>
                     </div>
-
                 </section>
-
                 <section>
-                    <h3>Loops in environment diagrams</h3>
+                    <h3>The break statement</h3>
 
-                    <p>How Python interprets a while loop:</p>
-                    <ol>
-                        <li>Evaluate the header’s Boolean expression.
-                        <li>If it is a true value, execute the suite of statements,
-                            then return to step 1.
-                    </ol>
-                    <img src="images/pythontutor_loops.png" alt="Screenshot of a loop in PythonTutor" height="250">
-                    <p class="python-tutor-link">
-                        <a target="_blank" href="http://pythontutor.com/visualize.html#code=sum%20%3D%200%0Acounter%20%3D%200%0Awhile%20counter%20%3C%2010%3A%0A%20%20%20%20sum%20%2B%3D%20pow%28counter,%202%29%0A%20%20%20%20counter%20%2B%3D%201%0A&cumulative=true&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">
-                            View in PythonTutor</a>
-                    </p>
+                    <p>To prematurely exit a loop, use the <code>break</code> statement:</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    counter = 100
+                    while counter < 200:
+                        if counter % 7 == 0:
+                            first_multiple = counter
+                            break
+                        counter += 1
+                    </code></pre>
                 </section>
-
                 <section>
                     <h3>Loops in functions</h3>
 
@@ -382,54 +506,10 @@
                 </section>
 
                 <section>
-                    <h3>Exercise</h3>
+                    <h3>Exercise: While loops</h3>
+                    <p>Open <a href="https://replit.com/@lizkrznarich/Class4Ex2WhileLoops">Class4Ex2WhileLoops</a> in Replit and click "Fork Repl" to create your own copy</p>
 
                     <p>We'll work through the first one together, then you'll work individually on the others.</p>
-
-                    <ul>
-                        <li><a target="_blank" href="https://replit.com/team/gdi01/WhileLoopsCountEvens">count_evens()</a></li>
-                        <li><a target="_blank" href="https://replit.com/team/gdi01/WhileLoopsCountMultiples">count_multiples()</a></li>
-                        <li><a target="_blank" href="https://replit.com/team/gdi01/WhileLoopsSumMultiples">sum_multiples()</a></li>
-                        <li><a target="_blank" href="https://replit.com/team/gdi01/WhileLoopsBuggyLoop">product_of_numbers()</a></li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h3>The break statement</h3>
-
-                    <p>To prematurely exit a loop, use the <code>break</code> statement:</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    counter = 100
-                    while counter < 200:
-                        if counter % 7 == 0:
-                            first_multiple = counter
-                            break
-                        counter += 1
-                    </code></pre>
-
-                    <p class="python-tutor-link">
-                        <a target="_blank" href="http://pythontutor.com/visualize.html#code=counter%20%3D%20100%0Awhile%20counter%20%3C%20200%3A%0A%20%20%20%20if%20counter%20%25%207%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20first_multiple%20%3D%20counter%0A%20%20%20%20%20%20%20%20break%0A%20%20%20%20counter%20%2B%3D%201&cumulative=true&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">View in PythonTutor</a>
-                    </p>
-                </section>
-
-                <section>
-                    <h3>Looping while true</h3>
-
-                    <p>If you are brave, you can write while loops like this:</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    counter = 100
-                    while True:
-                        if counter % 62 == 0:
-                            first_multiple = counter
-                            break
-                        counter += 1
-                    </code></pre>
-
-                    <p>⚠️ Be very sure that you're not coding an infinite loop!</p>
-
-                    <p><a href="https://twitter.com/Carnage4Life/status/1416890838462832642" target="_blank">Don't trust me? Ask Twitter!</a></p>
                 </section>
 
                 <section class="heading-only">
@@ -479,11 +559,7 @@
 
                 <section>
                     <h3>Exercise: For in range</h3>
-
-                    <p>We'll work on the first part of this together.</p>
-
-                    <a href="https://replit.com/team/gdi01/Ranges" targeet="_blank">Range fixer</a></p>
-
+                    <p>Open <a href="https://replit.com/@lizkrznarich/Class4Ex3ForLoops">Class4Ex2WhileLoops</a> in Replit and click "Fork Repl" to create your own copy</p>
                 </section>
 
                 <section>
@@ -492,65 +568,6 @@
                     <p>...to a Zoom class NEAR YOU!!</p
 
                     <p>Next class will include another super common way to use <code>for</code> loops!</p>
-                </section>
-
-                <section class="heading-only">
-                    <h2>Random numbers</h2>
-                </section>
-
-                <section>
-                    <h3>Random numbers in Python</h3>
-
-                    <p>The <a href="https://docs.python.org/3/library/random.html" target="_blank"><code>random</code></a> module contains
-                        various functions for generating randomness.</p>
-
-                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
-                    import random
-
-                    rando = random.randint(1, 5)   # 1, 2, 3, 4, or 5
-
-                    randy = random.randrange(1, 6) # 1, 2, 3, 4, or 5
-                    </code></pre>
-
-                </section>
-
-                <section>
-                    <h3>Random example</h3>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    def random_rgb():
-                        r = random.randint(0, 255)
-                        g = random.randint(0, 255)
-                        b = random.randint(0, 255)
-                        return r, g, b
-
-                    r1,g1,b1 = random_rgb()
-                    </code></pre>
-
-                    <p><a href="https://replit.com/@pamelafox/RandomColor#main.py" target="_blank">PyGame: Random squares!</a></p>
-
-                </section>
-
-                <section>
-                    <h3>Can computers be truly random?</h3>
-
-                    <p><strong>No</strong>. Computers use pseudo-random number generators,
-                        which are considered good enough for most purposes.</p>
-
-                    <p>For true randomness (if it exists), you have to find
-                        random phenomena in the world, like atmospheric noise. <br>
-                        See <a href="https://www.random.org/faq/" target="_blank">random.org</a></p>
-                    <br>
-                    <p>🤔  Is anything truly random? Do humans have free will?</p>
-                </section>
-
-                <section>
-                    <h3>How random is random?</h3>
-
-                    <p>Let's test it and see!</p>
-
-                    <p><a target="_blank" href="https://replit.com/@gdi01/RandomTester">Random Tester</a></p>
-
                 </section>
 
 			</div>
