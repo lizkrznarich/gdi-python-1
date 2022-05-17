@@ -417,17 +417,29 @@
                             </td></tr>
                         </thead>
                         <tbody>
-                            <tr><td>==    </td><td>Equality </td><td><code>32 == 32</code>
-                            <tr><td>!=     </td><td>Inequality </td><td><code>30 != 32</code>
+                            <tr><td>==    </td><td>Equality </td><td><code>32 == 32</code>, <code>"foo" == "foo"</code>
+                            <tr><td>!=     </td><td>Inequality </td><td><code>30 != 32</code>, <code>"foo" != "bar"</code>
                             <tr><td>&gt;  </td><td>Greater than </td><td> <code>60 &gt;= 32	</code>
                             <tr><td>&gt;=</td><td>Greater than or equal </td><td><code>60 &gt;= 32	</code>, <code>32 &gt;= 32</code>
                             </tr><tr><td>&lt;   </td><td>Less than </td><td><code>20 &lt; 32</code>
-                            </tr><tr><td>&lt;= </td><td>Less than or equal </td><td><code>20 &lt; 32</code>, <code>32 &lt;= 32</code>
+                            </tr><tr><td>&lt;= </td><td>Less than or equal </td><td><code>20 &lt;= 32</code>, <code>32 &lt;= 32</code>
                         </tbody>
                     </table>
                     <br>
-                    <p class="smaller">⚠️ Common mistake: Do not confuse <code>=</code> (the assignment operator) with <code>==</code> (the equality operator).</p>
                 </section>
+                <section>
+                    <h3>Comparison operators</h3>
+                        <p>⚠️ Common mistake: Do not confuse <code>=</code> (the assignment operator) with <code>==</code> (the equality operator).</p>
+                        <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                            x = y
+                        </code></pre>
+                        <p>is very different from</p>
+                        <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                            x == y
+                        </code></pre>
+                </section>
+
+
 
                 <section>
                     <h3>Logical operators</h3>
@@ -443,6 +455,13 @@
                     </table>
                     <p class="smaller">W3Schools has a handy <a href="https://www.w3schools.com/python/python_operators.asp">Python operators reference</a></p>
                 </section>
+                <section>
+                    <h3>Logical operators</h3>
+
+                    <p>You might recognize logical operators from Advanced Search tools, like in <a href="https://www.google.com/advanced_search">Google Advanced Search</a></p>
+                    <img src="../images/advanced-search.png" alt="Screenshot of Google advanced search">
+                </section>
+
 
                 <section>
                     <h3>Compound booleans</h3>
@@ -510,7 +529,7 @@
                     <h3>Compound conditionals</h3>
 
                     <p>A conditional can include any number of <code>elif</code>
-                        statements to check other conditions.</p>
+                        statements to check other conditions. Works kind of like a "choose your own adventure" book!</p>
 
                     <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
                     if &lt;condition&gt;:
