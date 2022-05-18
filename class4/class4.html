@@ -172,7 +172,6 @@
                     <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
                     wear_jacket = is_raining or is_windy
                     </code></pre>
-                    <p>Let's try it in <a href="https://replit.com/">Replit</a> . Create a new Python 3 Repl.</p>
                 </section>
 
                 <section>
@@ -333,7 +332,49 @@
                         to loop for more or less iterations.</p>
 
                 </section>
+                <section>
+                    <h3>Using a counter variable</h3>
 
+                    <p>We need to tell a While loop when to stop, otherwise it might keep running forever!</p>
+                    <p>It's common to use a <strong>counter variable</strong>
+                        whose job is keeping track of the number of times the loop has run.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    total = 0
+                    counter = 0
+                    while counter < 5:
+                      total += pow(2, 1)
+                      counter += 1
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Special assignment operators</h3>
+
+                    <p>What's this <code>+=</code> thing?</p>
+                    <ul>
+                        <li>One of several "special" assignment operators</li>
+                        <li>Does math on an existing variable value and assigns the result to that variable at the same time</li>
+                        <li>A handy shortcut <code>counter += 1</code> does the same thing as <code>counter = counter + 1</code></li>
+                    </ul>
+                    <p>Can also subtract <code>-=</code>, multiply <code>*=</code>, divide <code>/=</code> and assign the result</p>
+                    <p class="smaller">See the <a href="https://www.w3schools.com/python/gloss_python_assignment_operators.asp">full list of special assignment operators on W3Schools</a></p>
+
+                </section>
+                <section>
+                    <h3>Using a counter variable</h3>
+
+                    <p>How many times will this loop run?</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    total = 0
+                    counter = 0
+                    while counter < 5:
+                      total += pow(2, 1)
+                      counter += 1
+                    </code></pre>
+
+                    <p class="fragment">The loop runs while counter is 0, 1, 2, 3 and 4, so 5 times</p>
+                </section>
                 <section>
                     <h3>Changing a while loop #1</h3>
 
@@ -406,44 +447,6 @@
                         <li>What will be the last thing displayed? <span class="fragment">90</span>
                         <li>How many iterations? <span class="fragment">4 (for values of 3, 5, 7, 9)<span>
                     </ul>
-                </section>
-
-                <section>
-                    <h3>Using a counter variable</h3>
-
-                    <p>It's common to use a <strong>counter variable</strong>
-                        whose job is keeping track of the number of iterations.</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    total = 0
-                    counter = 0
-                    while counter < 5:
-                      total += pow(2, 1)
-                      counter += 1
-                    </code></pre>
-
-                    <p>The counter variable may also be involved in the loop computation:</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    total = 0
-                    counter = 0
-                    while counter < 5:
-                      total += pow(2, counter)
-                      counter += 1
-                    </code></pre>
-                </section>
-                <section>
-                    <h3>Special assignment operators</h3>
-
-                    <p>What's this <code>+=</code> thing?</p>
-                    <ul>
-                        <li>One of several "special" assignment operators</li>
-                        <li>Does math on an existing variable value and assigns the result to that variable at the same time</li>
-                        <li>A handy shortcut <code>counter += 1</code> does the same thing as <code>counter = counter + 1</code></li>
-                    </ul>
-                    <p>Can also subtract <code>-=</code>, multiply <code>*=</code>, divide <code>/=</code> and assign the result</p>
-                    <p class="smaller">See the <a href="https://www.w3schools.com/python/gloss_python_assignment_operators.asp">full list of special assignment operators on W3Schools</a></p>
-
                 </section>
 
                 <section>
@@ -541,16 +544,18 @@
                 <section>
                     <h3>range() options</h3>
                     <p class="smaller">If just one argument, range starts at 0 and ends just before it:</p>
+                    <p class="smaller"><em>Why does this start from 0? Computers start counting at 0!</em></p>
                     <pre style="font-size:0.8em; margin-bottom:48px;"><code data-trim data-noescape class="python">
                     for num in range(6):
                         print(num)       # 0, 1, 2, 3, 4, 5
                     </code></pre>
+
                     <p class="smaller">If two arguments, range starts at first and ends just before second:</p>
                     <pre style="font-size:0.8em; margin-bottom:48px;"><code data-trim data-noescape class="python">
                     for num in range(1, 6):
                         print(num)       # 1, 2, 3, 4, 5
                     </code></pre>
-                    <p class="smaller">If three arguments, the range steps at that rate:</p>
+                    <p class="smaller">If three arguments, the range steps at the increment specified by the 3rd argument:</p>
                     <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
                     for num in range(1, 6, 2):
                         print(num)       # 1, 3, 5
@@ -559,7 +564,7 @@
 
                 <section>
                     <h3>Exercise: For in range</h3>
-                    <p>Open <a href="https://replit.com/@lizkrznarich/Class4Ex3ForLoops">Class4Ex2WhileLoops</a> in Replit and click "Fork Repl" to create your own copy</p>
+                    <p>Open <a href="https://replit.com/@lizkrznarich/Class4Ex3ForLoops">Class4Ex3ForLoops</a> in Replit and click "Fork Repl" to create your own copy</p>
                 </section>
 
                 <section>
