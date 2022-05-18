@@ -133,7 +133,6 @@
                         <li>String conversion
                         <li>While loops
                         <li>For loops
-                        <li>Randomness
                     </ul>
                 </section>
                 <section class="heading-only">
@@ -194,6 +193,31 @@
                     <br>
                     <p class="smaller">⚠️ Common mistake: Do not confuse <code>=</code> (the assignment operator) with <code>==</code> (the equality operator).</p>
                 </section>
+                 <section>
+                    <h3>Comparison operators</h3>
+                        <p>⚠️ Common mistake: Do not confuse <code>=</code> (the assignment operator) with <code>==</code> (the equality operator).</p>
+                        <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                            x = y
+                        </code></pre>
+                        <p>is very different from</p>
+                        <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                            x == y
+                        </code></pre>
+                </section>
+                <section>
+                    <h3>Logical operators</h3>
+
+                    <table>
+                        <thead>
+                            <tr><th>Operator<th style="width:40%">True expressions <th>Meaning
+                        <tbody>
+                            <tr><td><code>and</code> <td> <code>4 &gt; 0 and -2 &lt; 0</code> <td class="smaller">Evaluates to <code>True</code> if both cconditions are true; otherwise evaluates to <code>False</code>.
+                            <tr><td><code>or</code>  <td> <code>4 &gt; 0 or -2 &gt; 0 </code> <td class="smaller">Evaluates to <code>True</code> if either condition is true; evaluates to <code>False</code> only if both are false.
+                            <tr><td><code>not</code> <td> <code>not (5 == 0)</code> <td class="smaller">Evaluates to <code>True</code> if condition is false; evaluates to <code>False</code> if condition is true.
+                       </tbody>
+                    </table>
+                    <p class="smaller">W3Schools has a handy <a href="https://www.w3schools.com/python/python_operators.asp">Python operators reference</a></p>
+                </section>
                 <section>
                     <h3>Conditional statements</h3>
 
@@ -216,8 +240,6 @@
                     if temperature < 32:
                         clothing = "jacket"
                     </code></pre>
-
-                    <p class="smaller">In what situations will <code>clothing</code> be assigned to "jacket"?</p>
                 </section>
                 <section>
                     <h3>if/elif/else statements summary</h3>
