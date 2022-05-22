@@ -123,74 +123,96 @@
                     <h3>Class outline:</h3>
 
                     <ul style="font-size:1.0em;">
-                        <li>Random numbers
+                        <li>Review
+                        <li>Data structures
                         <li>Lists
                         <li>Looping through lists
                         <li>Nested lists
                         <li>Helpful list functionality
                     </ul>
-
                 </section>
-
                 <section class="heading-only">
-                    <h2>Random numbers</h2>
+                    <h2>Review</h2>
                 </section>
-
                 <section>
-                    <h3>Random numbers in Python</h3>
+                    <h3>While loops</h3>
 
-                    <p>The <a href="https://docs.python.org/3/library/random.html" target="_blank"><code>random</code></a> module contains
-                        various functions for generating randomness.</p>
-
-                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
-                    import random
-
-                    rando = random.randint(1, 5)   # 1, 2, 3, 4, or 5
-
-                    randy = random.randrange(1, 6) # 1, 2, 3, 4, or 5
-                    </code></pre>
-
-                </section>
-
-                <section>
-                    <h3>Random example</h3>
+                    <p>The while loop syntax:</p>
 
                     <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    def random_rgb():
-                        r = random.randint(0, 255)
-                        g = random.randint(0, 255)
-                        b = random.randint(0, 255)
-                        return r, g, b
-
-                    r1,g1,b1 = random_rgb()
+                    while &lt;condition&gt;:
+                        &lt;statement&gt;
+                        &lt;statement&gt;
                     </code></pre>
 
-                    <p><a href="https://replit.com/@pamelafox/RandomColor#main.py" target="_blank">PyGame: Random squares!</a></p>
+                    <p>As long as the condition is true, the statements below it are executed.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    multiplier = 1
+                    while multiplier &lt;= 5:
+                        print(9 * multiplier)
+                        multiplier += 1
+                    </code></pre>
 
                 </section>
-
                 <section>
-                    <h3>Can computers be truly random?</h3>
+                    <h3>Using a counter variable</h3>
 
-                    <p><strong>No</strong>. Computers use pseudo-random number generators,
-                        which are considered good enough for most purposes.</p>
+                    <p>We need to tell a While loop when to stop, otherwise it might keep running forever!</p>
+                    <p>It's common to use a <strong>counter variable</strong>
+                        whose job is keeping track of the number of times the loop has run.</p>
 
-                    <p>For true randomness (if it exists), you have to find
-                        random phenomena in the world, like atmospheric noise. <br>
-                        See <a href="https://www.random.org/faq/" target="_blank">random.org</a></p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    total = 0
+                    counter = 0
+                    while counter < 5:
+                      total += pow(2, 1)
+                      counter += 1
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Special assignment operators</h3>
+
+                    <p>What's this <code>+=</code> thing?</p>
+                    <ul>
+                        <li>One of several "special" assignment operators</li>
+                        <li>Does math on an existing variable value and assigns the result to that variable at the same time</li>
+                        <li>A handy shortcut <code>counter += 1</code> does the same thing as <code>counter = counter + 1</code></li>
+                    </ul>
+                    <p>Can also subtract <code>-=</code>, multiply <code>*=</code>, divide <code>/=</code> and assign the result</p>
+                    <p class="smaller">See the <a href="https://www.w3schools.com/python/gloss_python_assignment_operators.asp">full list of special assignment operators on W3Schools</a></p>
+                </section>
+                <section>
+                    <h3>For loop</h3>
+
+                    <p>The for loop syntax:</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    for &lt;value&gt; in &lt;sequence&gt;:
+                        &lt;statement&gt;
+                        &lt;statement&gt;
+                    </code></pre>
+
+                    <p>The for loop provides a cleaner way to write many while loops,
+                        as long as they are iterating over some sort of sequence.
+                    </p>
+
+                    <p>A for loop iterating over a sequence of numbers:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    for num in range(1, 5):
+                        print(9 * num)
+                    </code></pre>
+                </section>
+                <section class="heading-only">
+                    <h2>Data structures</h2>
+                </section>
+                <section>
+                    <h3>Data structures</h3>
+
+                    <p>A <b>data structure</b> is a particular way of organizing data in a computer so that it can be used effectively.</p>
                     <br>
-                    <p>🤔  Is anything truly random? Do humans have free will?</p>
+                    <p>Data structures in programming are a bit like lists and tables in text docs/presentations - we use them to organize information and make it more meaningful/useful.</p>
                 </section>
-
-                <section>
-                    <h3>How random is random?</h3>
-
-                    <p>Let's test it and see!</p>
-
-                    <p><a target="_blank" href="https://replit.com/@gdi01/RandomTester">Random Tester</a></p>
-
-                </section>
-
 
                 <section class="heading-only">
                     <h2>Lists</h2>
@@ -198,22 +220,21 @@
 
                 <section>
                     <h3>Lists</h3>
-
                     <p>A list is a container that holds a sequence of related pieces of information.</p>
-                    <br>
                     <p>The shortest list is an empty list, just 2 square brackets:</p>
                     <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
                     members = []
                     </code></pre>
                     <p>Lists can hold any Python values, separated by commas:</p>
                     <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
-                    members = ["Pamela", "Tinu", "Brenda", "Kaya"]
-
+                    # all strings
+                    members = ["Liz", "Tinu", "Brenda", "Kaya"]
+                    # all integers
                     ages_of_kids = [1, 2, 7]
-
+                    # all floats
                     prices = [79.99, 49.99, 89.99]
-
-                    remixed = ["Pamela", 7, 79.99]
+                    # mixed types
+                    mixed_types = ["Liz", 7, 79.99]
                     </code></pre>
 
                 </section>
@@ -222,7 +243,7 @@
                 <section>
                     <h3>Accessing items (Bracket notation)</h3>
 
-                    <p>Each list item has an index, starting from 0.</p>
+                    <p>Lists are ordered. Each list item has an index, starting from 0.</p>
 
                     <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
                     temps = [48.0, 30.5, 20.2, 99.0, 52.0]
@@ -238,21 +259,6 @@
                     temps[4]  <span class="fragment" data-fragment-index="1"># 52.0</span>
                     temps[5]  <span class="fragment" data-fragment-index="2"># 🚫 Error!</span>
                     </code></pre>
-
-                    <div class="fragment">
-                    <p>Negative indices are also possible:</p>
-                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
-                    temps[-1]  <span class="fragment" data-fragment-index="4"># 52.0</span>
-                    temps[-2]  <span class="fragment" data-fragment-index="4"># 99.0</span>
-                    temps[-6]  <span class="fragment" data-fragment-index="4"># 🚫 Error!</span>
-                    </code></pre>
-                    </div>
-
-                    <aside class="notes">
-                        Show as an in-class example?
-                        Getting items from the inventory list
-                        Item = inventory[1]
-                    </aside>
                 </section>
 
                 <section>
@@ -275,13 +281,10 @@
                 </section>
 
                 <section>
-                    <h3>Exercise: Making lists</h3>
-
-                    <p>We'll work on the first part together, and then you'll work on the rest individually.</p>
-
+                    <h3>Exercises: Making lists</h3>
                     <ul>
                         <li><a href="https://replit.com/@lizkrznarich/Class5Ex1ListMaker" target="_blank">Repl: Class5Ex1ListMaker</a>
-                        <li><a href="https://replit.com/team/gdi01/ListsPointMaker" target="_blank">Point maker</a>
+                        <li><a href="https://replit.com/@lizkrznarich/Class5Ex2ListMakerFunction" target="_blank">Repl: Class5Ex2ListMakerFunction</a>
                     </ul>
                 </section>
 
@@ -297,10 +300,6 @@
                     temps[2] = 22.22
                     temps[-1] = 55.55
                     </code></pre>
-
-                    <p class="python-tutor-link">
-                        <a target="_blank" href="http://pythontutor.com/visualize.html#code=temps%20%3D%20%5B48.0,%2030.5,%2020.2,%2099.0,%2052.0%5D%0A%0Atemps%5B2%5D%20%3D%2022.22%0A%0Atemps%5B-1%5D%20%3D%2055.55&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">Try in PythonTutor</a>
-                    </p>
                     <br>
                     <div class="fragment">
                     <p class="smaller">What if we change the value of an item beyond the list length?</p>
@@ -360,41 +359,28 @@
                     i = groceries.index("cheerios")
                     bought_food3 = groceries.pop(i)
                     </code></pre>
-
-                    <p class="python-tutor-link"><a target="_blank" href="http://pythontutor.com/visualize.html#code=groceries%20%3D%20%5B%22apples%22,%20%22bananas%22%5D%0A%0Agroceries.append%28%22peanut%20butter%22%29%0Agroceries.insert%280,%20%22applesauce%22%29%0Agroceries.insert%283,%20%22cheerios%22%29%0A%0Agroceries.remove%28%22bananas%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">See in PythonTutor</a></p>
                 </section>
 
                 <section>
                     <h3>Exercise: Mutating lists</h3>
 
-                    <p>We'll work on the first part together, and then you'll work on the rest individually.</p>
+                    <p>We'll work on the first question together, and then you'll work on the rest individually.</p>
 
-                    <ul>
-                        <li><a href="https://replit.com/team/gdi01/ListsListMutator" target="_blank">List mutator</a>
-                    </ul>
-                </section>
-
-                <section>
-                    <h3>Checking if value is in a list</h3>
-
-                    <p>The <code>in</code> keyword checks if
-                        a value is in a list (or any sequence).</p>
-
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    if "bananas" in groceries:
-                        print("⚠️ Watch your step!")
-
-                    if "bleach" in groceries:
-                        print("☣️ Watch what you eat!")
-                    </code></pre>
-
-                    <p>When used inside if conditions, <code>in</code> expressions return a Boolean (<code>True</code>/<code>False</code>).</p>
+                    <p><a href="https://replit.com/@lizkrznarich/Class5Ex3ListMutator" target="_blank">Repl: Class5Ex3ListMutator</a></p>
                 </section>
 
                 <section>
                     <h3>Looping through a list</h3>
 
-                    <p>You can use a standard <code>while</code> loop:</p>
+                    <p>😍 Python provides a <code>for-in</code> loop for lists: </p>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    scores = [80, 95, 78, 92]
+                    total = 0
+                    for score in scores:
+                        total += score
+                    </code></pre>
+                    <div class="fragment">
+                    <p>You can also use a <code>while</code> loop with a counter to do the same thing:</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     scores = [80, 95, 78, 92]
                     total = 0
@@ -404,23 +390,13 @@
                         total += score
                         i += 1
                     </code></pre>
-                    <div class="fragment">
-                    <p>😍 Python allows provides a <code>for-in</code> loop for lists: </p>
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    for score in scores:
-                        total += score
-                    </code></pre>
                     </div>
-
                 </section>
 
                 <section>
-                    <h3>Exercise</h3>
-
-                    <ul>
-                        <li><a href="https://replit.com/team/gdi01/ListsScoreAverage" target="_blank">average_scores</a></li>
-                        <li><a href="https://replit.com/team/gdi01/ListsConcatenator" target="_blank">concatenator</a></li>
-                    </ul>
+                    <h3>Exercise: For-in loops</h3>
+                    <p>We'll work on the first question together, and then you'll work on the rest individually.</p>
+                    <p><a href="https://replit.com/@lizkrznarich/Class5Ex4ForInListLoops" target="_blank">Repl: Class5Ex4ForInListLoops</a></p>
                 </section>
 
                 <section class="heading-only">
@@ -432,54 +408,31 @@
 
                     <p>Since Python lists can contain any values, an item can itself be a list.</p>
 
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    <pre style="font-size:0.9em">
+                    <code data-trim data-noescape class="python">
                     gymnasts = [
-                                 ["Brittany", 9.15, 9.4, 9.3, 9.2],
-                                 ["Lea", 9, 8.8, 9.1, 9.5],
-                                 ["Maya", 9.2, 8.7, 9.2, 8.8]
+                                ["Brittany", 9.15, 9.4, 9.3, 9.2], # gymnasts[0]
+                                ["Lea", 9, 8.8, 9.1, 9.5], # gymnasts[1]
+                                ["Maya", 9.2, 8.7, 9.2, 8.8] # gymnasts[2]
                                ]
                     </code></pre>
-
+                    <p>You can think of nested lists like rows in a table:</p>
+                    <img src="../images/nested-lists-table.png" height="200"/>
+                </section>
+                <section>
+                    <h3>Nested Lists</h3>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    gymnasts = [
+                                ["Brittany", 9.15, 9.4, 9.3, 9.2], # gymnasts[0]
+                                ["Lea", 9, 8.8, 9.1, 9.5], # gymnasts[1]
+                                ["Maya", 9.2, 8.7, 9.2, 8.8] # gymnasts[2]
+                               ]
+                            </code></pre>
                     <ul>
                      <li>What's the length of <code>gymnasts</code>? <span class="fragment">3</span>
                      <li>What's the length of <code>gymnasts[0]</code>? <span class="fragment">5</span>
                     </ul>
-
-                    <aside class="notes">
-                        Can also think of it in terms of rows and columns.
-                    </aside>
                 </section>
-
-                <section>
-                    <h3>Dynamic creation of nested lists</h3>
-
-                    <p>If we start with...</p>
-                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
-                    gymnasts = [
-                                    ["Brittany", 9.15, 9.4, 9.3, 9.2],
-                                    ["Lea", 9, 8.8, 9.1, 9.5]
-                               ]
-                    </code></pre>
-
-                    <p>We can append another list a few ways:</p>
-                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
-                    gymnasts.append(["Maya", 9.2, 8.7, 9.2, 8.8])
-                    </code></pre>
-                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
-                    gymnasts += ["Maya", 9.2, 8.7, 9.2, 8.8]
-                    </code></pre>
-                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
-                    gymnast = []
-                    gymnast.append("Maya")
-                    gymnast.append(9.2)
-                    gymnast.append(8.7)
-                    gymnast.append(9.2)
-                    gymnast.append(8.8)
-                    gymnasts.append(gymnast)
-                    </code></pre>
-
-                </section>
-
                 <section>
                     <h3>Accessing nested list items</h3>
 
@@ -501,10 +454,8 @@
                     gymnasts[3][0] <span class="fragment"># 🚫 IndexError!</span>
                     </code></pre>
                 </section>
-
                 <section>
-                    <h3>Modifying nested lists</h3>
-
+                    <h3>Modifying nested lists: Bracket notation</h3>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     gymnasts = [
                                     ["Brittany", 9.15, 9.4, 9.3, 9.2],
@@ -512,7 +463,6 @@
                                     ["Maya", 9.2, 8.7, 9.2, 8.8]
                                 ]
                     </code></pre>
-
                     <p>Modify using bracket notation as well, just like before:</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     gymnasts[0] = ["Olivia", 8.75, 9.1, 9.6, 9.8]</span>
@@ -520,10 +470,35 @@
                     gymnasts[2][4] = 9.8
                     </code></pre>
                 </section>
+                <section>
+                    <h3>Modifying nested lists: List methods</h3>
+                    <p>If we start with...</p>
+                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
+                    gymnasts = [
+                                    ["Brittany", 9.15, 9.4, 9.3, 9.2],
+                                    ["Lea", 9, 8.8, 9.1, 9.5]
+                               ]
+                    </code></pre>
+                    <p>We can append another list a few ways:</p>
+                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
+                    gymnasts.append(["Maya", 9.2, 8.7, 9.2, 8.8])
+                    </code></pre>
+                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
+                    gymnasts += ["Maya", 9.2, 8.7, 9.2, 8.8]
+                    </code></pre>
+                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
+                    gymnast = []
+                    gymnast.append("Maya")
+                    gymnast.append(9.2)
+                    gymnast.append(8.7)
+                    gymnast.append(9.2)
+                    gymnast.append(8.8)
+                    gymnasts.append(gymnast)
+                    </code></pre>
+                </section>
 
                 <section>
                     <h3>Looping through nested lists</h3>
-
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     gymnasts = [
                                     ["Brittany", 9.15, 9.4, 9.3, 9.2],
@@ -531,27 +506,37 @@
                                     ["Maya", 9.2, 8.7, 9.2, 8.8]
                                 ]
                     </code></pre>
-
                     <p>Use a nested <code>for-in</code> loop:</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     for gymnast in gymnasts:
                         for data in gymnast:
                             print(data, end="|")
                     </code></pre>
-
                     <p>Remember what type of data is being stored in the loop variable!</p>
                 </section>
-
-                <!--<section>
-                    <h3>Exercise Time</h3>
-
-                    Days of the week
-                    Append the rest of the days int he week, printing your progress as you go,
-                    printing the length
-                </section>-->
+                <section>
+                    <h3>Exercise: Nested for-in loops</h3>
+                    <p><a href="https://replit.com/@lizkrznarich/Class5Ex5NestedForLoops" target="_blank">Repl: Class5Ex5NestedForLoops</a></p>
+                </section>
 
                 <section>
                     <h2>More list functionality</h2>
+                </section>
+                <section>
+                    <h3>Checking if value is in a list</h3>
+
+                    <p>The <code>in</code> keyword checks if
+                        a value is in a list (or any sequence).</p>
+
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    if "bananas" in groceries:
+                        print("⚠️ Watch your step!")
+
+                    if "bleach" in groceries:
+                        print("☣️ Watch what you eat!")
+                    </code></pre>
+
+                    <p>When used inside if conditions, <code>in</code> expressions return a Boolean (<code>True</code>/<code>False</code>).</p>
                 </section>
 
                 <section>
