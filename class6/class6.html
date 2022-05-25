@@ -347,51 +347,14 @@
                     <h3>Examples with sort</h3>
 
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    foods = ["orange", "apple", "Pear", "banana"]
+                    foods = ["orange", "apple", "pear", "banana"]
                     </code></pre>
 
                     <p>The simplest sort:</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     foods.sort()
-                    <span class="fragment"># ["Pear", "apple", "banana", "orange"]</span>
+                    <span class="fragment"># ["apple", "banana", "orange", "pear"]</span>
                     </code></pre>
-
-                    <p>Specifying a key argument of an existing function:</p>
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    foods.sort(key=str.lower)
-                    <span class="fragment"># ["apple", "banana", "orange", "Pear"]</span>
-                    </code></pre>
-                </section>
-
-                <section>
-                    <h3>Useful functions for lists</h3>
-
-                    <p class="smaller">These are functions, <em>not</em> methods.</p>
-                    <table style="font-size:0.75em;">
-                        <thead>
-                            <tr>
-                                <th>Module
-                                <th>Function
-                                <th>Description
-                        <tbody>
-                            <tr>
-                                <td>Global
-                                <td><a target="_blank" href="https://docs.python.org/3/library/functions.html#min"><code>min(list, [key=function])</code></a>
-                                <td>Returns the minimum value in <code>list</code>. The optional <code>key</code> argument specifies a custom comparator function.
-                            <tr>
-                                <td>Global
-                                <td><a target="_blank" href="https://docs.python.org/3/library/functions.html#max"><code>max(list, [key=function])</code></a>
-                                <td>Returns the maximum value in <code>list</code>. he optional <code>key</code> argument specifies a custom comparator function.
-                            <tr>
-                                <td><code>random</code>
-                                <td><a target="_blank" href="https://docs.python.org/3/library/random.html#random.choice"><code>choice(list)</code></a>
-                                <td>Returns a randomly selected item from <code>list</code>.
-                            <tr>
-                                <td><code>random</code>
-                                <td><a target="_blank" href="https://docs.python.org/3/library/random.html#random.shuffle"><code>shuffle(list)</code></a>
-                                <td>Shuffles the elements of the list <strong>in place</strong>.
-                    </table>
-
                 </section>
                 <section class="heading-only">
                     <h2>Tuples</h2>
@@ -600,7 +563,7 @@
                 <section>
                     <h3>Exercise: Pizza order</h3>
                     <p>Let's put it all together in one final exercise!</p>
-                    <p><a target="_blank" href="https://replit.com/@lizkrznarich/Class6Ex2PizzaOrde">Repl: Class6Ex2PizzaOrder</a></p>
+                    <p><a target="_blank" href="https://replit.com/@lizkrznarich/Class6Ex2PizzaOrder">Repl: Class6Ex2PizzaOrder</a></p>
                 </section>
 
                 <section class="heading-only">
