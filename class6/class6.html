@@ -295,7 +295,7 @@
                                 <td>Returns the number of occurrences of <code>item</code> in the list. If <code>item</code> is not found, returns 0.
                             <tr>
                                 <td><code>join(list)</code>
-                                <td>Join the items in a list into a single string, separated by a specified string. This is actually a string method; the list is passed as an argument, ex <code>", ".join(list)</code>
+                                <td>Join the items in a list into a single string, separated by a specified string. Only works for strings! This is actually a string method; the list is passed as an argument, ex <code>", ".join(list)</code>
                             <tr>
                                 <td><code>reverse()</code>
                                 <td>Reverses the elements of the list <strong>in place</strong>.
@@ -312,13 +312,10 @@
 
                     <p>If we start with...</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
                     spelling = ["B", "U", "M", "B", "L", "E"]
                     </code></pre>
 
                     <p>Then call the <code>join</code> method...</p>
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    ", ".join(nums)     <span class="fragment"># "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"</span>
                     "".join(spelling) <span class="fragment"># "BUMBLE"
                     </code></pre>
 
