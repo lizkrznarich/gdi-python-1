@@ -74,6 +74,9 @@
                 background-color: #f9f2f4;
                 border-radius: 4px;
             }
+            li {
+                margin-bottom: 1rem;
+            }
 
             p.padded {
                 margin-top: 32px;
@@ -154,11 +157,13 @@
                 <section>
                     <h3>Class logistics</h3>
                     <ul>
-                        <li>6 sessions Tues/Wed, May 10-May 26, 7-9pm EDT/6-8pm CDT/4-6pm PDT</li>
-                        <li>All class meetings will be held via Zoom (find the URL in your calender invites and reminders from events@girldevelopit.com)</li>
-                        <li>Slides + exercise links: <a href="https://lizkrznarich.github.io/gdi-python-1">https://lizkrznarich.github.io/gdi-python-1</a></li>
+                        <li>6 sessions: Weekly on Wed, Aug 24-Sep 28, 4-6pm EDT/3-5pm CDT/1-3pm PDT</li>
+                        <li>Slides + exercise links: <a href="https://lizkrznarich.github.io/gdi-python-1">https://lizkrznarich.github.io/gdi-python-1</a> <em>
+                        (Note! I'll tweak class materials as we go, so you may see some changes from what's there now)</em></li>
                         <li>Recap and recording links will be emailed after each class</li>
-                        <li>Questions? Use the <a href="https://join.slack.com/t/girldevelopit-z553572/shared_invite/zt-kl7e5zuu-FaWJeU7ecXksoZp7rK1BjA">GDI Slack</a> #python1_05-2022 channel (class links/resources will be posted here as well)</li>
+                        <li>Questions? Contact me at <a href="mailto:ejkrznarich@gmail.com">ejkrznarich@gmail.com</a></li>
+                        <li>Optional: <a href="https://join.slack.com/t/girldevelopit-z553572/shared_invite/zt-kl7e5zuu-FaWJeU7ecXksoZp7rK1BjA">Join the GDI Slack Community</a></li>
+
                     </ul>
                 </section>
                 <section>
@@ -170,7 +175,6 @@
                         <li>Location
                         <li>Programming experience (if any, not required!)
                         <li>What interests you about Python?
-                        <li>What's one non-digital activity you've enjoyed recently?
                     </ul>
                 </section>
 
@@ -178,12 +182,13 @@
                     <h3>Today's topics</h3>
 
                     <ul>
-                        <li>What is Python?
-                        <li>Why Python?
-                        <li>Python setup
-                        <li>Values
-                        <li>Expressions
+                        <li>What/why Python?
+                        <li>Simple data types & values
                         <li>Names
+                        <li>Expressions & operators
+                        <li>Built-in functions
+                        <li>Imports
+                        <li>Built-in methods
                     </ul>
                 </section>
 
@@ -202,6 +207,10 @@
                         <li>Open source
                     </ul>
                     <br>
+
+                </section>
+                <section>
+                    <h3>The Python language</h3>
                     <p class="smaller">Example (that you don't need to understand yet!):</p>
                     <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
                     def add_numbers_between(start, end):
@@ -215,15 +224,6 @@
 
                 </section>
 
-                <section>
-                    <h3>Python versions</h3>
-
-                    <p>Python 3 is the current major version of the language.<br>Python 2 is <strong>deprecated</strong>!</p>
-
-                    <img src="https://upload.wikimedia.org/wikipedia/en/timeline/5fd37e8c8b51ef2cb6ca4796d68d9ae3.png" alt="Python versions history graph" height=500>
-
-                </section>
-
                 <section class="heading-only">
                     <h2>Why Python?</h2>
                 </section>
@@ -231,7 +231,7 @@
                 <section>
                     <h3>Benefits</h3>
 
-                    <p>For learning:</p>
+                    <h4>For learning:</h4>
                     <ul>
                         <li>Python's syntax is considered easier to read and use than most languages.
                         <li>The language includes features of many different types of languages,
@@ -239,7 +239,7 @@
                             (functional programming, object-oriented programming, etc).
                     </ul>
 
-                    <p>For development:</p>
+                    <h4>For development:</h4>
                     <ul>
                         <li>Python can be used for a wide range of applications (web, data science, graphics, games, language, etc)
                             thanks to the huge number of libraries and tutorials.
@@ -282,13 +282,13 @@
                 <section>
                     <h3>Data analysis notebook</h3>
 
-                    <p>Data analysts and data scientists often use notebooks for an easy log
-                        of their calculations and outputs.</p>
+                    <p>Data analysts and data scientists often use notebooks, like <a href="https://jupyter.org/">Jupyter Notebooks</a> to document and share
+                        calculations and outputs.</p>
 
                     <img src="../images/notebook.png" alt="Screenshot of a Jupyter notebook with Python code">
 
                 </section>
-                <section>
+                <section class="heading-only">
                     <p>💬  What's one thing you'd LOVE to make with Python?</p>
                 </section>
                 <section class="heading-only">
@@ -298,19 +298,21 @@
                 <section>
                     <h3>Coding Python locally</h3>
 
-                    <p>It is possible to code locally on your computer, using:
+                    <p>Usually, we would write Python code on our own computers using:
                     </p>
                     <ul>
                         <li><a href="https://sp21.cs61a.org/lab/lab00/#install-python-3" target="_blank">locally installed Python</a>
                         <li><a href="https://sp21.cs61a.org/lab/lab00/#install-a-terminal" target="_blank">the command line</a>
-                        <li><a href="https://inst.eecs.berkeley.edu/~cs61a/sp21/lab/lab00/#install-a-text-editor" target="_blank">a text editor</a>
+                        <li><a href="https://inst.eecs.berkeley.edu/~cs61a/sp21/lab/lab00/#install-a-text-editor" target="_blank">a text editor</a> (or a Python IDE)
                     </ul>
+                    <p><small>(click the links above for setup info)</small></p>
                 </section>
 
                 <section>
                     <h3>Coding Python on Repl.it</h3>
 
-                    <p>We'll use the Python editor on Repl.it, an online IDE that supports many languages.</p>
+                    <p>Installing/running Python on lots of different systems/versions is tricky.</p>
+                    <p>In this class, we'll use Replit, an online editor.</p>
 
                     <p><a href="https://repl.it/languages/python3" target="_blank">
                         https://repl.it/languages/python3
@@ -320,23 +322,26 @@
 
                 <section>
                     <h3>Repl.it setup</h3>
-
-                    <p>We'll use Repl.it for our coding exercises in this class.</p>
-
                     <ul style="font-size:1.0em;">
-                        <li>Create a <a href="https://replit.com/">Repl.it account</a>
+                        <li>Create a <a href="https://replit.com/">Replit account</a>
                         <li>Once you're logged in, create a new Python repl
                     </ul>
-                    <img src="../images/create-repl.png" alt="screenshot of repl">
+                    <img src="../images/create-repl.png" alt="screenshot of repl" width="800px">
                 </section>
-
-
+                <section>
+                    <h3>print()</h3>
+                    <p>We use <b>print()</b> to tell Python what to output. This is very useful in debugging - ex, to see the value of a variable.
+                    </p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    print("hello world!"
+                    </code></pre>
+                </section>
                 <section class="heading-only">
-                    <h2>Values</h2>
+                    <h2>(simple) Data types & values</h2>
                 </section>
 
                 <section>
-                    <h3>Values</h3>
+                    <h3>(simple) data types & values</h3>
 
                     <p>Programs manipulate <strong>values</strong>.</p>
                     <p>Each value has a certain <strong>data type</strong>.</p>
@@ -361,9 +366,172 @@
                                 <td><code>'¡hola!'</code> <code>'its python time!'</code>
                     </table>
                 </section>
+                <section class="heading-only">
+                    <h2>Names</h2>
+                </section>
+
+                <section>
+                    <img src="../images/name_value.png" alt="Name bound to value" width="200" style="float:right;">
+                    <h3>Names</h3>
+
+                    <p>In Python, objects have <strong>names</strong>. Different types of objects (variables, functions, etc) can have names.
+                    </p>
+                    <br>
+                    <p>A <strong>variable</strong> is a name bound to a value using an <strong>assignment statement</strong>:</p>
+
+                    <table class="anatomy_of_call">
+                        <tr>
+                            <td>x
+                            <td>=
+                            <td>7
+                        <tr>
+                            <td class="anatomy_of_call_operator">Name
+                            <td>
+                            <td class="anatomy_of_call_operand">Value
+                    </table>
+
+                </section>
+                <section>
+                    <h3>Names</h3>
+                    <div>
+                    <p>The value can be any expression:</p>
+
+                    <table class="anatomy_of_call">
+                        <tr>
+                            <td>x
+                            <td>=
+                            <td>1 + 2 * 3 - 4 // 5
+                        <tr>
+                            <td class="anatomy_of_call_operator">Name
+                            <td>
+                            <td class="anatomy_of_call_operand">Expression
+                    </table>
+                    </div>
+
+                    <div>
+                    <p>It can also be a function:</p>
+                    <table class="anatomy_of_call">
+                        <tr>
+                            <td>x
+                            <td>=
+                            <td>add(1+2)
+                        <tr>
+                            <td class="anatomy_of_call_operator">Name
+                            <td>
+                            <td class="anatomy_of_call_operand">Expression
+                    </table>
+                    </div>
+
+                </section>
+                <section>
+                <h3>Name rules</h3>
+
+                <p>Only certain character combinations are allowed:</p>
+                 <ul>
+                     <li>Must start with a letter or the underscore character</li>
+                     <li>Cannot start with a number</li>
+                     <li>Can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</li>
+                 </ul>
+                 <table>
+                 <tr>
+                 <td>
+                 <h4>Allowed names</h4>
+                 <ul>
+                     <li><code>banana_gram</code>
+                     <li><code>Bananagram</code>
+                     <li><code>_banana_gram</code>
+                 </ul>
+                 </td>
+                 <td>
+                 <h4>Non-allowed names</h4>
+                 <ul>
+                     <li><code>1banana_gram</code>
+                         <li><code>banana-gram</code>
+                     <li><code>banana gram</code>
+                 </ul>
+             </td>
+             </tr>
+             </table>
+             <p class="smaller">See more examples at W3Schools: <a href="https://www.w3schools.com/python/gloss_python_variable_names.asp">https://www.w3schools.com/python/gloss_python_variable_names.asp</a></p>
+             </section>
+
+             <section>
+                 <h3>Name rules</h3>
+
+                 <p>Names are case sensitive.</p>
+
+                 <p>If name is <code>my_fav_hobby</code>, the following are <em>not</em> equivalent:</p>
+
+                 <ul>
+                     <li><code>my_fav_hobbY</code>
+                     <li><code>My_fav_hobby</code>
+                     <li><code>MY_FAV_HOBBY</code>
+                     <li><code>myfavhobby</code>
+                 </ul>
+
+                 <p>Programming can help you develop an eye for these little details,
+                     but software development tools will also help you find these issues.</p>
+
+             </section>
+             <section>
+                 <h3>Naming conventions for variables & functions</h3>
+                 <ul>
+                     <li>Use a lowercase single letter (variables only), word, or words
+                     <li>Separate words with underscores
+                     <li>Make names meaningful, ex <code>first_name</code> rather than <code>fn</code>
+                 </ul>
+                 <br><br>
+                 <h4>Examples</h4>
+                 <ul>
+                     <li><code>m</code> (variables only)
+                     <li><code>hobby</code>
+                     <li><code>my_fav_hobby</code>
+                 </ul>
+
+                 <p class="smaller">See more examples at Real Python: <a href="https://realpython.com/python-pep8/#naming-styles">https://realpython.com/python-pep8/#naming-styles</a></p>
+             </section>
+             <section>
+                <h3>Using names</h3>
+
+                <p>A name can be referenced multiple times:</p>
+
+                <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                x = 10
+                y = 3
+
+                result1 = x * y
+                result2 = x + y
+                </code></pre>
+
+                <div class="fragment">
+                <p>A name that's bound to a data value is also known as a <strong>variable</strong>.</p>
+
+                <p>💬 How many variables are in that code snippet? <br>
+                    <span class="fragment">4 variables: <code>x</code>, <code>y</code>, <code>result1</code>, <code>result2</code></span>
+                </p>
+                </div>
+
+            </section>
+
+            <section>
+                <h3>Name rebinding</h3>
+
+                <p>A name can only be bound to a single value.</p>
+
+                <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                my_name = 'Liz'
+
+                my_name = my_name + 'iz'
+                </code></pre>
+
+                <p>💬  Will that code error? If not, what will <code>my_name</code> store? <br>
+                    <span class="fragment">It will not error (similar code in other languages might, however).
+                    The name <code>my_name</code> is now bound to the value 'Liziz'.
+                </p>
+            </section>
 
                 <section class="heading-only">
-                    <h2>Expressions</h2>
+                    <h2>Expressions & operators</h2>
                 </section>
 
                 <section>
@@ -392,7 +560,48 @@
                     <p>Let's try it in Repl!
                     </p>
                 </section>
-
+                <section>
+                    <h3>Mathematical operators</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Operator
+                                <th>Name
+                                <th>Example
+                        <tbody>
+                            <tr>
+                                <td>+
+                                <td>Addition
+                                <td>1 + 2 = 3
+                            <tr>
+                                <td>-
+                                <td>Subtraction
+                                <td>2 - 1  = 1
+                            <tr>
+                                <td>*
+                                <td>Multiplication
+                                <td>2 * 3 = 6
+                            <tr>
+                                <td>/
+                                <td>Division
+                                <td>6 / 3 = 2
+                            <tr>
+                                <td>%
+                                <td>Modulus (divide & return the remainder)
+                                <td>5 % 2 = 1
+                            <tr>
+                                <td>**
+                                <td>Exponentation (aka powers)
+                                <td>2 ** 3 = 8
+                            <tr>
+                                <td>//
+                                <td>Floor division (divide & round down to the nearest integer)
+                                <td>5 // 2 = 2
+                    </table>
+                </section>
+                <section class="heading-only">
+                    <h2>Built-in functions</h2>
+                </section>
                 <section>
                     <h3>Expressions <span class="smaller">(with function calls)</span></h3>
 
@@ -413,9 +622,8 @@
 
                     <p>Let's try these in Repl!
                     </p>
-
-
                 </section>
+
 
                 <section>
                     <h3>Expressions (both ways)</h3>
@@ -427,162 +635,57 @@
                     pow(2, 100)
                     </code></pre>
 
-                    <div class="fragment">
+                </section>
+                <section class="heading-only">
+                    <h2>Imports</h2>
+                </section>
+                <section>
+                    <h3>Importing functions & modules</h3>
+
+                    <p>Some functions from the Python standard library are available by default.
+                        Others are included with a basic Python installation, but need to be imported
+                        into your current file before they can be used.</p>
+
+                    <p>Import a single function from the <a href="https://docs.python.org/3/library/operator.html">Operator module</a> :</p>
+
+                    <div>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     from operator import add
 
                     18 + 69
                     add(18, 69)
                     </code></pre>
-
-                    <p class="smaller">
-                        The <code>pow()</code> function is a <strong>built-in</strong>; it's provided in every
-                        Python environment.
-                     Other functions (<code>add()</code>, <code>div()</code>, etc)
-                        must be imported from the
-                        <a target="_blank" href="https://docs.python.org/3/library/operator.html"><code>operator</code></a> module in the Python standard library. <br><a href="https://docs.python.org/3.8/library/operator.html">Learn more about the operator library in the Python docs.</a></p>
-                    </p>
-                </div>
+                    </div>
 
                 </section>
-
-
-
                 <section>
-                    <h3>Anatomy of a Call Expression</h3>
+                    <h3>Importing functions & modules</h3>
 
-                    <style type="text/css">
-                    table.anatomy_of_call {
-                        border: 2px dotted #0072c1;
-                        border-radius: 8px;
-                        border-collapse: separate;
-                        padding: 10px;
-                    }
+                    <p>Import the entire <a href="https://docs.python.org/3/library/operator.html">Operator module</a> (all of its functions):</p>
 
-                    table.anatomy_of_call tr:first-child td {
-                        font-family:monospace;
-                    }
-
-                    table.anatomy_of_call td {
-                        text-align:center;
-                    }
-
-                    table.anatomy_of_call tr:first-child td {
-                        border-bottom: none;
-                    }
-
-                    table.anatomy_of_call td.anatomy_of_call_operator {
-                        border-top: 1px solid purple;
-                    }
-
-                    table.anatomy_of_call td.anatomy_of_call_operand {
-                        border-top: 1px solid green;
-                    }
-
-                    .anatomy_of_call_operator {
-                        color: purple;
-                    }
-
-                    .anatomy_of_call_operand {
-                        color: green;
-                    }
-                    </style>
-
-                    <table class="anatomy_of_call">
-                        <tr>
-                            <td>add
-                            <td>(
-                            <td>18
-                            <td>,
-                            <td>69
-                            <td>)
-                        <tr>
-                            <td class="anatomy_of_call_operator"><span class="fragment" data-fragment-index="1">Operator</span>
-                            <td>
-                            <td class="anatomy_of_call_operand"><span class="fragment" data-fragment-index="2">Operand</span>
-                            <td>
-                            <td class="anatomy_of_call_operand"><span class="fragment" data-fragment-index="2">Operand</span>
-                            <td>
-                    </table>
-
-                    <p>How Python evaluates a call expression:</p>
-
-                    <ol>
-                        <li class="fragment" data-fragment-index="1">Evaluate the <span class="anatomy_of_call_operator">operator</span>
-                        <li class="fragment" data-fragment-index="2">Evaluate the <span class="anatomy_of_call_operand">operands</span>
-                        <li class="fragment" data-fragment-index="3">Apply the <span class="anatomy_of_call_operator">operator (a function)</span> to the evaluated <span class="anatomy_of_call_operand">operands (arguments)</span>
-                    </ol>
-
-                    <p class="fragment">Operators and operands are also expressions, so they must be evaluated to discover their values.</p>
-
-                </section>
-
-                <section>
-                    <h3>Nested call expressions</h3>
-
-                    <table class="anatomy_of_call">
-                        <tr>
-                            <td>add
-                            <td>(
-                            <td>add(6, mul(4, 6))
-                            <td>,
-                            <td>mul(3, 5)
-                            <td>)
-                        <tr>
-                            <td class="anatomy_of_call_operator">Operator
-                            <td>
-                            <td class="anatomy_of_call_operand">Operand
-                            <td>
-                            <td class="anatomy_of_call_operand">Operand
-                            <td>
-                    </table>
-
-                    <p>Humans evaluate inside out:</p>
+                    <div>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    add(add(6, <strong>mul(4, 6)</strong>), mul(3, 5))
-                    <span class="fragment">add(add(6,    <strong>24</strong>    ), mul(3, 5))</span>
-                    <span class="fragment">add(<strong>add(6,    24    )</strong>, mul(3, 5))</span>
-                    <span class="fragment">add(        <strong>30</strong>       , mul(3, 5))</span>
-                    <span class="fragment">add(        30       , <strong>mul(3, 5)</strong>)</span>
-                    <span class="fragment">add(        30       ,    <strong>15</strong>    )</span>
-                    <span class="fragment"><strong>add(        30       ,    15    )</strong></span>
-                    <span class="fragment">45</span>
+                    import operator
+
+                    18 + 69
+                    add(18, 69)
                     </code></pre>
 
+                    <p class="smaller">
+                        <strong>Why would we import a single function vs an entire module?</strong> Some modules are big! You'll get better performance by importing only what you need.
+                    </p>
+                    </div>
+
                 </section>
-
+                <section class="heading-only">
+                    <h2>Nested expressions</h2>
+                </section>
                 <section>
-                    <h3>Nested expression trees</h3>
+                    <h3>Nested expressions</h3>
 
-                    <p>Python evaluates nested expressions with a similar process.</p>
+                    <p>We can combine multiple expression inside one another. These are evaluated from the inside out.</p>
 
                     <img src="../images/nested_expression_tree.png" alt="screenshot of expression tree">
-                </section>
-
-                <section>
-                    <h3>Expressions → values</h3>
-
-                    <p>Python evaluates expressions into values in one or more steps.</p>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Expression
-                                <th>Value
-                        <tbody>
-                            <tr>
-                                <td><code>'ahoy'</code>
-                                <td><code>'ahoy'</code>
-                            <tr>
-                                <td><code>'a' + 'hoy'</code>
-                                <td><code>'ahoy'</code>
-                            <tr>
-                                <td><code>7 / 2</code>
-                                <td><code>3.5</code>
-                            <tr>
-                                <td><code>add(1, max(2, 3))</code>
-                                <td><code>4</code>
-                    </table>
                 </section>
 
                 <section>
@@ -593,93 +696,12 @@
                     <p>Click the <b>Fork Repl</b> button to create your own copy</p>
                     <p>Let's work through these questions together!</p>
                 </section>
-
                 <section class="heading-only">
-                    <h2>Names</h2>
+                    <h2>Built-in methods</h2>
                 </section>
-
                 <section>
-                    <img src="../images/name_value.png" alt="Name bound to value" width="200" style="float:right;">
-                    <h3>Names</h3>
-
-                    <p>A <strong>name</strong> can be bound to a value.
-                    </p>
-                    <br>
-                    <p>One way to bind a name is with an <strong>assignment statement</strong>:</p>
-
-                    <table class="anatomy_of_call">
-                        <tr>
-                            <td>x
-                            <td>=
-                            <td>7
-                        <tr>
-                            <td class="anatomy_of_call_operator">Name
-                            <td>
-                            <td class="anatomy_of_call_operand">Value
-                    </table>
-
-                    <div class="fragment">
-                    <p>The value can be any expression:</p>
-
-                    <table class="anatomy_of_call">
-                        <tr>
-                            <td>x
-                            <td>=
-                            <td>1 + 2 * 3 - 4 // 5
-                        <tr>
-                            <td class="anatomy_of_call_operator">Name
-                            <td>
-                            <td class="anatomy_of_call_operand">Expression
-                    </table>
-                    </div>
-
-                </section>
-
-                <section>
-                    <h3>Using names</h3>
-
-                    <p>A name can be referenced multiple times:</p>
-
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    x = 10
-                    y = 3
-
-                    result1 = x * y
-                    result2 = x + y
-                    </code></pre>
-
-                    <div class="fragment">
-                    <p>A name that's bound to a data value is also known as a <strong>variable</strong>.</p>
-
-                    <p>💬 How many variables are in that code snippet? <br>
-                        <span class="fragment">4 variables: <code>x</code>, <code>y</code>, <code>result1</code>, <code>result2</code></span>
-                    </p>
-                    </div>
-
-                </section>
-
-                <section>
-                    <h3>Name rebinding</h3>
-
-                    <p>A name can only be bound to a single value.</p>
-
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    my_name = 'Liz'
-
-                    my_name = my_name + 'iz'
-                    </code></pre>
-
-                    <p>💬  Will that code error? If not, what will <code>my_name</code> store? <br>
-                        <span class="fragment">It will not error (similar code in other languages might, however).
-                        The name <code>my_name</code> is now bound to the value 'Liziz'.
-                    </p>
-                </section>
-
-                <section>
-                    <h3>Group exercise</h3>
-
-                    <p><a href="https://replit.com/@lizkrznarich/Class1Ex2TextProcessing" target="_blank">Open the Class1Ex2TextProcessing repl</a>. Let's play with some strings!</p>
-                    <p>The Python String data type comes with some handy built-in methods that can be used to manipulate bits of text.</p>
+                    <h3>Built-in methods</h3>
+                    <p>Each Python data type has built-in capababilites that are specific to that data type. These are call built-in methods.</p>
                     <p>Built-in methods use a different syntax from the operators and functions we looked at in the last section:</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
 
@@ -691,8 +713,8 @@
                     <p><a href="https://docs.python.org/3.8/library/stdtypes.html#string-methods">Learn more about built-in String methods in the Python docs</a></p>
                 </section>
                 <section>
-                    <h3>Group exercise</h3>
-                    <p>Here are some common string methods:</p>
+                    <h3>String methods</h3>
+                    <p>The Python String data type comes with some handy built-in methods that can be used to manipulate bits of text.</p>
                     <style type="text/css">
                     .text_processing_table {
                         width: 100%;
@@ -724,6 +746,17 @@
                                 <td contenteditable>Returns a copy of the string with the leading and trailing whitespace characters removed
                     </table>
                     <p>For the full list, see <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">Python3 docs</a></p>
+                </section>
+                <section>
+                    <h3>Exercise: Manipulating strings</h3>
+
+                    <p><a href="https://replit.com/@lizkrznarich/Class1Ex2TextProcessing" target="_blank">Open the Class1Ex2TextProcessing repl</a>. Let's play with some strings!</p>
+
+                </section>
+                <section class="heading-only">
+                    <h2>How is it going? </h2>
+                    <p>Please fill out the feedback form to let me know how I can improve the class!</p>
+                    <p><a href="https://forms.gle/iENMqYvdahR9AP5UA">https://forms.gle/iENMqYvdahR9AP5UA</a></p>
                 </section>
 
 			</div>
