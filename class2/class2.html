@@ -128,11 +128,11 @@
                 <section>
                     <h3>Class outline:</h3>
                         <li>Review & questions
-                        <li>Syntax tips
-                        <li>Comments
-                        <li>Debugging with print()
                         <li>Functions intro
                         <li>Defining functions
+                        <li>Namespaces
+                        <li>More functions tips
+                        <li>Practice exercises
                     </ul>
                 </section>
 
@@ -140,7 +140,7 @@
                     <h2>Review</h2>
                 </section>
                 <section>
-                    <h3>Values</h3>
+                    <h3>Data types & values</h3>
 
                     <p>Programs manipulate <strong>values</strong>.</p>
                     <p>Each value has a certain <strong>data type</strong>.</p>
@@ -166,7 +166,7 @@
                     </table>
                 </section>
                 <section>
-                    <h3>Expressions</h3>
+                    <h3>Expressions & operators</h3>
 
                     <p>Python evaluates expressions into values in one or more steps.</p>
 
@@ -185,14 +185,50 @@
                             <tr>
                                 <td><code>7 / 2</code>
                                 <td><code>3.5</code>
+                    </table>
+                </section>
+                <section>
+                    <h3>Mathematical operators</h3>
+                    <table>
+                        <thead>
                             <tr>
-                                <td><code>add(1, max(2, 3))</code>
-                                <td><code>4</code>
+                                <th>Operator
+                                <th>Name
+                                <th>Example
+                        <tbody>
+                            <tr>
+                                <td>+
+                                <td>Addition
+                                <td>1 + 2 = 3
+                            <tr>
+                                <td>-
+                                <td>Subtraction
+                                <td>2 - 1  = 1
+                            <tr>
+                                <td>*
+                                <td>Multiplication
+                                <td>2 * 3 = 6
+                            <tr>
+                                <td>/
+                                <td>Division
+                                <td>6 / 3 = 2
+                            <tr>
+                                <td>%
+                                <td>Modulus (divide & return the remainder)
+                                <td>5 % 2 = 1
+                            <tr>
+                                <td>**
+                                <td>Exponentation (aka powers)
+                                <td>2 ** 3 = 8
+                            <tr>
+                                <td>//
+                                <td>Floor division (divide & round down to the nearest integer)
+                                <td>5 // 2 = 2
                     </table>
                 </section>
                 <section>
                     <img src="../images/name_value.png" alt="Name bound to value" width="200" style="float:right;">
-                    <h3>Names</h3>
+                    <h3>Variables</h3>
 
                     <p>A <strong>name</strong> can be bound to a value.
                     </p>
@@ -227,14 +263,92 @@
                     </div>
                 </section>
                 <section>
-                    <h3>Python console</h3>
-
-                    <p>In the Python conosole, we can evaluate and manipulate values using:</p>
+                    <h3>Naming conventions for variables & functions</h3>
                     <ul>
-                        <li><b>Operators</b><br> <code>7 + 2</code>
-                        <li><b>Functions</b><br> <code>add(7, 2)</code>
-                        <li><b>Built-in methods</b><br> <code>my_string = 'blar'<br>my_string.upper()</code>
+                        <li>Use a lowercase single letter (variables only), word, or words
+                        <li>Separate words with underscores
+                        <li>Make names meaningful, ex <code>first_name</code> rather than <code>fn</code>
                     </ul>
+                    <br><br>
+                    <h4>Examples</h4>
+                    <ul>
+                        <li><code>m</code> (variables only)
+                        <li><code>hobby</code>
+                        <li><code>my_fav_hobby</code>
+                    </ul>
+
+                    <p class="smaller">See more examples at Real Python: <a href="https://realpython.com/python-pep8/#naming-styles">https://realpython.com/python-pep8/#naming-styles</a></p>
+                </section>
+                <section>
+                    <h2>Built-in functions</h2>
+
+                    <p>Python has lots of <a href="<p><a target="_blank" href="https://docs.python.org/3.8/library/functions.html">built-in <b>functions</b></a>. Built-in functions are not specific to a particular data type - they often work on multiple data types (but check the docs!)<br>
+                    Some examples are:</p>
+
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    pow(2, 100)
+                    </code></pre>
+
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    max(50, 300)
+                    </code></pre>
+
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    min(-1, -300)
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Debugging with print()</h3>
+                    <p>One of the most commonly-used built-in functions is <b>print()</b>
+                    </p>
+                    <p>We use <b>print()</b> to tell Python what to output to the console. This is very useful in debugging - ex, to see the value of a variable.
+                    </p>
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    print("hello world")
+                    x = 5
+                    y = 10
+                    print(x)
+                    print(y)
+                    print(x+y)
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Built-in methods</h2>
+
+                    <p>Each data type has a set of built-in <b>methods</b> that only work on that data type. Check the <a href="https://docs.python.org/3/library/stdtypes.html">Python data types docs</a> to see which methods are available for a given data type.<br>
+                    Examples of string methods are:</p>
+
+                    <style type="text/css">
+                        .text_processing_table {
+                            width: 100%;
+                        }
+                        .text_processing_table td[contenteditable] {
+                            font-size: 0.5em;
+                        }
+                        </style>
+                        <table class="text_processing_table">
+                            <thead>
+                                <tr>
+                                    <th>Function
+                                    <th>Description
+                            <tbody>
+                                <tr>
+                                    <td>.upper()
+                                    <td contenteditable>Returns a copy of the string with all characters converted to uppercase
+                                <tr>
+                                    <td>.lower()
+                                    <td contenteditable>Returns a copy of the string with all characters converted to lowercase
+                                <tr>
+                                    <td>.title()
+                                    <td contenteditable>Returns a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase
+                                <tr>
+                                    <td>.swapcase()
+                                    <td contenteditable>Returns a copy of the string with uppercase characters converted to lowercase and vice versa
+                                <tr>
+                                    <td>.strip()
+                                    <td contenteditable>Returns a copy of the string with the leading and trailing whitespace characters removed
+                        </table>
+
                 </section>
                 <section class="heading-only">
                     <h2>Syntax tips</h2>
@@ -288,79 +402,6 @@
                     </table>
                 </section>
                 <section>
-                    <h3>Name rules</h3>
-
-                   <p>Only certain character combinations are allowed:</p>
-                    <ul>
-                        <li>Must start with a letter or the underscore character</li>
-                        <li>Cannot start with a number</li>
-                        <li>Can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</li>
-                    </ul>
-                    <table>
-                    <tr>
-                    <td>
-                    <h4>Allowed names</h4>
-                    <ul>
-                        <li><code>banana_gram</code>
-                        <li><code>Bananagram</code>
-                        <li><code>_banana_gram</code>
-                    </ul>
-                    </td>
-                    <td>
-                    <h4>Non-allowed names</h4>
-                    <ul>
-                        <li><code>1banana_gram</code>
-                            <li><code>banana-gram</code>
-                        <li><code>banana gram</code>
-                    </ul>
-                </td>
-                </tr>
-                </table>
-                <p class="smaller">See more examples at W3Schools: <a href="https://www.w3schools.com/python/gloss_python_variable_names.asp">https://www.w3schools.com/python/gloss_python_variable_names.asp</a></p>
-                </section>
-
-                <section>
-                    <h3>Name rules</h3>
-
-                    <p>Names are case sensitive.</p>
-
-                    <p>If name is <code>my_fav_hobby</code>, the following are <em>not</em> equivalent:</p>
-
-                    <ul>
-                        <li><code>my_fav_hobbY</code>
-                        <li><code>My_fav_hobby</code>
-                        <li><code>MY_FAV_HOBBY</code>
-                        <li><code>myfavhobby</code>
-                    </ul>
-
-                    <p>Programming can help you develop an eye for these little details,
-                        but software development tools will also help you find these issues.</p>
-
-                </section>
-                <section>
-                    <h3>Naming conventions for variables & functions</h3>
-                    <ul>
-                        <li>Use a lowercase single letter (variables only), word, or words
-                        <li>Separate words with underscores
-                        <li>Make names meaningful, ex <code>first_name</code> rather than <code>fn</code>
-                    </ul>
-                    <br><br>
-                    <h4>Examples</h4>
-                    <ul>
-                        <li><code>m</code> (variables only)
-                        <li><code>hobby</code>
-                        <li><code>my_fav_hobby</code>
-                    </ul>
-
-                    <p class="smaller">See more examples at Real Python: <a href="https://realpython.com/python-pep8/#naming-styles">https://realpython.com/python-pep8/#naming-styles</a></p>
-                </section>
-
-                <section class="heading-only">
-                    <h2>Comments</h2>
-                </section>
-
-
-                <section>
                     <h3>Comment syntax</h3>
 
                     <p>A comment is human-readable text that's ignored by the Python interpreter.</p>
@@ -372,7 +413,7 @@
                     """
                     Multi-line comments
                     start and end with three quotes.
-                    """"
+                    """
                     </code></pre>
 
                 </section>
@@ -408,28 +449,6 @@
                     </code></pre>
                 </section>
                 <section class="heading-only">
-                    <h2>print()</h2>
-                </section>
-                <section>
-                    <h3>Debugging with print()</h3>
-                    <p>So far, we've run small bits of Python code in the console, and the console outputs the result.
-                    </p>
-                    <p>It's more common to run code from files. In this case, the console only outputs a response if we tell it to.
-                    </p>
-                    <p>We use <b>print()</b> to tell Python what to output. This is very useful in debugging - ex, to see the value of a variable.
-                    </p>
-                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
-                    x = 5
-                    y = 10
-                    print(x)
-                    print(y)
-                    print(x+y)
-                    </code></pre>
-                    <p>Let's try it in <a href="https://replit.com/">Replit</a> . Create a new Python 3 Repl.</p>
-                </section>
-
-
-                <section class="heading-only">
                     <h2>Functions intro</h2>
                 </section>
 
@@ -454,7 +473,44 @@
                     </p>
                     </div>
                 </section>
+                <section>
+                    <h3>Why functions?</h3>
 
+                    <p>Consider this function-less code:</p>
+                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
+                    greeting1 = "Hello, Jackson, how are you?";
+                    greeting2 = "Hello, Dr. Biden, how are you?";
+                    greeting3 = "Hello, Stranger, how are you?";
+                    </code></pre>
+
+                    <p>Functions help when code has <strong>repetition</strong>.</p>
+
+                    <p>Function parameters help when that repetitive code has <strong>variation</strong>.</p>
+                </section>
+
+                <section>
+                    <h3>Building a function</h3>
+
+                    <p>First identify the repetitive parts:</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def say_greeting():
+                        return "Hello, how are you?"
+                    </code></pre>
+
+                    <p>Then use parameters for the parts that vary:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def say_greeting(name):
+                        return "Hello, " + name + ", how are you?"
+                    </code></pre>
+
+                    <p>Finally, test it with different arguments:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    greeting1 = say_greeting("Jackson");
+                    greeting2 = say_greeting("Dr. Biden")
+                    greeting3 = say_greeting("Stranger")
+                    </code></pre>
+                </section>
                 <section class="heading-only">
                     <h2>Defining functions</h2>
                 </section>
@@ -623,39 +679,105 @@
                     <p>Let's work on this together!</p>
                     <p><a href="https://replit.com/@lizkrznarich/Class2Ex1DogAge" target="_blank">Open the Class2Ex1DogAge repl</a> and click Fork repl.</p>
                 </section>
+                <section>
+                    <h3>Forking Replit files</h3>
+                    <ol style="font-size:1.0em;">
+                        <li>Click the link to the Replit, ex <a href="https://replit.com/@lizkrznarich/Class2Ex1DogAge" target="_blank">https://replit.com/@lizkrznarich/Class2Ex1DogAge</a>
+                        <li>Click Fork Replit<br>
+                            <img src="../images/replit-fork.png" width="700">
+                        <li>Click Edit in workspace
+                            <img src="../images/replit-edit-in-workspace.png" width="700">
+                    </ol>
+                </section>
 
                 <section class="heading-only">
                     <h2>More on names</h2>
                 </section>
-
                 <section>
-                    <h3>Names and environments</h3>
+                    <h3>Namespaces</h3>
 
-                    <p>All Python code is evaluated in the context of an <strong>environment</strong>, which is a sequence of <b>frames</b>.</p>
-                    <p>We've seen two possible environments:</p>
+                    <p>Python uses the concept of <b>namespaces</b> to organize the symbolic names assigned to objects, like variables and functions. Namespaces help to avoid name conflicts.<br>
+                    Python has 4 levels of namespaces:
                     <table>
                         <tr>
-                            <td style="vertical-align:middle;">Global frame
-                            <td><img src="../images/global.png" alt="screenshot showing global env" width="400">
+                            <td style="vertical-align:middle;"><b>Built-in</b>
+                            <td><small>Contains the names of all of Python’s built-in objects (ex, functions like print() and pow())</small>
                         <tr>
-                            <td style="vertical-align:middle;">Function's local frame,<br> child of Global frame
+                            <td style="vertical-align:middle;"><b>Global</b>
+                            <td><small>Contains any names defined at the level of the main program (ie, variable & function names that are NOT indented)</small>
+                        <tr>
+                            <td style="vertical-align:middle;"><b>Enclosing</b>
+                            <td><small>When functions are nested, contains names defined inside a parent function (ie, variabl & function names that are indented)</small>
+                        <tr>
+                            <td style="vertical-align:middle;"><b>Local</b>
+                            <td><small>Contains names defined inside a function (ie, variable names that are indented)</small>
+                    </table>
+                </section>
+                <section>
+                    <h3>Example: Global vs Local names</h3>
+                    <p>In practice, we mostly care about whether a name is global or local.</p>
+                    <table>
+                        <tr>
+                            <td style="vertical-align:middle;">Global
+                                <td><img src="../images/global.png" alt="screenshot showing global env" width="400">
+                        <tr>
+                            <td style="vertical-align:middle;">Local
                             <td><img src="../images/local.png" alt="screenshot showing" width="400">
                     </table>
                 </section>
+                <section>
+                    <h3>Name look-up</h3>
+
+                    <p>Multiple namespaces means that multiple variables, functions, etc can have the same name without conflicting, as long as they are in different namespaces.</p>
+                    <p>But how does Python know which namespace to look in?</p>
+                    <p>It follows the <b>GLEB</b> rule!</p>
+                    <img src="../images/legb.png" width="300px">
+
+                </section>
+                <section>
+                    <h3>Name look-up</h3>
+                    If your code has a variable named x, Python searches for where x is defined in this order:
+                    <ol>
+                        <li><b>Local:</b> If you refer to x inside a function, Python first searches within that function
+                        <li><b>Enclosing:</b> If x isn’t in the local namespace but appears in a function that resides inside another function, Python searches in the enclosing function
+                        <li><b>Global:</b> If neither of the above searches is fruitful, Python looks in the global namespace
+                        <li><b>Built-in:</b> If it can’t find where x is defined anywhere else, Python tries the built-in namespace
+                    </ol>
+                    <p>If a definition for x isn't found, a name error is thrown</p>
+                </section>
 
                 <section>
-                    <h3>Name lookup rules</h3>
-
-                    <p>How Python looks up names in a user-defined function:</p>
-
-                    <ol>
-                        <li>Look it up in the local frame
-                        <li>If name isn't in local frame, look it up in the global frame
-                        <li>If name isn't in either frame, throw a NameError
-                    </ol>
-
-                    <p>*This is simplified since we haven't learned all the Python features that complicate the rules.</p>
+                    <h3>Why do we care about namespaces?</h3>
+                    <ul>
+                        <li>Avoid name errors
+                        <li>Make sure we're using the function or variable that we intend to
+                        <li>Make sure we can access the value of a variable/function where it's needed
+                    </ul>
+                    <p>Example: Multiple functions with the same name</p>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                        # this calls pow() from the built-in namespace
+                        print(pow(3,4))
+                        # now we define pow() in the global namespace
+                        def pow(x, y):
+                            return("POW! " + str(x) + str(y))
+                        # this calls pow() from the global namespace
+                        print(pow(3,4))
+                        </code></pre>
                 </section>
+                <section>
+                    <h3>Why do we care about namespaces?</h3>
+                    <p>Example: Variable that we can't access</p>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                        def my_function(x, y):
+                            # z is defined in the local namespace
+                            z = x + y
+                            return z**x
+                        # what if we want to use z later in the program?
+                        # z is not defined globally, so we can't access it here
+                        print(z)
+                    </code></pre>
+                </section>
+
 
                 <section>
                     <h3>Name lookup example #1</h3>
@@ -670,9 +792,9 @@
                     </code></pre>
 
                     <ul>
-                        <li>On line 4, which frame is <code>start_exclaim</code> found in? <br><span class="fragment">The local frame for exclamify</span>
-                        <li>On line 4, Which frame is <code>text</code> found in? <br><span class="fragment">The local frame for exclamify</span>
-                        <li>On line 6, which frame is <code>exclamify</code> found in? <br><span class="fragment">The global frame</span>
+                        <li>On line 4, which namespace is <code>start_exclaim</code> found in? <br><span class="fragment">The local frame for exclamify</span>
+                        <li>On line 4, Which namespace is <code>text</code> found in? <br><span class="fragment">The local frame for exclamify</span>
+                        <li>On line 6, which namespace is <code>exclamify</code> found in? <br><span class="fragment">The global frame</span>
                     </ul>
                 </section>
 
@@ -690,9 +812,9 @@
                     </code></pre>
 
                     <ul>
-                        <li>On line 5, which frame is <code>start_exclaim</code> found in? <br><span class="fragment">The global frame</span>
-                        <li>On line 5, Which frame is <code>text</code> found in? <br><span class="fragment">The local frame for exclamify</span>
-                        <li>On line 6, which frame is <code>exclamify</code> found in? <br><span class="fragment">The global frame</span>
+                        <li>On line 5, which namespace is <code>start_exclaim</code> found in? <br><span class="fragment">The global frame</span>
+                        <li>On line 5, Which namespace is <code>text</code> found in? <br><span class="fragment">The local frame for exclamify</span>
+                        <li>On line 6, which namespace is <code>exclamify</code> found in? <br><span class="fragment">The global frame</span>
                     </ul>
                 </section>
 
@@ -714,7 +836,131 @@
                             <span class="fragment">It will happen when <code>exclamify</code> is called and Python tries to execute the return statement.</span>
                     </ul>
                 </section>
+                <section class="heading-only">
+                    <h2>More on functions</h2>
+                </section>
 
+
+                <section class="heading-only">
+                    <h2>Side effects</h2>
+                </section>
+
+                <section>
+                    <h3>The None value</h3>
+
+                    <p>The special value <code>None</code> represents nothingness in Python.</p>
+
+                    <p>Any function that doesn't explicitly return a value will return <code>None</code>:</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def square_it(x):
+                      x * x
+                    </code></pre>
+
+                    <div class="fragment">
+                    <p>When a function returns <code>None</code>, the console shows no output at all:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    square_it(4)
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <p>Attempting to treat the <code>None</code> like a number will result in an error:</p>
+                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
+                    sixteen = square_it(4)
+                    sum = sixteen + 4     <span># 🚫 TypeError!</span>
+                    </code></pre>
+                    </div>
+
+                </section>
+                <section>
+                    <h3>Side effects</h3>
+
+                    <p>A <strong>side effect</strong> is when something happens as a result of calling a function
+                    besides just returning a value.</p>
+
+                    <p>The most common side effect is logging to the console, via the built-in <code>print()</code> function.</p>
+
+                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
+                    print(-2)
+                    </code></pre>
+
+                    <p>A similar side effect is writing to a file:</p>
+
+                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
+                    f = open('songs.txt', 'w')
+                    f.write("Dancing On My Own, Robyn")
+                    f.close()
+                    </code></pre>
+
+                </section>
+
+                <section>
+                    <h3>Side effects vs. Return values</h3>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def square_num1(number):
+                        return pow(number, 2)
+                    </code></pre>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def square_num2(number):
+                        print(number ** 2)
+                    </code></pre>
+
+                    <ul>
+                        <li>Which one has a side effect?<br>
+                        <span class="fragment">The second function has a side effect,
+                            because it prints to the console.</span>
+                        <br><br>
+                        <li>What data type do they each return?
+                        <br>
+                        <span class="fragment">The first function returns a number,
+                        the second one returns <code>None</code>.
+                    </p>
+
+                </section>
+
+                <section>
+                    <h3>Default arguments</h3>
+
+                    <p>In the function signature, a parameter can specify a <strong>default value</strong>.
+                        If that argument isn't passed in, the default value is used instead.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def calculate_dog_age(human_years, multiplier = 7):
+                        return human_years * multiplier
+                    </code></pre>
+
+                    <p>These two lines of code have the same result:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    calculate_dog_age(3)
+                    calculate_dog_age(3, 7)
+                    </code></pre>
+
+                    <p>Default arguments can be overriden:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    calculate_dog_age(3, 6)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Multiple return values</h3>
+
+                    <p>A function can specify multiple return values, separated by commas.</p>
+
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    def divide_exact(n, d):
+                        quotient = n // d
+                        remainder = n % d
+                        return quotient, remainder
+                    </code></pre>
+
+                    <p>Any code that calls that function must also "unpack it" using commas:</p>
+
+                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
+                    q, r = divide_exact(618, 10)
+                    </code></pre>
+                </section>
                 <section>
                     <h3>Practice exercises</h3>
 
@@ -723,6 +969,8 @@
                     <ul>
                         <li><a target="_blank" href="https://replit.com/@lizkrznarich/Class2Ex2TemperatureConverter">Class2Ex2TemperatureConverter</a>
                         <li><a target="_blank" href="https://replit.com/@lizkrznarich/Class2Ex3LifetimeSupply">Class2Ex3LifetimeSupply</a>
+                        <li><a target="_blank" href="https://replit.com/@lizkrznarich/Class2Ex4StringCleanup">Class2Ex4StringCleanup</a>
+
                     </ul>
                     <p><em>Note! If you press Run while viewing the solution.py file, nothing will happen. This is because Repl is configured to run only the main.py file. To run the solution, copy the content of the solution to your main.py file.</em></p>
                 </section>
