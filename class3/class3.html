@@ -386,9 +386,9 @@
                         <thead>
                             <tr><th>Operator<th style="width:40%">True expressions <th>Meaning
                         <tbody>
-                            <tr><td><code>and</code> <td> <code>4 &gt; 0 and -2 &lt; 0</code> <td class="smaller">Evaluates to <code>True</code> if both cconditions are true; otherwise evaluates to <code>False</code>.
-                            <tr><td><code>or</code>  <td> <code>4 &gt; 0 or -2 &gt; 0 </code> <td class="smaller">Evaluates to <code>True</code> if either condition is true; evaluates to <code>False</code> only if both are false.
-                            <tr><td><code>not</code> <td> <code>not (5 == 0)</code> <td class="smaller">Evaluates to <code>True</code> if condition is false; evaluates to <code>False</code> if condition is true.
+                            <tr><td><code>and</code> <td> <code>4 &gt; 0 and -2 &lt; 0</code> <td class="smaller"><code>True</code> if both conditions are true; otherwise evaluates to <code>False</code>. Same as <code>&&</code> in other languages.
+                            <tr><td><code>or</code>  <td> <code>4 &gt; 0 or -2 &gt; 0 </code> <td class="smaller"><code>True</code> if either condition is true; evaluates to <code>False</code> only if both are false. Same as <code>||</code> in other languages.
+                            <tr><td><code>not</code> <td> <code>not (5 == 0)</code> <td class="smaller"><code>True</code> if condition is false; evaluates to <code>False</code> if condition is true. Same as <code>!</code> in other languages.
                        </tbody>
                     </table>
                     <p class="smaller">W3Schools has a handy <a href="https://www.w3schools.com/python/python_operators.asp">Python operators reference</a></p>
@@ -479,7 +479,7 @@
                     if temperature < 0:
                         clothing = "snowsuit"
                     else:
-                        clothing = "shirt"
+                        clothing = "jacket"
                     </code></pre>
                 </section>
 
@@ -813,25 +813,6 @@
                     <ul>
                         <li>What will be the first thing displayed? <span class="fragment">27</span>
                         <li>What will be the last thing displayed? <span class="fragment">81</span>
-                        <li>How many iterations? <span class="fragment">4 (for values of 3, 5, 7, 9)<span>
-                    </ul>
-                </section>
-
-
-                <section>
-                    <h3>Changing a while loop #4</h3>
-
-                    <p>You can change the computation inside the while loop:</p>
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    multiplier = 3
-                    while multiplier &lt;= 10:
-                        print(10 * multiplier)
-                        multiplier += 2
-                    </code></pre>
-
-                    <ul>
-                        <li>What will be the first thing displayed? <span class="fragment">30</span>
-                        <li>What will be the last thing displayed? <span class="fragment">90</span>
                         <li>How many iterations? <span class="fragment">4 (for values of 3, 5, 7, 9)<span>
                     </ul>
                 </section>
