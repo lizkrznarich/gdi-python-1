@@ -102,7 +102,7 @@
 			<div class="slides">
 
 				<section class="heading-only" style="padding-top:5%">
-                    <h1>Conditionals</h1>
+                    <h1>Conditionals & Loops</h1>
 
 					<div class="no-print" style="text-align: left; margin-top: 100px; font-size: 70%;">
 						Tips for navigating the slides:
@@ -112,17 +112,6 @@
 							<li>Press the copy icon on the upper right of code blocks to copy the code</li>
 						</ul>
                     </div>
-
-                    <aside class="speaker-notes">
-                    Lesson Plan:
-                    12:05 - Review
-                    12:15 - Side effects
-                    12:25 - More on functions
-                    12:30 - Boolean expressions
-                    12:50 - Exercise
-                    1:10  - Conditionals
-                    1:30  - Exercise
-                    </aside>
 				</section>
 
                 <section>
@@ -130,9 +119,9 @@
 
                     <ul>
                         <li>Review
-                        <li>Side effects
-                        <li>Conditionals
                         <li>Booleans
+                        <li>Conditionals
+                        <li>Loops intro
                     </ul>
                 </section>
 
@@ -141,41 +130,9 @@
                 </section>
 
                 <section>
-                    <h3>Comment syntax</h3>
-
-                    <p>A comment is human-readable text that's ignored by the Python interpreter.</p>
-
-                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
-                    # A single-line comment starts with a hash sign
-                    x = 4 # A comment can also go at the end of the line
-
-                    """
-                    Multi-line comments
-                    start and end with three quotes.
-                    """
-                    </code></pre>
-
-                </section>
-                <section>
-                    <h3>Debugging with print()</h3>
-                    <p>When we run Python code in the console, the console outputs the result expressions automatically.
-                    </p>
-                    <p>It's more common to run code from files. In this case, the console only outputs a response if we tell it to.
-                    </p>
-                    <p>We use <b>print()</b> to tell Python what to output. This is very useful in debugging - ex, to see the value of a variable.
-                    </p>
-                    <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
-                    x = 5
-                    y = 10
-                    print(x)
-                    print(y)
-                    print(x+y)
-                    </code></pre>
-                </section>
-                <section>
                     <h3>Defining functions</h3>
 
-                    <p>The most common way to define functions is Python is the <code>def</code> statement.</p>
+                    <p>We define functions in Python with a <code>def</code> statement.</p>
 
                     <pre style="font-size:1.0em"><code data-trim data-noescape class="python">
                     def &lt;name&gt;(&lt;parameters&gt;):
@@ -195,85 +152,69 @@
                     </code></pre>
                 </section>
                 <section>
-                    <h3>Practice exercise review</h3>
+                    <h3>Function arguments</h3>
 
-                    <p>Let's review the Temperature Converter homework exercise together</p>
+                    <p>We can pass in any expressions as arguments.</p>
 
-                    <p><a target="_blank" href="https://replit.com/@lizkrznarich/Class2Ex2TemperatureConverter">Repl: Class2Ex2TemperatureConverter</a></p>
-                </section>
-                <section class="heading-only">
-                    <h2>More on functions</h2>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def add(num1, num2):
+                        return num1 + num2
+                    </code></pre>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    x = 1
+                    y = 2
+                    add(x, y)
+                    </code></pre>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    x = 3
+                    add(x * x, x + x)
+                    </code></pre>
                 </section>
                 <section>
-                    <h3>Why functions?</h3>
+                    <h3>Return values</h3>
 
-                    <p>Consider this function-less code:</p>
-                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
-                    greeting1 = "Hello, Jackson, how are you?";
-                    greeting2 = "Hello, Dr. Biden, how are you?";
-                    greeting3 = "Hello, Stranger, how are you?";
+                    <p>The return keyword returns a value to whoever calls the function (and exits the function).</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def add(num1, num2):
+                        return num1 + num2
+
+                    sum = add(2, 4)
                     </code></pre>
-
-                    <p>Functions help when code has <strong>repetition</strong>.</p>
-
-                    <p>Function parameters help when that repetitive code has <strong>variation</strong>.</p>
                 </section>
-
                 <section>
-                    <h3>Building a function</h3>
+                    <h3>Namespaces</h3>
 
-                    <p>First identify the repetitive parts:</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    def say_greeting():
-                        return "Hello, how are you?"
-                    </code></pre>
-
-                    <p>Then use parameters for the parts that vary:</p>
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    def say_greeting(name):
-                        return "Hello, " + name + ", how are you?"
-                    </code></pre>
-
-                    <p>Finally, test it with different arguments:</p>
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    greeting1 = say_greeting("Jackson");
-                    greeting2 = say_greeting("Dr. Biden")
-                    greeting3 = say_greeting("Stranger")
-                    </code></pre>
+                    <p>Python uses the concept of <b>namespaces</b> to organize the symbolic names assigned to objects, like variables and functions. Namespaces help to avoid name conflicts.<br>
+                    Python has 4 levels of namespaces:
+                    <table>
+                        <tr>
+                            <td style="vertical-align:middle;"><b>Built-in</b>
+                            <td><small>Contains the names of all of Python’s built-in objects (ex, functions like print() and pow())</small>
+                        <tr>
+                            <td style="vertical-align:middle;"><b>Global</b>
+                            <td><small>Contains any names defined at the level of the main program (ie, variable & function names that are NOT indented)</small>
+                        <tr>
+                            <td style="vertical-align:middle;"><b>Enclosing</b>
+                            <td><small>When functions are nested, contains names defined inside a parent function (ie, variabl & function names that are indented)</small>
+                        <tr>
+                            <td style="vertical-align:middle;"><b>Local</b>
+                            <td><small>Contains names defined inside a function (ie, variable names that are indented)</small>
+                    </table>
                 </section>
-
-
-                <section class="heading-only">
-                    <h2>Side effects</h2>
-                </section>
-
                 <section>
-                    <h3>The None value</h3>
-
-                    <p>The special value <code>None</code> represents nothingness in Python.</p>
-
-                    <p>Any function that doesn't explicitly return a value will return <code>None</code>:</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    def square_it(x):
-                      x * x
-                    </code></pre>
-
-                    <div class="fragment">
-                    <p>When a function returns <code>None</code>, the console shows no output at all:</p>
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    square_it(4)
-                    </code></pre>
-                    </div>
-                    <div class="fragment">
-                    <p>Attempting to treat the <code>None</code> like a number will result in an error:</p>
-                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
-                    sixteen = square_it(4)
-                    sum = sixteen + 4     <span># 🚫 TypeError!</span>
-                    </code></pre>
-                    </div>
-
+                    <h3>Example: Global vs Local names</h3>
+                    <p>In practice, we mostly care about whether a name is global or local.</p>
+                    <table>
+                        <tr>
+                            <td style="vertical-align:middle;">Global
+                                <td><img src="../images/global.png" alt="screenshot showing global env" width="400">
+                        <tr>
+                            <td style="vertical-align:middle;">Local
+                            <td><img src="../images/local.png" alt="screenshot showing" width="400">
+                    </table>
                 </section>
                 <section>
                     <h3>Side effects</h3>
@@ -309,19 +250,6 @@
                     def square_num2(number):
                         print(number ** 2)
                     </code></pre>
-
-                    <ul>
-                        <li>Which one has a side effect?<br>
-                        <span class="fragment">The second function has a side effect,
-                            because it prints to the console.</span>
-                        <br><br>
-                        <li>What data type do they each return?
-                        <br>
-                        <span class="fragment">The first function returns a number,
-                        the second one returns <code>None</code>.
-
-
-                    </p>
 
                 </section>
 
@@ -366,7 +294,17 @@
                     q, r = divide_exact(618, 10)
                     </code></pre>
                 </section>
+                <section>
+                    <h3>Practice exercise review</h3>
 
+                    <p>Let's review the homework from last week together!</p>
+
+                    <ul>
+                        <li><a target="_blank" href="https://replit.com/@lizkrznarich/Class2Ex3LifetimeSupply">Class2Ex3LifetimeSupply</a>
+                        <li><a target="_blank" href="https://replit.com/@lizkrznarich/Class2Ex4StringCleanup">Class2Ex4StringCleanup</a>
+                    </ul>
+                    <p>(Note: we did <a target="_blank" href="https://replit.com/@lizkrznarich/Class2Ex2TemperatureConverter">Class2Ex2TemperatureConverter</a> together in class)</p>
+                </section>
 
                 <section class="heading-only">
                     <h2>Boolean expressions</h2>
@@ -492,7 +430,7 @@
                 <section>
                     <h3>Exercise: Booleans</h3>
                     <p>Open <a href="https://replit.com/@lizkrznarich/Class3Ex1Booleans">Class3Ex1Booleans</a> in Replit and click "Fork Repl" to create your own copy</p>
-                    <p>We'll do the first function together, then work on the others individually and ask for help if you have any questions or feel stuck.</p>
+                    <p>We'll do the first question together; the rest will be homework for the next class.</p>
                 </section>
 
                 <section class="heading-only">
@@ -524,11 +462,31 @@
 
                     <p class="smaller">In what situations will <code>clothing</code> be assigned to "jacket"?</p>
                 </section>
+                <section>
+                    <h3>The else statement</h3>
+
+                    <p>A conditional can include an <code>else</code> statement
+                    to specify code to execute when the <code>if</code> condition is False</p>
+
+                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
+                    if &lt;condition&gt;:
+                        &lt;statement&gt;
+                    else &lt;condition&gt;:
+                        &lt;statement&gt;
+                    </code></pre>
+
+                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
+                    if temperature < 0:
+                        clothing = "snowsuit"
+                    else:
+                        clothing = "shirt"
+                    </code></pre>
+                </section>
 
                 <section>
-                    <h3>Compound conditionals</h3>
+                    <h3>The elif statement</h3>
 
-                    <p>A conditional can include any number of <code>elif</code>
+                    <p>When you have more than 1 condition you want to check, you can use <code>elif</code>
                         statements to check other conditions. Works kind of like a "choose your own adventure" book!</p>
 
                     <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
@@ -553,47 +511,11 @@
                     </code></pre>
 
                 </section>
-
                 <section>
-                    <h3>Understanding conditionals</h3>
+                    <h3>elif + else</h3>
 
-                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
-                    clothing = "shirt"
-
-                    if temperature < 0:
-                        clothing = "snowsuit"
-                    elif temperature < 32:
-                        clothing = "jacket"
-                    </code></pre>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th><code>temperature</code><th><code>clothing</code>
-                        <tbody>
-                            <tr>
-                                <td>-50<td><span class="fragment">snowsuit</span></td>
-                            <tr>
-                                <td>-1<td><span class="fragment">snowsuit</span></td>
-                            <tr>
-                                <td>0<td><span class="fragment">jacket</span></td>
-                            <tr>
-                                <td>1<td><span class="fragment">jacket</span></td>
-                            <tr>
-                                <td>31<td><span class="fragment">jacket</span></td>
-                            <tr>
-                                <td>32<td><span class="fragment">shirt</span></td>
-                            <tr>
-                                <td>50<td><span class="fragment">shirt</span></td>
-                    </table>
-                </section>
-
-
-                <section>
-                    <h3>The else statement</h3>
-
-                    <p>A conditional can include an <code>else</code>
-                    to specify code to execute if no previous conditions are true.</p>
+                    <p><code>else</code> can be used along with 1 or more <code>elif</code> statements</code>
+                    to specify code to execute as a last resort, if no previous conditions are true.</p>
 
                     <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
                     if &lt;condition&gt;:
@@ -617,6 +539,43 @@
                     </code></pre>
 
                 </section>
+
+
+                <section>
+                    <h3>Understanding conditionals</h3>
+
+                    <pre style="font-size:0.6em"><code data-trim data-noescape class="python">
+                    clothing = "shirt"
+                    if temperature < 0:
+                        clothing = "snowsuit"
+                    elif temperature < 32:
+                        clothing = "jacket"
+                    else:
+                        clothing = "shirt"
+                    </code></pre>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><code>temperature</code><th><code>clothing</code>
+                        <tbody>
+                            <tr>
+                                <td>-50<td><span class="fragment">snowsuit</span></td>
+                            <tr>
+                                <td>-1<td><span class="fragment">snowsuit</span></td>
+                            <tr>
+                                <td>0<td><span class="fragment">jacket</span></td>
+                            <tr>
+                                <td>1<td><span class="fragment">jacket</span></td>
+                            <tr>
+                                <td>31<td><span class="fragment">jacket</span></td>
+                            <tr>
+                                <td>32<td><span class="fragment">shirt</span></td>
+                            <tr>
+                                <td>50<td><span class="fragment">shirt</span></td>
+                    </table>
+                </section>
+
+
 
                 <section>
                     <h3>Conditional statements summary</h3>
@@ -699,11 +658,264 @@
                     get_number_sign(0)   # "neutral"
                     </code></pre>
                 </section>
-
                 <section>
                     <h3>Exercise: Conditionals</h3>
-                    <p>Open <a href="https://replit.com/@lizkrznarich/Class3Ex2Conditionals">Class3Ex2Conditionals</a> in Replit and click "Fork Repl" to create your own copy</p>
+                    <p><a href="https://replit.com/@lizkrznarich/Class3Ex2Conditionals">Class3Ex2Conditionals</a></p>
+                    <p>We'll do the first question together; the rest will be homework for the next class</p>
                 </section>
+
+                <section class="heading-only">
+                    <h2>Loops</h2>
+                </section>
+                <section>
+                    <h3>Why loops?</h3>
+                    <p>Sometimes we need to do the same thing over and over, with different data.</p>
+                    <p>Consider the following code...</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    print(9 * 1)
+                    print(9 * 2)
+                    print(9 * 3)
+                    print(9 * 4)
+                    print(9 * 5)
+                    </code></pre>
+
+                    <p>This code is repetitive and variable, but the variability
+                        is sequential - it just adds one to the right-hand side number each time.
+                        In English, we could describe this as "print out the first 5 multiples of 9".</p>
+
+                    <p>We can simplify this code with a loop!</p>
+                </section>
+                <section>
+                    <h3>Types of loops</h3>
+                    <p>Python has 2 types of loops:</p>
+                    <ul>
+                        <li><b>While</b>: Runs code as long as a specified condition is True (unknown number of times)</li>
+                        <li><b>For</b>: Runs code for a specified set of values (known number of times)</li>
+                    </ul>
+                </section>
+                <section class="heading-only">
+                    <h2>While loops</h2>
+                </section>
+                <section>
+                    <h3>While loops</h3>
+
+                    <p>The while loop syntax:</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    while &lt;condition&gt;:
+                        &lt;statement&gt;
+                        &lt;statement&gt;
+                    </code></pre>
+
+                    <p>As long as the condition is true, the statements below it are executed.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    multiplier = 1
+                    while multiplier &lt;= 5:
+                        print(9 * multiplier)
+                        multiplier += 1
+                    </code></pre>
+
+                    <p>The code is significantly shorter, and it can easily be extended
+                        to loop for more or less iterations.</p>
+
+                </section>
+                <section>
+                    <h3>Using a counter variable</h3>
+
+                    <p>We need to tell a While loop when to stop, otherwise it might keep running forever!</p>
+                    <p>It's common to use a <strong>counter variable</strong>
+                        whose job is keeping track of the number of times the loop has run.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    total = 0
+                    counter = 0
+                    while counter < 5:
+                      total += pow(2, 1)
+                      counter += 1
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Special assignment operators</h3>
+
+                    <p>What's this <code>+=</code> thing?</p>
+                    <ul>
+                        <li>One of several "special" assignment operators</li>
+                        <li>Does math on an existing variable value and assigns the result to that variable at the same time</li>
+                        <li>A handy shortcut <code>counter += 1</code> does the same thing as <code>counter = counter + 1</code></li>
+                    </ul>
+                    <p>Can also subtract <code>-=</code>, multiply <code>*=</code>, divide <code>/=</code> and assign the result</p>
+                    <p class="smaller">See the <a href="https://www.w3schools.com/python/gloss_python_assignment_operators.asp">full list of special assignment operators on W3Schools</a></p>
+                </section>
+                <section>
+                    <h3>Using a counter variable</h3>
+
+                    <p>How many times will this loop run?</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    total = 0
+                    counter = 0
+                    while counter < 5:
+                      total += pow(2, 1)
+                      counter += 1
+                    </code></pre>
+
+                    <p class="fragment">The loop runs while counter is 0, 1, 2, 3 and 4, so 5 times</p>
+                </section>
+                <section>
+                    <h3>Changing a while loop #1</h3>
+
+                    <p>You can change the initial values of the variables used in the condition:</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    multiplier = 3
+                    while multiplier &lt;= 5:
+                        print(9 * multiplier)
+                        multiplier += 1
+                    </code></pre>
+
+                    <ul>
+                        <li>What will be the first thing displayed? <span class="fragment">27</span>
+                        <li>What will be the last thing displayed? <span class="fragment">45</span>
+                        <li>How many iterations? <span class="fragment">3 (for values of 3, 4, 5)<span>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Changing a while loop #2</h3>
+
+                    <p>You can change the condition:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    multiplier = 3
+                    while multiplier &lt;= 10:
+                        print(9 * multiplier)
+                        multiplier += 1
+                    </code></pre>
+
+                    <ul>
+                        <li>What will be the first thing displayed? <span class="fragment">27</span>
+                        <li>What will be the last thing displayed? <span class="fragment">90</span>
+                        <li>How many iterations? <span class="fragment">8 (for values of 3, 4, 5, 6, 7, 8, 9, 10)<span>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Changing a while loop #3</h3>
+
+                    <p>You can change how much the values change between iterations:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    multiplier = 3
+                    while multiplier &lt;= 10:
+                        print(9 * multiplier)
+                        multiplier += 2
+                    </code></pre>
+
+                    <ul>
+                        <li>What will be the first thing displayed? <span class="fragment">27</span>
+                        <li>What will be the last thing displayed? <span class="fragment">81</span>
+                        <li>How many iterations? <span class="fragment">4 (for values of 3, 5, 7, 9)<span>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h3>Changing a while loop #4</h3>
+
+                    <p>You can change the computation inside the while loop:</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    multiplier = 3
+                    while multiplier &lt;= 10:
+                        print(10 * multiplier)
+                        multiplier += 2
+                    </code></pre>
+
+                    <ul>
+                        <li>What will be the first thing displayed? <span class="fragment">30</span>
+                        <li>What will be the last thing displayed? <span class="fragment">90</span>
+                        <li>How many iterations? <span class="fragment">4 (for values of 3, 5, 7, 9)<span>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Beware infinite loops</h3>
+
+                    <p>Uh oh..</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    counter = 1
+                    while counter < 5:
+                        total += pow(2, counter)
+                    </code></pre>
+
+                    <p>What one line of code would fix this?
+                        <br><code class="fragment">counter += 1</code>
+                    </p>
+
+                    <div class="fragment">
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    counter = 6
+                    while counter > 5:
+                      total += pow(2, counter)
+                      counter += 1
+                    </code></pre>
+
+                    <p>How do we save this code?
+                        <br><span class="fragment">Intentions are unclear! Change the initial value and condition?
+                    </p>
+                    </div>
+                </section>
+                <section>
+                    <h3>The break statement</h3>
+
+                    <p>To prematurely exit a loop, use the <code>break</code> statement:</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    counter = 100
+                    while counter < 200:
+                        if counter % 7 == 0:
+                            first_multiple = counter
+                            break
+                        counter += 1
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Loops in functions</h3>
+
+                    <p>A loop in a function will commonly use a parameter to determine some aspect of its repetition.</p>
+
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    def sum_up_squares(start, end):
+                        counter = start
+                        total = 0
+                        while counter <= end:
+                          total += pow(counter, 2)
+                          counter += 1
+                        return total
+
+                    sum_up_squares(1, 5)
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Exercise: While loops</h3>
+                    <p><a href="https://replit.com/@lizkrznarich/Class3Ex3WhileLoops">Class3Ex3WhileLoops</a></p>
+                    <p>We'll do the first question together; the rest will be homework for the next class</p>
+                </section>
+                <section>
+                    <h3>Homework!</h3>
+                    <p>Finish the rest of the questions in each exercise  - we'll review in the next class</p>
+                    <ul>
+                        <li><a href="https://replit.com/@lizkrznarich/Class3Ex1Booleans">Class3Ex1Booleans</a>
+                        <li><a href="https://replit.com/@lizkrznarich/Class3Ex2Conditionals">Class3Ex2Conditionals</a>
+                        <li><a href="https://replit.com/@lizkrznarich/Class3Ex3WhileLoops">Class3Ex3WhileLoops</a>
+                    </ul>
+
+                </section>
+                <section class="heading-only">
+                    <h2>How is it going? </h2>
+                    <p>Please fill out the feedback form to let me know how I can improve the class!</p>
+                    <p><a href="https://forms.gle/iENMqYvdahR9AP5UA">https://forms.gle/iENMqYvdahR9AP5UA</a></p>
+                </section>
+
+
 
 
 			</div>
