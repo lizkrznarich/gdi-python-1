@@ -102,7 +102,7 @@
 			<div class="slides">
 
 				<section class="heading-only" style="padding-top:5%">
-                    <h1>Lists</h1>
+                    <h1>More with lists!</h1>
 
 					<div class="no-print" style="text-align: left; margin-top: 100px; font-size: 70%;">
 						Tips for navigating the slides:
@@ -112,11 +112,6 @@
 							<li>Press the copy icon on the upper right of code blocks to copy the code</li>
 						</ul>
                     </div>
-
-                    <aside class="speaker-notes">
-                    Lesson Plan:
-                    12:05 - Random numbers
-                    </aside>
 				</section>
 
                 <section>
@@ -124,87 +119,13 @@
 
                     <ul style="font-size:1.0em;">
                         <li>Review
-                        <li>Data structures
-                        <li>Lists
-                        <li>Looping through lists
+                        <li>More list functionality
                         <li>Nested lists
-                        <li>Helpful list functionality
+                        <li>Getting data from CSV files
                     </ul>
                 </section>
                 <section class="heading-only">
                     <h2>Review</h2>
-                </section>
-                <section>
-                    <h3>While loops</h3>
-
-                    <p>The while loop syntax:</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    while &lt;condition&gt;:
-                        &lt;statement&gt;
-                        &lt;statement&gt;
-                    </code></pre>
-
-                    <p>As long as the condition is true, the statements below it are executed.</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    multiplier = 1
-                    while multiplier &lt;= 5:
-                        print(9 * multiplier)
-                        multiplier += 1
-                    </code></pre>
-
-                </section>
-                <section>
-                    <h3>Using a counter variable</h3>
-
-                    <p>We need to tell a While loop when to stop, otherwise it might keep running forever!</p>
-                    <p>It's common to use a <strong>counter variable</strong>
-                        whose job is keeping track of the number of times the loop has run.</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    total = 0
-                    counter = 0
-                    while counter < 5:
-                      total += pow(2, 1)
-                      counter += 1
-                    </code></pre>
-                </section>
-                <section>
-                    <h3>Special assignment operators</h3>
-
-                    <p>What's this <code>+=</code> thing?</p>
-                    <ul>
-                        <li>One of several "special" assignment operators</li>
-                        <li>Does math on an existing variable value and assigns the result to that variable at the same time</li>
-                        <li>A handy shortcut <code>counter += 1</code> does the same thing as <code>counter = counter + 1</code></li>
-                    </ul>
-                    <p>Can also subtract <code>-=</code>, multiply <code>*=</code>, divide <code>/=</code> and assign the result</p>
-                    <p class="smaller">See the <a href="https://www.w3schools.com/python/gloss_python_assignment_operators.asp">full list of special assignment operators on W3Schools</a></p>
-                </section>
-                <section>
-                    <h3>For loop</h3>
-
-                    <p>The for loop syntax:</p>
-
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    for &lt;value&gt; in &lt;sequence&gt;:
-                        &lt;statement&gt;
-                        &lt;statement&gt;
-                    </code></pre>
-
-                    <p>The for loop provides a cleaner way to write many while loops,
-                        as long as they are iterating over some sort of sequence.
-                    </p>
-
-                    <p>A for loop iterating over a sequence of numbers:</p>
-                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
-                    for num in range(1, 5):
-                        print(9 * num)
-                    </code></pre>
-                </section>
-                <section class="heading-only">
-                    <h2>Data structures</h2>
                 </section>
                 <section>
                     <h3>Data structures</h3>
@@ -215,11 +136,6 @@
                     <img style="float:left;" src="../images/list.png" height="250" />
                     <img style="float:left; margin-left:1em;" src="../images/table.png" height="250" />
                 </section>
-
-                <section class="heading-only">
-                    <h2>Lists</h2>
-                </section>
-
                 <section>
                     <h3>Lists</h3>
                     <p>A list is a container that holds a sequence of related pieces of information.</p>
@@ -238,10 +154,7 @@
                     # mixed types
                     mixed_types = ["Liz", 7, 79.99]
                     </code></pre>
-
                 </section>
-
-
                 <section>
                     <h3>Accessing items (Bracket notation)</h3>
 
@@ -262,7 +175,6 @@
                     temps[5]  <span class="fragment" data-fragment-index="2"># 🚫 Error!</span>
                     </code></pre>
                 </section>
-
                 <section>
                     <h3>List length</h3>
 
@@ -277,19 +189,7 @@
                     num_of_attendees = len(attendees)
                     print(num_of_attendees)
                     </code></pre>
-
-                    <p>🤔 What could go wrong with storing the length?</p>
-
                 </section>
-
-                <section>
-                    <h3>Exercises: Making lists</h3>
-                    <ul>
-                        <li><a href="https://replit.com/@lizkrznarich/Class5Ex1ListMaker" target="_blank">Repl: Class5Ex1ListMaker</a>
-                        <li><a href="https://replit.com/@lizkrznarich/Class5Ex2ListMakerFunction" target="_blank">Repl: Class5Ex2ListMakerFunction</a>
-                    </ul>
-                </section>
-
                 <section>
                     <h3>Modifying list items</h3>
 
@@ -303,14 +203,7 @@
                     temps[-1] = 55.55
                     </code></pre>
                     <br>
-                    <div class="fragment">
-                    <p class="smaller">What if we change the value of an item beyond the list length?</p>
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    temps[5] = 111.11 <span class="fragment"># 🚫 Error!</span>
-                    </code></pre>
-                    </div>
                 </section>
-
                 <section>
                     <h3>Modifying lists with methods</h3>
 
@@ -344,37 +237,33 @@
                     <p class="smaller">See more in <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html">Python.org documentation</a></p>
 
                 </section>
-
                 <section>
-                    <h3>Examples of list modifying methods</h3>
+                    <h3>List method return values</h3>
 
+                    <p>Most of the list mutation methods perform an action and don't return a value.</p>
+                    <p>An exception is <code>.pop()</code>, which removes a list item <i>and</i> returns its value, so you can assign it to a variable.</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     groceries = ["apples", "bananas"]
 
-                    groceries.append("peanut butter")
-                    groceries.insert(0, "applesauce")
-                    groceries.insert(3, "cheerios")
-                    groceries.remove("bananas")
-
                     bought_food = groceries.pop()
-                    bought_food2 = groceries.pop(1)
-                    i = groceries.index("cheerios")
-                    bought_food3 = groceries.pop(i)
                     </code></pre>
                 </section>
-
                 <section>
-                    <h3>Exercise: Mutating lists</h3>
+                    <h3>For loop</h3>
+                    <p>The other type of loop supported in Python is a <code>for</code> loop</p>
+                    <p>The for loop syntax:</p>
 
-                    <p>We'll work on the first question together, and then you'll work on the rest individually.</p>
+                    <pre style="font-size:0.8em"><code data-trim data-noescape class="python">
+                    for &lt;value&gt; in &lt;sequence&gt;:
+                        &lt;statement&gt;
+                        &lt;statement&gt;
+                    </code></pre>
 
-                    <p><a href="https://replit.com/@lizkrznarich/Class5Ex3ListMutator" target="_blank">Repl: Class5Ex3ListMutator</a></p>
+                    <p>For loops provide a clean way of repeating code for each item in a data structure (like a list).</p>
                 </section>
-
                 <section>
                     <h3>Looping through a list</h3>
-
-                    <p>😍 Python provides a <code>for-in</code> loop for lists: </p>
+                    <p>😍 For loops love lists!</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     scores = [80, 95, 78, 92]
                     total = 0
@@ -382,7 +271,7 @@
                         total += score
                     </code></pre>
                     <div class="fragment">
-                    <p>You can also use a <code>while</code> loop with a counter to do the same thing:</p>
+                    <p>This does the same thing as a <code>while</code> loop with a counter, but with less code.</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     scores = [80, 95, 78, 92]
                     total = 0
@@ -394,17 +283,140 @@
                     </code></pre>
                     </div>
                 </section>
-
                 <section>
-                    <h3>Exercise: For-in loops</h3>
-                    <p>We'll work on the first question together, and then you'll work on the rest individually.</p>
-                    <p><a href="https://replit.com/@lizkrznarich/Class5Ex4ForInListLoops" target="_blank">Repl: Class5Ex4ForInListLoops</a></p>
+                    <h3>Homework review!</h3>
+                    <ul>
+                        <li><a href="https://replit.com/@lizkrznarich/Class4Ex3ListMutator" target="_blank">Repl: Class4Ex3ListMutator</a>
+                        <li><a href="https://replit.com/@lizkrznarich/Class4Ex4ForInListLoops" target="_blank">Repl: Class4Ex4ForInListLoops</a>
+                    </ul>
+                </section>
+                <section class="heading-only">
+                    <h2>More list functionality</h2>
                 </section>
 
+                <section>
+                    <h3>Checking if value is in a list</h3>
+
+                    <p>The <code>in</code> keyword checks if
+                        a value is in a list (or any sequence).</p>
+
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    if "bananas" in groceries:
+                        print("Watch your step!")
+
+                    if "bleach" in groceries:
+                        print("Watch what you eat!")
+                    </code></pre>
+
+                    <p>When used inside if conditions, <code>in</code> expressions return a Boolean (<code>True</code>/<code>False</code>).</p>
+                </section>
+                <section>
+                    <h3>Helpful list methods</h3>
+
+                    <table style="font-size:0.75em;">
+                        <thead>
+                            <tr>
+                                <th>Method
+                                <th>Description
+                        <tbody>
+                            <tr>
+                                <td><code>count(item)</code>
+                                <td>Returns the number of occurrences of <code>item</code> in the list. If <code>item</code> is not found, returns 0.
+                            <tr>
+                                <td><code>reverse()</code>
+                                <td>Reverses the elements of the list <strong>in place</strong>.
+                            <tr>
+                                <td><code>sort([key=function])</code>
+                                <td>Sorts the items of the list <strong>in place</strong>. The optional <code>key</code> argument specifies
+                                    a function to compute a comparison key for each item in the list. Otherwise, items are compared based on their values.
+                    </table>
+
+                    <p class="smaller">See more in <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html">Python.org documentation</a></p>
+                </section>
+
+                <section>
+                    <h3>Examples with reverse</h3>
+
+                    <p>If we start with...</p>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                    spelling = ["B", "U", "M", "B", "L", "E"]
+                    </code></pre>
+
+                    <p>Then call the <code>reverse</code> method...</p>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    nums.reverse()     <span class="fragment"># [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</span>
+                    spelling.reverse() <span class="fragment"># ["E", "L", "B", "M", "U", "B"]
+                    </code></pre>
+
+                    <div class="fragment" style="margin-top:40px;">
+                    <p class="smaller">What do you think of this?</p>
+
+                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
+                    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                    reversed_nums = nums.reverse()
+                    </code></pre>
+
+                    <p class="fragment smaller">It's a bit strange, since <code>reverse()</code>
+                        does an in-place reversal, so now the program has the same list in two variables!</p>
+                    </div>
+                </section>
+
+
+                <section>
+                    <h3>Examples with sort</h3>
+
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    foods = ["orange", "apple", "Pear", "banana"]
+                    </code></pre>
+
+                    <p>The simplest sort:</p>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    foods.sort()
+                    <span class="fragment"># ["Pear", "apple", "banana", "orange"]</span>
+                    </code></pre>
+
+                    <p>Specifying a key argument of an existing function:</p>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                    foods.sort(key=str.lower)
+                    <span class="fragment"># ["apple", "banana", "orange", "Pear"]</span>
+                    </code></pre>
+
+                    <p class="smaller"><code>.sort()</code> modifies a list <b>in place</b>. To sort a list into a new list, use the global <a target="_blank" href="https://docs.python.org/3/library/functions.html#sorted"><code>sorted()</code></a> function.</p>
+                </section>
+
+                <section>
+                    <h3>Useful functions for lists</h3>
+
+                    <p class="smaller">These are functions, <em>not</em> methods.</p>
+                    <table style="font-size:0.75em;">
+                        <thead>
+                            <tr>
+                                <th>Module
+                                <th>Function
+                                <th>Description
+                        <tbody>
+                            <tr>
+                                <td>Global
+                                <td><a target="_blank" href="https://docs.python.org/3/library/functions.html#min"><code>min(list, [key=function])</code></a>
+                                <td>Returns the minimum value in <code>list</code>. The optional <code>key</code> argument specifies a custom comparator function.
+                            <tr>
+                                <td>Global
+                                <td><a target="_blank" href="https://docs.python.org/3/library/functions.html#max"><code>max(list, [key=function])</code></a>
+                                <td>Returns the maximum value in <code>list</code>. he optional <code>key</code> argument specifies a custom comparator function.
+                            <tr>
+                                <td><code>random</code>
+                                <td><a target="_blank" href="https://docs.python.org/3/library/random.html#random.choice"><code>choice(list)</code></a>
+                                <td>Returns a randomly selected item from <code>list</code>.
+                            <tr>
+                                <td><code>random</code>
+                                <td><a target="_blank" href="https://docs.python.org/3/library/random.html#random.shuffle"><code>shuffle(list)</code></a>
+                                <td>Shuffles the elements of the list <strong>in place</strong>.
+                    </table>
+                </section>
                 <section class="heading-only">
                     <h2>Nested Lists</h2>
                 </section>
-
                 <section>
                     <h3>Nested Lists</h3>
 
@@ -413,9 +425,9 @@
                     <pre style="font-size:0.9em">
                     <code data-trim data-noescape class="python">
                     gymnasts = [
-                                ["Brittany", 9.15, 9.4, 9.3, 9.2], # gymnasts[0]
-                                ["Lea", 9, 8.8, 9.1, 9.5], # gymnasts[1]
-                                ["Maya", 9.2, 8.7, 9.2, 8.8] # gymnasts[2]
+                                    ["Brittany", 9.15, 9.4, 9.3, 9.2], # gymnasts[0]
+                                    ["Lea", 9, 8.8, 9.1, 9.5], # gymnasts[1]
+                                    ["Maya", 9.2, 8.7, 9.2, 8.8] # gymnasts[2]
                                ]
                     </code></pre>
                     <p>You can think of nested lists like rows in a table:</p>
@@ -425,9 +437,9 @@
                     <h3>Nested Lists</h3>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     gymnasts = [
-                                ["Brittany", 9.15, 9.4, 9.3, 9.2], # gymnasts[0]
-                                ["Lea", 9, 8.8, 9.1, 9.5], # gymnasts[1]
-                                ["Maya", 9.2, 8.7, 9.2, 8.8] # gymnasts[2]
+                                    ["Brittany", 9.15, 9.4, 9.3, 9.2], # gymnasts[0]
+                                    ["Lea", 9, 8.8, 9.1, 9.5], # gymnasts[1]
+                                    ["Maya", 9.2, 8.7, 9.2, 8.8] # gymnasts[2]
                                ]
                             </code></pre>
                     <ul>
@@ -517,138 +529,73 @@
                     <p>Remember what type of data is being stored in the loop variable!</p>
                 </section>
                 <section>
-                    <h3>Exercise: Nested for-in loops</h3>
-                    <p><a href="https://replit.com/@lizkrznarich/Class5Ex5NestedForLoops" target="_blank">Repl: Class5Ex5NestedForLoops</a></p>
+                    <h3>Exercise: Nested for loops</h3>
+                    <p><a href="https://replit.com/@lizkrznarich/Class4Ex5NestedForLoops" target="_blank">Repl: Class4Ex5NestedForLoops</a></p>
+                </section>
+                <section class="heading-only">
+                    <h2>Reading data from CSV files</h2>
                 </section>
                 <section>
-                    <h2>More list functionality</h2>
+                    <h3>CSV files</h3>
+                    <p>Comma Separated Value (CSV) is a plain text format used to store "tabular" data (aka rows and columns), like from a spreadsheet or database table.</p>
+                    <p>Because CSV is simple and non-proprietary, it's commonly used to exchange data between different applications.</p>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                        Brittany, 9.15, 9.4, 9.3, 9.2
+                        Lea, 9, 8.8, 9.1, 9.5
+                        Maya, 9.2, 8.7, 9.2, 8.8
+                    </code></pre>
+                    <img src="../images/nested-lists-table.png" height="200"/>
                 </section>
                 <section>
-                    <h3>Checking if value is in a list</h3>
-
-                    <p>The <code>in</code> keyword checks if
-                        a value is in a list (or any sequence).</p>
-
+                    <h3>Opening files</h3>
+                    <p>We use the Python built in <code>open()</code> method to open files for reading or writing.</p>
+                    <p>The keyword <code>with</code> tells Python to automatically close the file when we're finished.</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    if "bananas" in groceries:
-                        print("⚠️ Watch your step!")
-
-                    if "bleach" in groceries:
-                        print("☣️ Watch what you eat!")
+                        with open('filename') as my_file:
+                            # do something
                     </code></pre>
-
-                    <p>When used inside if conditions, <code>in</code> expressions return a Boolean (<code>True</code>/<code>False</code>).</p>
                 </section>
                 <section>
-                    <h3>Helpful list methods</h3>
-
-                    <table style="font-size:0.75em;">
-                        <thead>
-                            <tr>
-                                <th>Method
-                                <th>Description
-                        <tbody>
-                            <tr>
-                                <td><code>count(item)</code>
-                                <td>Returns the number of occurrences of <code>item</code> in the list. If <code>item</code> is not found, returns 0.
-                            <tr>
-                                <td><code>reverse()</code>
-                                <td>Reverses the elements of the list <strong>in place</strong>.
-                            <tr>
-                                <td><code>sort([key=function])</code>
-                                <td>Sorts the items of the list <strong>in place</strong>. The optional <code>key</code> argument specifies
-                                    a function to compute a comparison key for each item in the list. Otherwise, items are compared based on their values.
-                    </table>
-
-                    <p class="smaller">See more in <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html">Python.org documentation</a></p>
+                    <h3>Reading files with CSV module</h3>
+                    <p>Python has a built-in CSV module that includes many features used for reading/writing CSV files.</p>
+                    <b>Open a CSV and read its contents</b>
+                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
+                        # import the csv module
+                        import csv
+                        # open the file
+                        with open('fun_spreadsheet.csv') as my_file:
+                            # load the contents of the CSV file into a variable
+                            csv_reader = csv.reader(my_file, delimiter=',')
+                            # CSV is a nested list!
+                            # now we can loop through the rows in the file
+                            for row in csv_reader:
+                                print(row)
+                    </code></pre>
                 </section>
-
                 <section>
-                    <h3>Examples with reverse</h3>
-
-                    <p>If we start with...</p>
+                    <h3>Reading files with CSV module</h3>
+                    <p>A CSV is a list of rows, which are lists of values.</p>
+                    <p>We can use nested for loops to get values from rows and cells.</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                    spelling = ["B", "U", "M", "B", "L", "E"]
+                        import csv
+                        with open('fun_spreadsheet.csv') as my_file:
+                            csv_reader = csv.reader(my_file, delimiter=',')
+                            for row in csv_reader:
+                                print(row)
+                                for cell in row:
+                                    print(cell)
                     </code></pre>
-
-                    <p>Then call the <code>reverse</code> method...</p>
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    nums.reverse()     <span class="fragment"># [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</span>
-                    spelling.reverse() <span class="fragment"># ["E", "L", "B", "M", "U", "B"]
-                    </code></pre>
-
-                    <div class="fragment" style="margin-top:40px;">
-                    <p class="smaller">What do you think of this?</p>
-
-                    <pre style="font-size:0.7em"><code data-trim data-noescape class="python">
-                    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                    reversed_nums = nums.reverse()
-                    </code></pre>
-
-                    <p class="fragment smaller">It's a bit strange, since <code>reverse()</code>
-                        does an in-place reversal, so now the program has the same list in two variables!</p>
-                    </div>
                 </section>
-
-
                 <section>
-                    <h3>Examples with sort</h3>
-
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    foods = ["orange", "apple", "Pear", "banana"]
-                    </code></pre>
-
-                    <p>The simplest sort:</p>
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    foods.sort()
-                    <span class="fragment"># ["Pear", "apple", "banana", "orange"]</span>
-                    </code></pre>
-
-                    <p>Specifying a key argument of an existing function:</p>
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    foods.sort(key=str.lower)
-                    <span class="fragment"># ["apple", "banana", "orange", "Pear"]</span>
-                    </code></pre>
-
-                    <p>Specifying a key argument of a custom lambda function:</p>
-                    <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
-                    foods.sort(key=lambda food: food[1])
-                    <span class="fragment"># ['banana', 'Pear', 'apple', 'orange']</span>
-                    </code></pre>
-
-                    <p class="smaller">A non-destructive option is the global <a target="_blank" href="https://docs.python.org/3/library/functions.html#sorted"><code>sorted()</code></a> function.</p>
+                    <h3>Exercise: Getting data from CSV</h3>
+                    <p><a href="https://replit.com/@lizkrznarich/Class5Ex2CsvData" target="_blank">Repl: Class5Ex2CsvData</a></p>
                 </section>
-
                 <section>
-                    <h3>Useful functions for lists</h3>
-
-                    <p class="smaller">These are functions, <em>not</em> methods.</p>
-                    <table style="font-size:0.75em;">
-                        <thead>
-                            <tr>
-                                <th>Module
-                                <th>Function
-                                <th>Description
-                        <tbody>
-                            <tr>
-                                <td>Global
-                                <td><a target="_blank" href="https://docs.python.org/3/library/functions.html#min"><code>min(list, [key=function])</code></a>
-                                <td>Returns the minimum value in <code>list</code>. The optional <code>key</code> argument specifies a custom comparator function.
-                            <tr>
-                                <td>Global
-                                <td><a target="_blank" href="https://docs.python.org/3/library/functions.html#max"><code>max(list, [key=function])</code></a>
-                                <td>Returns the maximum value in <code>list</code>. he optional <code>key</code> argument specifies a custom comparator function.
-                            <tr>
-                                <td><code>random</code>
-                                <td><a target="_blank" href="https://docs.python.org/3/library/random.html#random.choice"><code>choice(list)</code></a>
-                                <td>Returns a randomly selected item from <code>list</code>.
-                            <tr>
-                                <td><code>random</code>
-                                <td><a target="_blank" href="https://docs.python.org/3/library/random.html#random.shuffle"><code>shuffle(list)</code></a>
-                                <td>Shuffles the elements of the list <strong>in place</strong>.
-                    </table>
-
+                    <h3>Homework!</h3>
+                    <ul>
+                        <li><a href="https://replit.com/@lizkrznarich/Class4Ex5NestedForLoops" target="_blank">Repl: Class4Ex5NestedForLoops</a>
+                        <li><a href="https://replit.com/@lizkrznarich/Class5Ex2CsvData" target="_blank">Repl: Class5Ex2CsvData</a>
+                    </ul>
                 </section>
 			</div>
 		</div>
