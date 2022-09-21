@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>Lists</title>
+		<title>More with lists</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reset.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reveal.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/theme/simple.css" id="theme">
@@ -523,8 +523,9 @@
                     <p>Use a nested <code>for-in</code> loop:</p>
                     <pre style="font-size:0.9em"><code data-trim data-noescape class="python">
                     for gymnast in gymnasts:
+                        print(gymnast)
                         for data in gymnast:
-                            print(data, end="|")
+                            print(data)
                     </code></pre>
                     <p>Remember what type of data is being stored in the loop variable!</p>
                 </section>
