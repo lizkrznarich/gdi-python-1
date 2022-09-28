@@ -341,7 +341,7 @@
                         # open the file
                         with open('fun_spreadsheet.csv') as my_file:
                             # load the contents of the CSV file into a variable
-                            csv_reader = csv.reader(my_file, delimiter=',')
+                            csv_reader = csv.reader(my_file)
                             # CSV is a nested list!
                             # now we can loop through the rows in the file
                             for row in csv_reader:
