@@ -528,6 +528,17 @@
 					<p class="fragment" data-fragment-index="1"  style="font-size:smaller;">Keys are iterated over in the order they are first added.</p>
 				</section>
                 <section>
+					<h3>Dictionary iteration: A short-hand way</h3>
+                    <p>The <code>.items()</code> dictionary method returns a list containing a tuple for each key/value pair</p>
+					<pre><code data-trim data-noescape class="python">
+					insects = {"spiders": 8, "centipedes": 100, "bees": 6}
+                    for key, value in insects.items()
+                        print("Key is " + key)
+                        print("Value is " + str(value))
+					</code></pre>
+                    <p><a href="https://www.w3schools.com/python/python_ref_dictionary.asp">More dictionary methods</a></p>
+				</section>
+                <section>
                     <h3>Exercise: Dictionaries</h3>
 
                     <ul>
